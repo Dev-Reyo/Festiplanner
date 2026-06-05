@@ -17,7 +17,6 @@
       "Quick access": "Snelle toegang",
       "Light": "Licht",
       "Dark": "Donker",
-      "System": "Systeem",
       "Choose a festival and open its planning tools.": "Kies een festival en open de planningtools.",
       "Search festivals": "Zoek festivals",
       "Open": "Openen",
@@ -430,6 +429,7 @@
 
   function installToggle() {
     if (document.querySelector(".language-toggle")) return;
+    const controls = ensureHeaderControls();
     const toggle = document.createElement("div");
     toggle.className = "language-toggle";
     toggle.setAttribute("aria-label", "Language");
@@ -444,14 +444,7 @@
       });
     });
 
-    const homeTopbar = document.querySelector(".home-topbar");
-    if (homeTopbar) {
-      homeTopbar.appendChild(toggle);
-      return;
-    }
-
-    const header = document.querySelector("header");
-    if (header) header.appendChild(toggle);
+    if (controls) controls.appendChild(toggle);
   }
 
   function appearanceMode() {
@@ -480,13 +473,13 @@
 
   function installAppearanceToggle() {
     if (document.querySelector(".appearance-toggle")) return;
+    const controls = ensureHeaderControls();
     const toggle = document.createElement("div");
     toggle.className = "appearance-toggle";
     toggle.setAttribute("aria-label", "Appearance");
     toggle.innerHTML = `
       <button type="button" data-appearance="light">Light</button>
       <button type="button" data-appearance="dark">Dark</button>
-      <button type="button" data-appearance="system">System</button>
     `;
     toggle.querySelectorAll("button").forEach(button => {
       button.addEventListener("click", () => {
@@ -496,14 +489,19 @@
       });
     });
 
-    const languageToggle = document.querySelector(".language-toggle");
-    if (languageToggle) {
-      languageToggle.insertAdjacentElement("afterend", toggle);
-      return;
-    }
+    if (controls) controls.appendChild(toggle);
+  }
 
-    const header = document.querySelector("header");
-    if (header) header.appendChild(toggle);
+  function ensureHeaderControls() {
+    const header = document.querySelector(".fp-topbar, header");
+    if (!header) return null;
+    let controls = header.querySelector(":scope > .header-controls");
+    if (!controls) {
+      controls = document.createElement("div");
+      controls.className = "header-controls";
+      header.appendChild(controls);
+    }
+    return controls;
   }
 
   document.addEventListener("DOMContentLoaded", () => {
