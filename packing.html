@@ -27,6 +27,7 @@
       <span>Home</span>
     </a>
     <nav class="site-nav" aria-label="Site navigation">
+<a class="" href="index.html">Home</a>
 <a class="active" href="packing.html">Packing</a>
 <a class="" href="travel.html">Travel</a>
 <a class="" href="lineup.html">Lineup</a>
@@ -76,6 +77,15 @@
           <div>
             <h2>Packing list</h2>
             <p class="hint">Your checks are saved automatically in this browser.</p>
+          </div>
+          <div class="mobile-pack-progress" aria-live="polite">
+            <div class="mobile-pack-progress-top">
+              <strong id="mobileProgressNumber">0%</strong>
+              <span id="mobileProgressText">0 items checked.</span>
+            </div>
+            <div class="progress-track" aria-label="Packing progress">
+              <div class="progress-fill" id="mobileProgressFill"></div>
+            </div>
           </div>
           <div class="tools">
             <button class="tool-button" id="checkEssentials" type="button">Mark essentials</button>

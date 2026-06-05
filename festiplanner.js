@@ -606,6 +606,9 @@
     const progressNumber = document.getElementById("progressNumber");
     const progressFill = document.getElementById("progressFill");
     const progressText = document.getElementById("progressText");
+    const mobileProgressNumber = document.getElementById("mobileProgressNumber");
+    const mobileProgressFill = document.getElementById("mobileProgressFill");
+    const mobileProgressText = document.getElementById("mobileProgressText");
     const dayTabs = document.getElementById("dayTabs");
     const stageFilter = document.getElementById("stageFilter");
     const favoriteFilter = document.getElementById("favoriteFilter");
@@ -822,11 +825,15 @@
       const allItems = packingCategoriesForStay().flatMap(category => category.items.map(([item]) => getItemId(category.name, item)));
       const checkedItems = allItems.filter(id => state.checked[id]).length;
       const percentage = Math.round((checkedItems / allItems.length) * 100);
-      progressNumber.textContent = `${percentage}%`;
-      progressFill.style.width = `${percentage}%`;
-      progressText.textContent = checkedItems === allItems.length
+      const progressLabel = checkedItems === allItems.length
         ? "Packed and ready."
         : `${checkedItems} of ${allItems.length} items checked.`;
+      progressNumber.textContent = `${percentage}%`;
+      progressFill.style.width = `${percentage}%`;
+      progressText.textContent = progressLabel;
+      if (mobileProgressNumber) mobileProgressNumber.textContent = `${percentage}%`;
+      if (mobileProgressFill) mobileProgressFill.style.width = `${percentage}%`;
+      if (mobileProgressText) mobileProgressText.textContent = progressLabel;
     }
 
     function actId(act) {

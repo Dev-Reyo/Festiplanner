@@ -33,6 +33,25 @@
         </div>
       </section>
 
+      <section class="fp-mobile-summary" aria-label="Festival summary">
+        <a class="fp-summary-card" href="timeline.html">
+          <span>Countdown</span>
+          <strong id="homeSummaryCountdown">Calculating</strong>
+        </a>
+        <a class="fp-summary-card" href="packing.html">
+          <span>Packing</span>
+          <strong id="homeSummaryPacking">0 packed</strong>
+        </a>
+        <a class="fp-summary-card" href="lineup.html">
+          <span>Bands</span>
+          <strong id="homeSummaryBands">0 favourites</strong>
+        </a>
+        <a class="fp-summary-card" href="lineup.html">
+          <span>Clashes</span>
+          <strong id="homeSummaryClashes">Review</strong>
+        </a>
+      </section>
+
       <section class="fp-section">
         <div class="fp-section-title">
           <h2>Available</h2>
@@ -49,6 +68,14 @@
         </div>
       </section>
     </main>
+
+    <nav class="site-nav fp-home-mobile-nav" aria-label="Site navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="packing.html">Packing</a>
+      <a href="travel.html">Travel</a>
+      <a href="lineup.html">Lineup</a>
+      <a href="timeline.html">My Festival</a>
+    </nav>
   </div>
 
   <script>
@@ -95,6 +122,31 @@
 
     updateFeaturedCountdown();
     setInterval(updateFeaturedCountdown, 60000);
+
+    const STORAGE_KEY = "graspopPackingPlanner";
+    function readPlannerState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch {
+        return {};
+      }
+    }
+
+    function updateHomeSummary() {
+      const state = readPlannerState();
+      const checked = state.checked && typeof state.checked === "object" ? state.checked : {};
+      const favorites = state.favoriteActs && typeof state.favoriteActs === "object" ? state.favoriteActs : {};
+      const days = Math.max(0, Math.ceil((graspopStart - Date.now()) / 86400000));
+      const packedCount = Object.values(checked).filter(Boolean).length;
+      const favoriteCount = Object.keys(favorites).length;
+
+      document.getElementById("homeSummaryCountdown").textContent = days === 1 ? "1 day" : `${days} days`;
+      document.getElementById("homeSummaryPacking").textContent = packedCount === 1 ? "1 packed" : `${packedCount} packed`;
+      document.getElementById("homeSummaryBands").textContent = favoriteCount === 1 ? "1 favourite" : `${favoriteCount} favourites`;
+      document.getElementById("homeSummaryClashes").textContent = favoriteCount > 1 ? "Check overlaps" : "No clashes";
+    }
+
+    updateHomeSummary();
   </script>
   <script src="festiplanner-i18n.js"></script>
 </body>

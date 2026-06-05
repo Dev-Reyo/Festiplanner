@@ -4442,3 +4442,477 @@
         width: 100%;
       }
     }
+
+    /* Mobile app polish: 320-430px */
+    .mobile-pack-progress,
+    .fp-mobile-summary,
+    .fp-home-mobile-nav {
+      display: none;
+    }
+
+    @media (max-width: 430px) {
+      :root {
+        --mobile-nav-height: 62px;
+      }
+
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: clip;
+      }
+
+      body {
+        padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom) + 14px);
+      }
+
+      .app,
+      .fp-shell {
+        width: min(100% - 20px, 1040px);
+        padding-top: 10px;
+        padding-bottom: 18px;
+      }
+
+      .fp-topbar,
+      header:not(.fp-topbar) {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 8px;
+        padding: 8px 0 10px;
+      }
+
+      .title-block {
+        display: contents;
+      }
+
+      header:not(.fp-topbar) .eyebrow {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      header:not(.fp-topbar) h1 {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+
+      header:not(.fp-topbar) .subtitle {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
+
+      .fp-wordmark,
+      .eyebrow {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.05;
+      }
+
+      h1,
+      .fp-page-head h1 {
+        font-size: clamp(1.45rem, 8vw, 2rem);
+        line-height: 1.02;
+      }
+
+      h2 {
+        font-size: 1.12rem;
+        line-height: 1.12;
+      }
+
+      h3 {
+        font-size: 0.98rem;
+        line-height: 1.18;
+      }
+
+      .subtitle {
+        margin-top: 4px;
+        font-size: 0.9rem;
+        line-height: 1.35;
+      }
+
+      header:not(.fp-topbar) .progress-card {
+        display: none;
+      }
+
+      .header-controls {
+        grid-column: 2;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 5px;
+        width: auto;
+        margin-left: 0;
+      }
+
+      .fp-topbar .header-controls {
+        grid-column: 2;
+      }
+
+      .language-toggle,
+      .appearance-toggle {
+        display: inline-grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
+        width: auto;
+        min-width: 0;
+        padding: 3px;
+        gap: 2px;
+        border-radius: 999px;
+      }
+
+      .language-toggle button,
+      .appearance-toggle button {
+        min-height: 28px;
+        padding: 4px 7px;
+        font-size: 0.68rem;
+        line-height: 1;
+      }
+
+      .fp-main,
+      main {
+        gap: 12px;
+      }
+
+      .fp-page-head {
+        padding-top: 0;
+      }
+
+      .fp-featured {
+        min-height: 0;
+        height: clamp(220px, 62vw, 260px);
+        border-radius: 14px;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.82)),
+          url("assets/festival-crowd-discovery.png") center / cover no-repeat,
+          #11141c;
+      }
+
+      .fp-featured img {
+        display: none;
+      }
+
+      .fp-featured::after {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.76)) !important;
+      }
+
+      .fp-featured-content {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        gap: 5px;
+        padding: 10px;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.54));
+      }
+
+      .fp-featured-content h2 {
+        font-size: clamp(1.35rem, 8vw, 1.8rem);
+      }
+
+      .fp-featured-content p,
+      .fp-featured-content span {
+        font-size: 0.78rem;
+        line-height: 1.25;
+      }
+
+      .fp-featured-content .fp-countdown {
+        padding: 6px 9px;
+        font-size: 0.78rem;
+      }
+
+      .fp-primary-button,
+      .open-action,
+      .tool-button,
+      .maps-link,
+      .primary-action,
+      .official-link {
+        min-height: 34px;
+        padding: 7px 11px;
+        font-size: 0.78rem;
+      }
+
+      .fp-mobile-summary {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .fp-summary-card {
+        display: grid;
+        gap: 5px;
+        min-height: 72px;
+        padding: 11px;
+        border: 1px solid var(--border, var(--line));
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .fp-summary-card span {
+        color: var(--muted-text, var(--muted));
+        font-size: 0.72rem;
+        font-weight: 720;
+      }
+
+      .fp-summary-card strong {
+        min-width: 0;
+        font-size: 0.98rem;
+        line-height: 1.12;
+        overflow-wrap: anywhere;
+      }
+
+      .fp-section,
+      .band {
+        padding: 8px 0;
+      }
+
+      .section-head,
+      .fp-section-title {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .tools,
+      .map-actions {
+        gap: 7px;
+      }
+
+      .tool-button,
+      .maps-link,
+      .primary-action,
+      .secondary-action,
+      .fp-primary-button,
+      .official-link {
+        min-width: 0;
+        max-width: 100%;
+        white-space: normal;
+      }
+
+      .profile-home-link {
+        display: none;
+      }
+
+      nav.site-nav,
+      .fp-home-mobile-nav {
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        bottom: max(8px, env(safe-area-inset-bottom));
+        z-index: 30;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 2px;
+        height: var(--mobile-nav-height);
+        margin: 0;
+        padding: 5px;
+        border-radius: 18px;
+        border: 1px solid var(--border, var(--line));
+        background: color-mix(in srgb, var(--background) 88%, transparent);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(18px);
+        overflow: hidden;
+      }
+
+      nav.site-nav a {
+        display: grid;
+        place-items: center;
+        min-width: 0;
+        max-width: none;
+        min-height: 0;
+        height: 100%;
+        padding: 0 3px;
+        border-radius: 13px;
+        font-size: clamp(0.62rem, 2.7vw, 0.72rem);
+        line-height: 1.05;
+        text-align: center;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: clip;
+      }
+
+      .festival-profile-header {
+        gap: 6px;
+        padding: 10px;
+        border-radius: 13px;
+      }
+
+      .festival-profile-header span {
+        font-size: 0.96rem;
+        line-height: 1.18;
+      }
+
+      .festival-profile-header strong,
+      .festival-profile-header p {
+        font-size: 0.78rem;
+      }
+
+      .mobile-pack-progress {
+        display: grid;
+        gap: 7px;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border, var(--line));
+        border-radius: 13px;
+        background: var(--surface);
+      }
+
+      .mobile-pack-progress-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .mobile-pack-progress-top strong {
+        color: var(--primary-accent, var(--accent));
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      .mobile-pack-progress-top span {
+        min-width: 0;
+        color: var(--muted-text, var(--muted));
+        font-size: 0.76rem;
+        line-height: 1.2;
+        text-align: right;
+      }
+
+      .grid,
+      .graspop-theme .grid,
+      .category-grid,
+      .type-grid,
+      .split,
+      .selected-panel,
+      .lineup-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .camp-card,
+      .graspop-theme .camp-card,
+      .type-card,
+      .category,
+      .overview-widget,
+      .panel {
+        min-height: 0;
+        padding: 10px;
+        border-radius: 13px;
+      }
+
+      .category {
+        padding: 10px 0;
+      }
+
+      .check {
+        min-height: 36px;
+      }
+
+      .overview-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .overview-widget,
+      .overview-widget.feature,
+      .overview-widget-wide {
+        grid-column: auto;
+        min-height: 96px;
+      }
+
+      .overview-widget strong {
+        font-size: 1rem;
+      }
+
+      .lineup-controls {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .day-tabs {
+        gap: 6px;
+      }
+
+      .day-tab {
+        min-height: 34px;
+        padding: 0 12px;
+        font-size: 0.76rem;
+      }
+
+      .lineup-shell,
+      .lineup-shell .panel,
+      .lineup-shell .act-list {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      .lineup-shell .act-list {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+      }
+
+      .lineup-shell .schedule-board {
+        --lineup-label-width: 78px;
+        --lineup-min-width: 1800px;
+      }
+
+      .lineup-shell .stage-name {
+        position: sticky;
+        left: 0;
+        z-index: 4;
+        min-width: var(--lineup-label-width);
+        padding: 6px;
+        background: var(--background);
+        box-shadow: 8px 0 14px rgba(0, 0, 0, 0.18);
+        text-align: left;
+      }
+
+      .lineup-shell .act-card {
+        grid-template-columns: minmax(96px, 1fr) 48px;
+        min-width: 156px;
+        min-height: 66px;
+        padding: 7px;
+        gap: 6px;
+      }
+
+      .lineup-shell .act-name {
+        font-size: 0.72rem;
+      }
+
+      .lineup-shell .act-meta {
+        font-size: 0.62rem;
+      }
+
+      .lineup-shell .favorite-button {
+        width: 48px;
+        min-width: 48px;
+        min-height: 30px;
+        padding: 0 5px;
+        font-size: 0.62rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .app,
+      .fp-shell {
+        width: min(100% - 16px, 1040px);
+      }
+
+      .header-controls {
+        gap: 3px;
+      }
+
+      .language-toggle button,
+      .appearance-toggle button {
+        padding-inline: 5px;
+        font-size: 0.64rem;
+      }
+
+      nav.site-nav a {
+        font-size: 0.6rem;
+      }
+    }
