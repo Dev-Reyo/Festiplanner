@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Festiplanner</title>
+  <link rel="stylesheet" href="festiplanner.css">
+</head>
+<body class="home-page fp-home">
+  <div class="fp-shell">
+    <header class="fp-topbar">
+      <a class="fp-wordmark" href="index.html">Festiplanner</a>
+    </header>
+
+    <main class="fp-main">
+      <section class="fp-page-head">
+        <h1>Your festivals</h1>
+      </section>
+
+      <label class="fp-search">
+        <span>Search festivals</span>
+        <input id="festivalSearch" type="search" placeholder="Search festivals">
+      </label>
+
+      <section class="fp-featured" data-festival-card>
+        <img src="assets/festival-crowd-discovery.png" alt="Festival crowd at dusk">
+        <div class="fp-featured-content">
+          <h2>Graspop Metal Meeting</h2>
+          <span>18-21 June 2026</span>
+          <p class="fp-countdown" id="featuredCountdown" aria-live="polite">Calculating countdown</p>
+          <p>Dessel, Belgium</p>
+          <a class="fp-primary-button" href="packing.html">Open planner</a>
+        </div>
+      </section>
+
+      <section class="fp-section">
+        <div class="fp-section-title">
+          <h2>Available</h2>
+        </div>
+        <div class="fp-festival-list">
+          <a class="fp-festival-item" href="packing.html" data-festival-card>
+            <img src="assets/festival-crowd-discovery.png" alt="">
+            <div>
+              <strong>Graspop Metal Meeting</strong>
+              <span>Dessel, Belgium · 18-21 June 2026</span>
+            </div>
+            <b>Open</b>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const festivalSearch = document.getElementById("festivalSearch");
+    const festivalCards = Array.from(document.querySelectorAll("[data-festival-card]"));
+    festivalSearch.addEventListener("input", () => {
+      const query = festivalSearch.value.trim().toLowerCase();
+      festivalCards.forEach(card => {
+        card.hidden = query && !card.textContent.toLowerCase().includes(query);
+      });
+    });
+
+    const featuredCountdown = document.getElementById("featuredCountdown");
+    const graspopStart = new Date("2026-06-18T00:00:00+02:00").getTime();
+
+    function formatCountdownUnit(value, unit) {
+      return `${value} ${unit}${value === 1 ? "" : "s"}`;
+    }
+
+    function updateFeaturedCountdown() {
+      if (!featuredCountdown) return;
+      const remaining = graspopStart - Date.now();
+      if (remaining <= 0) {
+        featuredCountdown.textContent = "Festival started";
+        return;
+      }
+
+      const totalHours = Math.ceil(remaining / (1000 * 60 * 60));
+      if (totalHours < 24) {
+        featuredCountdown.textContent = `${formatCountdownUnit(totalHours, "hour")} remaining`;
+        return;
+      }
+
+      const totalDays = Math.ceil(remaining / (1000 * 60 * 60 * 24));
+      if (totalHours < 7 * 24) {
+        const days = Math.floor(totalHours / 24);
+        const hours = totalHours % 24;
+        featuredCountdown.textContent = `${formatCountdownUnit(days, "day")} ${formatCountdownUnit(hours, "hour")} remaining`;
+        return;
+      }
+
+      featuredCountdown.textContent = `${formatCountdownUnit(totalDays, "day")} remaining`;
+    }
+
+    updateFeaturedCountdown();
+    setInterval(updateFeaturedCountdown, 60000);
+  </script>
+  <script src="festiplanner-i18n.js"></script>
+</body>
+</html>

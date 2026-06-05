@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packing List | Festiplanner</title>
+  <link rel="stylesheet" href="festiplanner.css">
+</head>
+<body class="festival-page graspop-theme">
+  <div class="app">
+    <header>
+      <div class="title-block">
+        <p class="eyebrow">Festiplanner</p>
+        <h1>Packing List</h1>
+        <p class="subtitle">Choose your festival stay and get a packing list that adapts to your campsite or accommodation.</p>
+      </div>
+      <aside class="progress-card" aria-live="polite">
+        <span class="progress-number" id="progressNumber">0%</span>
+        <div class="progress-track" aria-label="Packing progress">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="hint" id="progressText">Choose a festival and start planning.</p>
+      </aside>
+    </header>
+    <a class="profile-home-link" href="index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5.25v-6.5h-5.5V22H4a1 1 0 0 1-1-1V10.75Z"/></svg>
+      <span>Home</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+<a class="active" href="packing.html">Packing</a>
+<a class="" href="travel.html">Travel</a>
+<a class="" href="lineup.html">Lineup</a>
+<a class="" href="timeline.html">My Festival</a>
+    </nav>
+    <section class="festival-profile-header">
+      <div>
+        <span>Graspop Metal Meeting</span>
+        <strong>18-21 June 2026</strong>
+      </div>
+      <p>Dessel, Belgium</p>
+      <a class="official-link" href="https://www.graspop.be/en" target="_blank" rel="noopener">Official Graspop website</a>
+    </section>
+    <main>
+<section class="band" id="stay">
+        <div class="section-head">
+          <div>
+            <h2>Where are you staying?</h2>
+            <p class="hint">Pick one option so the planner can highlight campsite-specific reminders.</p>
+          </div>
+        </div>
+
+        <div class="grid" id="campGrid"></div>
+
+        <div class="type-panel" id="campTypePanel" hidden>
+          <h3>Choose your stay type</h3>
+          <div class="type-grid" id="campTypeGrid"></div>
+        </div>
+
+        <div class="selected-panel" style="margin-top: 14px;">
+          <article class="panel">
+            <h3 id="selectedTitle">No campsite selected yet</h3>
+            <p id="selectedSummary">Choose Boneyard, The Crypt, Inferno, or Devil's Lake to personalize your list.</p>
+            <div class="status-row" id="selectedPills"></div>
+          </article>
+          <article class="panel">
+            <h3>Quick campsite reminders</h3>
+            <ul id="campTips">
+              <li>Keep your festival ticket, campsite confirmation, and ID easy to reach.</li>
+              <li>Check the latest official Graspop info before you leave.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+<section class="band" id="packing">
+        <div class="section-head">
+          <div>
+            <h2>Packing list</h2>
+            <p class="hint">Your checks are saved automatically in this browser.</p>
+          </div>
+          <div class="tools">
+            <button class="tool-button" id="checkEssentials" type="button">Mark essentials</button>
+            <button class="tool-button" id="clearChecks" type="button">Clear checks</button>
+          </div>
+        </div>
+        <div class="category-grid" id="packingGrid"></div>
+      </section>
+    </main>
+    <div class="hidden-support" aria-hidden="true">
+<select id="arrivalMode"></select>
+<input id="mapStart">
+<input id="mapDestination">
+<a id="mapsLink" href="#"></a>
+<div id="mapsPreview"></div>
+<input id="departureTime">
+<input id="meetingPoint">
+<textarea id="freeNotes"></textarea>
+<div id="dayTabs"></div>
+<select id="stageFilter"></select>
+<select id="favoriteFilter"></select>
+<div id="lineupSearch"></div>
+<button id="clearFavorites" type="button"></button>
+<div id="lineupTitle"></div>
+<div id="actList"></div>
+<div id="clashList"></div>
+<div id="markedList"></div>
+<div id="planList"></div>
+  </div>
+  </div>
+  <script src="festiplanner.js"></script>
+  <script src="festiplanner-i18n.js"></script>
+</body>
+</html>

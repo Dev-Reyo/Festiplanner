@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Festival | Festiplanner</title>
+  <link rel="stylesheet" href="festiplanner.css">
+</head>
+<body class="festival-page graspop-theme">
+  <div class="app">
+    <header>
+      <div class="title-block">
+        <p class="eyebrow">Festiplanner</p>
+        <h1>My Festival</h1>
+        <p class="subtitle">Your Graspop overview: packing, travel, favourite bands, clashes, and notes.</p>
+      </div>
+      <aside class="progress-card" aria-live="polite">
+        <span class="progress-number" id="progressNumber">0%</span>
+        <div class="progress-track" aria-label="Packing progress">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="hint" id="progressText">Choose a festival and start planning.</p>
+      </aside>
+    </header>
+    <a class="profile-home-link" href="index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5.25v-6.5h-5.5V22H4a1 1 0 0 1-1-1V10.75Z"/></svg>
+      <span>Home</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+<a class="" href="packing.html">Packing</a>
+<a class="" href="travel.html">Travel</a>
+<a class="" href="lineup.html">Lineup</a>
+<a class="active" href="timeline.html">My Festival</a>
+    </nav>
+    <section class="festival-profile-header">
+      <div>
+        <span>Graspop Metal Meeting</span>
+        <strong>18-21 June 2026</strong>
+      </div>
+      <p>Dessel, Belgium</p>
+      <a class="official-link" href="https://www.graspop.be/en" target="_blank" rel="noopener">Official Graspop website</a>
+    </section>
+    <main>
+      <section class="band" id="my-festival">
+        <div class="overview-grid">
+          <a class="overview-widget feature" href="lineup.html">
+            <span>Countdown</span>
+            <strong id="overviewCountdown">Graspop is coming</strong>
+            <p>18-21 June 2026</p>
+          </a>
+          <a class="overview-widget" href="packing.html">
+            <span>Packing</span>
+            <strong id="overviewPacking">0/0 items packed</strong>
+            <p id="overviewPackingDetail">Continue checklist</p>
+          </a>
+          <a class="overview-widget overview-widget-wide" href="lineup.html">
+            <span>Lineup</span>
+            <strong id="overviewBands">0 favourite bands</strong>
+            <div class="overview-detail-list" id="overviewBandList">Marked acts</div>
+          </a>
+          <a class="overview-widget overview-widget-wide warning" href="lineup.html">
+            <span>Clashes</span>
+            <strong id="overviewClashes">0 schedule conflicts</strong>
+            <div class="overview-detail-list" id="overviewClashList">Review overlaps</div>
+          </a>
+          <a class="overview-widget" href="travel.html">
+            <span>Travel</span>
+            <strong id="overviewTravel">Plan your route</strong>
+            <p id="overviewTravelMode">Travel details</p>
+          </a>
+          <article class="overview-widget">
+            <span>Weather</span>
+            <strong>Festival forecast</strong>
+            <p>Weather summary placeholder</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band" id="notes-overview">
+        <div class="section-head">
+          <div>
+            <h2>Personal festival notes</h2>
+            <p class="hint">Saved together with your travel notes.</p>
+          </div>
+        </div>
+        <textarea id="overviewNotes" class="overview-notes" placeholder="Personal festival notes"></textarea>
+      </section>
+    </main>
+    <div class="hidden-support" aria-hidden="true">
+<div id="campGrid"></div>
+<div id="campTypePanel"></div>
+<div id="campTypeGrid"></div>
+<div id="selectedTitle"></div>
+<div id="selectedSummary"></div>
+<div id="selectedPills"></div>
+<ul id="campTips"></ul>
+<div id="packingGrid"></div>
+<button id="checkEssentials" type="button"></button>
+<button id="clearChecks" type="button"></button>
+<select id="arrivalMode"></select>
+<input id="mapStart">
+<input id="mapDestination">
+<a id="mapsLink" href="#"></a>
+<div id="mapsPreview"></div>
+<input id="departureTime">
+<input id="meetingPoint">
+<textarea id="freeNotes"></textarea>
+<div id="dayTabs"></div>
+<select id="stageFilter"></select>
+<select id="favoriteFilter"></select>
+<div id="lineupSearch"></div>
+<button id="clearFavorites" type="button"></button>
+<div id="lineupTitle"></div>
+<div id="actList"></div>
+<div id="clashList"></div>
+<div id="markedList"></div>
+<div id="planList"></div>
+  </div>
+  </div>
+  <script src="festiplanner.js"></script>
+  <script src="my-festival.js"></script>
+  <script src="festiplanner-i18n.js"></script>
+</body>
+</html>
