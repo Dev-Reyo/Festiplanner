@@ -621,6 +621,8 @@
     const planList = document.getElementById("planList");
     const mapsLink = document.getElementById("mapsLink");
     const mapsPreview = document.getElementById("mapsPreview");
+    const routeFrom = document.getElementById("routeFrom");
+    const routeTo = document.getElementById("routeTo");
 
     function loadState() {
       try {
@@ -891,11 +893,13 @@
         const favorite = Boolean(state.favoriteActs[id]);
         return `
           <article class="act-card ${favorite ? "favorite" : ""}">
-            <div>
+            <div class="act-card-content">
               <span class="act-name">${act.name}</span>
               <span class="act-meta">${formatTime(act.start)} - ${formatTime(act.end)}</span>
             </div>
-            <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" title="Mark band">★</button>
+            <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" aria-label="${favorite ? "Unmark" : "Mark"} ${act.name}" title="${favorite ? "Unmark band" : "Mark band"}">
+              <span aria-hidden="true">${favorite ? "✓" : "+"}</span>
+            </button>
           </article>
         `;
       }).join("") : `<p class="hint">No bands match these filters.</p>`;
@@ -999,11 +1003,13 @@
                   const width = Math.max(((end - start) / bounds.span) * 100, 4);
                   return `
                     <article class="act-card ${favorite ? "favorite" : ""} ${clash ? "clashing" : ""}" style="left: ${left}%; width: ${width}%;">
-                      <div>
+                      <div class="act-card-content">
                         <span class="act-name">${act.name}</span>
                         <span class="act-meta">${formatTime(act.start)} - ${formatTime(act.end)}</span>
                       </div>
-                      <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" title="Mark band">${favorite ? "Marked" : "Mark"}</button>
+                      <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" aria-label="${favorite ? "Unmark" : "Mark"} ${act.name}" title="${favorite ? "Unmark band" : "Mark band"}">
+                        <span aria-hidden="true">${favorite ? "✓" : "+"}</span>
+                      </button>
                     </article>
                   `;
                 }).join("")}
@@ -1093,6 +1099,8 @@
       if (origin) params.set("origin", origin);
       mapsLink.href = `https://www.google.com/maps/dir/?${params.toString()}`;
       mapsPreview.textContent = `${routeModeLabel(mode)} route ${origin ? "from " + origin + " " : ""}to ${destination}.`;
+      if (routeFrom) routeFrom.textContent = origin || "Add a starting point";
+      if (routeTo) routeTo.textContent = destination;
     }
 
     function bindNotes() {

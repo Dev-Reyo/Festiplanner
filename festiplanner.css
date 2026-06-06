@@ -4445,7 +4445,6 @@
 
     /* Mobile app polish: 320-430px */
     .mobile-pack-progress,
-    .fp-mobile-summary,
     .fp-home-mobile-nav {
       display: none;
     }
@@ -4631,37 +4630,6 @@
         font-size: 0.78rem;
       }
 
-      .fp-mobile-summary {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .fp-summary-card {
-        display: grid;
-        gap: 5px;
-        min-height: 72px;
-        padding: 11px;
-        border: 1px solid var(--border, var(--line));
-        border-radius: 14px;
-        background: color-mix(in srgb, var(--surface) 88%, transparent);
-        color: var(--text);
-        text-decoration: none;
-      }
-
-      .fp-summary-card span {
-        color: var(--muted-text, var(--muted));
-        font-size: 0.72rem;
-        font-weight: 720;
-      }
-
-      .fp-summary-card strong {
-        min-width: 0;
-        font-size: 0.98rem;
-        line-height: 1.12;
-        overflow-wrap: anywhere;
-      }
-
       .fp-section,
       .band {
         padding: 8px 0;
@@ -4692,7 +4660,8 @@
       }
 
       .profile-home-link {
-        display: none;
+        display: inline-flex;
+        margin-bottom: 8px;
       }
 
       nav.site-nav,
@@ -4703,7 +4672,7 @@
         bottom: max(8px, env(safe-area-inset-bottom));
         z-index: 30;
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 2px;
         height: var(--mobile-nav-height);
         margin: 0;
@@ -4714,6 +4683,10 @@
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
         backdrop-filter: blur(18px);
         overflow: hidden;
+      }
+
+      .fp-home-mobile-nav {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
       }
 
       nav.site-nav a {
@@ -4914,5 +4887,397 @@
 
       nav.site-nav a {
         font-size: 0.6rem;
+      }
+    }
+
+    /* Timetable act-card readability */
+    .lineup-shell .stage-lane {
+      min-height: 120px;
+    }
+
+    .lineup-shell .stage-track {
+      min-height: 108px;
+    }
+
+    .lineup-shell .act-card {
+      display: block;
+      min-width: 174px;
+      min-height: 88px;
+      padding: 10px 42px 32px 11px;
+    }
+
+    .lineup-shell .act-card-content {
+      display: grid;
+      align-content: start;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .lineup-shell .act-name,
+    .lineup-shell .act-meta {
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lineup-shell .act-name {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .lineup-shell .act-meta {
+      margin-top: 0;
+      white-space: nowrap;
+    }
+
+    .lineup-shell .favorite-button {
+      position: absolute;
+      right: 7px;
+      bottom: 7px;
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      min-width: 26px;
+      height: 26px;
+      min-height: 26px;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 1rem;
+      line-height: 1;
+      z-index: 2;
+    }
+
+    .lineup-shell .favorite-button span {
+      display: block;
+      line-height: 1;
+    }
+
+    @media (max-width: 430px) {
+      .lineup-shell .stage-lane {
+        min-height: 112px;
+      }
+
+      .lineup-shell .stage-track {
+        min-height: 100px;
+      }
+
+      .lineup-shell .act-card {
+        min-width: 164px;
+        min-height: 82px;
+        padding: 8px 38px 29px 9px;
+      }
+
+      .lineup-shell .favorite-button {
+        right: 6px;
+        bottom: 6px;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+        min-height: 24px;
+        font-size: 0.92rem;
+      }
+    }
+
+    /* Focused travel planner */
+    #travel,
+    #route,
+    #festival-location,
+    #arrival-tips {
+      width: min(100%, 760px);
+      margin-inline: auto;
+    }
+
+    .travel-section {
+      padding-block: 16px;
+    }
+
+    .travel-section + .travel-section {
+      border-top: 1px solid var(--border);
+    }
+
+    .travel-form-card,
+    .route-card,
+    .arrival-tips-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    .travel-form-card {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .travel-form-card .field {
+      display: grid;
+      gap: 7px;
+      width: 100%;
+    }
+
+    .travel-form-card input,
+    .travel-form-card select {
+      width: 100%;
+    }
+
+    .route-card {
+      display: grid;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .route-summary {
+      display: grid;
+      gap: 0;
+      margin: 0;
+    }
+
+    .route-summary > div {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .route-summary > div:first-child {
+      padding-top: 0;
+    }
+
+    .route-summary > div:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .route-summary dt {
+      color: var(--muted-text);
+      font-size: 0.78rem;
+      font-weight: 720;
+    }
+
+    .route-summary dd {
+      min-width: 0;
+      margin: 0;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 650;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .route-card .maps-link {
+      justify-self: stretch;
+      min-height: 44px;
+      border-radius: 10px;
+    }
+
+    .travel-map-card iframe {
+      height: min(48vh, 340px);
+      min-height: 260px;
+    }
+
+    .arrival-tips-card {
+      padding: 6px 18px;
+    }
+
+    .arrival-tips-card ul {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .arrival-tips-card li {
+      position: relative;
+      padding: 13px 0 13px 28px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .arrival-tips-card li:last-child {
+      border-bottom: 0;
+    }
+
+    .arrival-tips-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 13px;
+      display: grid;
+      place-items: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--primary-accent);
+      font-size: 0.7rem;
+      font-weight: 800;
+    }
+
+    @media (max-width: 430px) {
+      .travel-section {
+        padding-block: 10px;
+      }
+
+      .travel-form-card,
+      .route-card {
+        gap: 13px;
+        padding: 13px;
+      }
+
+      .travel-form-card {
+        gap: 13px;
+      }
+
+      .route-summary > div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 10px 0;
+      }
+
+      .travel-map-card iframe {
+        height: 270px;
+        min-height: 270px;
+      }
+
+      .arrival-tips-card {
+        padding-inline: 13px;
+      }
+
+      .arrival-tips-card li {
+        padding-block: 11px;
+        padding-left: 27px;
+        font-size: 0.88rem;
+      }
+
+      .arrival-tips-card li::before {
+        top: 11px;
+      }
+    }
+
+    /* Homepage festival hub */
+    .fp-featured-pin,
+    .fp-pin-button {
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted-text);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .fp-featured-pin {
+      position: absolute;
+      z-index: 3;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(5, 6, 9, 0.66);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(10px);
+      font-size: 1.2rem;
+    }
+
+    .fp-featured-pin[aria-pressed="true"] {
+      background: var(--primary-accent);
+      border-color: var(--primary-accent);
+    }
+
+    .fp-festival-item {
+      grid-template-columns: 52px minmax(0, 1fr) 38px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 160ms ease;
+    }
+
+    .fp-festival-item:hover,
+    .fp-festival-item:focus-visible {
+      background: color-mix(in srgb, var(--surface) 72%, transparent);
+      outline: none;
+    }
+
+    .fp-festival-item:focus-visible {
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .fp-festival-item.is-pinned {
+      background: color-mix(in srgb, var(--primary-accent) 7%, var(--surface));
+    }
+
+    .fp-festival-copy {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .fp-row-countdown {
+      color: var(--primary-accent) !important;
+      font-weight: 720;
+    }
+
+    .fp-pin-button {
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      min-height: 34px;
+      padding: 0;
+      border-radius: 50%;
+      font-size: 1rem;
+    }
+
+    .fp-pin-button[aria-pressed="true"] {
+      color: #fff;
+      background: var(--primary-accent);
+      border-color: var(--primary-accent);
+    }
+
+    .fp-empty-state {
+      margin: 0;
+      padding: 18px 0;
+      color: var(--muted-text);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .fp-empty-state[hidden] {
+      display: none;
+    }
+
+    @media (max-width: 430px) {
+      .home-page {
+        padding-bottom: 18px;
+      }
+
+      .fp-featured-pin {
+        top: 10px;
+        right: 10px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .fp-festival-item {
+        grid-template-columns: 48px minmax(0, 1fr) 34px;
+        gap: 10px;
+        padding: 10px 0;
+      }
+
+      .fp-festival-item strong {
+        white-space: normal;
+        line-height: 1.18;
+      }
+
+      .fp-pin-button {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+        min-height: 32px;
       }
     }

@@ -12,7 +12,7 @@
       <div class="title-block">
         <p class="eyebrow">Festiplanner</p>
         <h1>Travel</h1>
-        <p class="subtitle">Plan your route, save your meeting point, and keep travel notes close before heading out.</p>
+        <p class="subtitle">Set your route and arrival details before you leave.</p>
       </div>
       <aside class="progress-card" aria-live="polite">
         <span class="progress-number" id="progressNumber">0%</span>
@@ -27,7 +27,6 @@
       <span>Home</span>
     </a>
     <nav class="site-nav" aria-label="Site navigation">
-<a class="" href="index.html">Home</a>
 <a class="" href="packing.html">Packing</a>
 <a class="active" href="travel.html">Travel</a>
 <a class="" href="lineup.html">Lineup</a>
@@ -42,70 +41,101 @@
       <a class="official-link" href="https://www.graspop.be/en" target="_blank" rel="noopener">Official Graspop website</a>
     </section>
     <main>
-<section class="band" id="travel">
+      <section class="band travel-section" id="travel">
         <div class="section-head">
           <div>
-            <h2>Travel notes</h2>
-            <p class="hint">Add the practical details you always need at the exact moment your backpack is already closed.</p>
+            <h2>Travel plan</h2>
+            <p class="hint">Add the details you need for a smooth arrival.</p>
           </div>
-          <a class="official-link" href="https://www.graspop.be/en/info/travel-info" target="_blank" rel="noopener">Check official travel info</a>
         </div>
-        <div class="split">
-          <article class="panel">
-            <div class="field">
-              <span>Arrival plan</span>
-              <select id="arrivalMode">
-                <option value="driving">Car</option>
-                <option value="transit">Public transport</option>
-                <option value="walking">Walking</option>
-                <option value="bicycling">Cycle</option>
-              </select>
-            </div>
-            <div class="field" style="margin-top: 12px;">
-              <span>Starting point</span>
-              <input id="mapStart" type="text" placeholder="Example: Amsterdam Centraal">
-            </div>
-            <div class="field" style="margin-top: 12px;">
-              <span>Destination</span>
-              <input id="mapDestination" type="text" value="Graspop Metal Meeting, Dessel, Belgium">
-            </div>
-            <div class="map-actions">
-              <a class="maps-link" id="mapsLink" href="https://www.google.com/maps/dir/?api=1&destination=Graspop%20Metal%20Meeting%2C%20Dessel%2C%20Belgium&travelmode=driving" target="_blank" rel="noopener">Open in Google Maps</a>
-              <p class="source-note" id="mapsPreview">Car route to Graspop Metal Meeting, Dessel, Belgium.</p>
-            </div>
-            <div class="field" style="margin-top: 12px;">
-              <span>Departure target</span>
-              <input id="departureTime" type="text" placeholder="Example: Monday 10:30">
-            </div>
-            <div class="field" style="margin-top: 12px;">
-              <span>Meet-up point</span>
-              <input id="meetingPoint" type="text" placeholder="Example: campsite gate, shuttle stop, car park">
-            </div>
-          </article>
-          <article class="panel">
-            <div class="field">
-              <span>Notes</span>
-              <textarea id="freeNotes" placeholder="Locker code, tent location, friends' phone numbers, parking details, medication reminders..."></textarea>
-            </div>
-          </article>
-        </div>
+        <article class="travel-form-card">
+          <div class="field">
+            <span>Transport method</span>
+            <select id="arrivalMode">
+              <option value="driving">Car</option>
+              <option value="transit">Public transport</option>
+              <option value="walking">Walking</option>
+              <option value="bicycling">Cycle</option>
+            </select>
+          </div>
+          <div class="field">
+            <span>Starting point</span>
+            <input id="mapStart" type="text" placeholder="Example: Amsterdam Centraal">
+          </div>
+          <div class="field">
+            <span>Arrival target</span>
+            <input id="departureTime" type="text" placeholder="Example: Thursday 12:00">
+          </div>
+          <div class="field">
+            <span>Meet-up point</span>
+            <input id="meetingPoint" type="text" placeholder="Example: campsite gate, shuttle stop, car park">
+          </div>
+        </article>
       </section>
-<section class="band" id="festival-location">
+
+      <section class="band travel-section" id="route">
+        <div class="section-head">
+          <div>
+            <h2>Route</h2>
+            <p class="hint">Review your journey before opening directions.</p>
+          </div>
+        </div>
+        <article class="route-card">
+          <dl class="route-summary">
+            <div>
+              <dt>From</dt>
+              <dd id="routeFrom">Add a starting point</dd>
+            </div>
+            <div>
+              <dt>To</dt>
+              <dd id="routeTo">Graspop Metal Meeting, Dessel, Belgium</dd>
+            </div>
+            <div>
+              <dt>Estimated travel time</dt>
+              <dd>Available in a future update</dd>
+            </div>
+          </dl>
+          <a class="maps-link" id="mapsLink" href="https://www.google.com/maps/dir/?api=1&destination=Graspop%20Metal%20Meeting%2C%20Dessel%2C%20Belgium&travelmode=driving" target="_blank" rel="noopener">Open in Google Maps</a>
+          <p class="source-note" id="mapsPreview" hidden>Car route to Graspop Metal Meeting, Dessel, Belgium.</p>
+        </article>
+      </section>
+
+      <section class="band travel-section" id="festival-location">
         <div class="section-head">
           <div>
             <h2>Festival location</h2>
-            <p class="hint">Graspop Metal Meeting, Dessel, Belgium.</p>
+            <p class="hint">Graspop Metal Meeting<br>Stenehei, 2480 Dessel, Belgium</p>
           </div>
         </div>
-        <article class="map-card">
+        <article class="map-card travel-map-card">
           <iframe
             title="Festival location"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=Graspop%20Metal%20Meeting%2C%20Dessel%2C%20Belgium&output=embed"></iframe>
-          <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=Graspop%20Metal%20Meeting%2C%20Dessel%2C%20Belgium" target="_blank" rel="noopener">Open in Google Maps</a>
         </article>
       </section>
+
+      <section class="band travel-section" id="arrival-tips">
+        <div class="section-head">
+          <div>
+            <h2>Quick arrival tips</h2>
+          </div>
+        </div>
+        <article class="arrival-tips-card">
+          <ul>
+            <li>Save parking ticket screenshot</li>
+            <li>Download route offline</li>
+            <li>Save campsite location</li>
+            <li>Share arrival time with friends</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="travel-state-fields" hidden>
+        <input id="mapDestination" value="Graspop Metal Meeting, Dessel, Belgium">
+        <textarea id="freeNotes"></textarea>
+      </div>
     </main>
     <div class="hidden-support" aria-hidden="true">
 <div id="campGrid"></div>
