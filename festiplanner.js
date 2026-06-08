@@ -35,7 +35,7 @@
 
   async function init() {
     try {
-      const { festival } = await dataApi.loadFestival();
+      const { festival } = await dataApi.bootstrap();
       const festivalId = festival.id;
       const t = value => dataApi.text(value);
       const camps = festival.campings || [];
@@ -66,9 +66,15 @@
       const state = {
         camp: packingState.camp || "",
         campType: packingState.campType || "",
-        checked: packingState.checked && typeof packingState.checked === "object" ? packingState.checked : {},
+        checked: packingState.checked !== null && typeof packingState.checked === "object" && !Array.isArray(packingState.checked)
+          ? packingState.checked
+          : {},
         lineupDay: dayIds.includes(favoriteState.lineupDay) ? favoriteState.lineupDay : (dayIds[0] || ""),
-        favoriteActs: favoriteState.favoriteActs && typeof favoriteState.favoriteActs === "object" ? favoriteState.favoriteActs : {},
+        favoriteActs: favoriteState.favoriteActs !== null
+          && typeof favoriteState.favoriteActs === "object"
+          && !Array.isArray(favoriteState.favoriteActs)
+          ? favoriteState.favoriteActs
+          : {},
         arrivalMode: ["driving", "transit", "walking", "bicycling"].includes(travelState.arrivalMode) ? travelState.arrivalMode : "driving",
         mapStart: travelState.mapStart || "",
         mapDestination: travelState.mapDestination || festival.travel?.destination || festival.location || "",

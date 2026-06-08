@@ -55,7 +55,7 @@
     row.tabIndex = 0;
     row.setAttribute("role", "link");
     row.innerHTML = `
-      <img src="${festival.featuredImage}" alt="">
+      <img src="${dataApi.resolveAssetPath(festival.featuredImage)}" alt="">
       <div class="fp-festival-copy">
         <strong>${festival.name}</strong>
         <span>${locationText(festival)} · ${datesText(festival)}</span>
@@ -89,7 +89,7 @@
     const festival = upcoming[0] || festivals[0];
     if (!festival) return;
     featured.dataset.festivalId = festival.id;
-    featured.querySelector("img").src = festival.featuredImage;
+    featured.querySelector("img").src = dataApi.resolveAssetPath(festival.featuredImage);
     document.getElementById("featuredName").textContent = festival.name;
     document.getElementById("featuredDates").textContent = datesText(festival);
     document.getElementById("featuredCountdown").textContent = countdownText(festival.startDate);
@@ -137,7 +137,7 @@
   }
 
   try {
-    festivals = await dataApi.loadFestivalSummaries();
+    ({ festivals } = await dataApi.bootstrap());
     if (!festivals.length) throw new Error("No festivals are available.");
     document.getElementById("featuredPin").addEventListener("click", () => {
       togglePinned(document.getElementById("featuredPin").dataset.festivalId);

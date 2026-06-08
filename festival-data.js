@@ -6,6 +6,17 @@
   const DEFAULT_FESTIVAL_ID = "graspop-2026";
   const LEGACY_FESTIVAL_ID = "graspop-2026";
   const fallbackData = window.FESTIPLANNER_FALLBACK_DATA || { summaries: [], festivals: {} };
+  const paths = window.FestiPlannerPaths;
+  let summariesPromise;
+  let bootstrapPromise;
+
+  function isRecord(value) {
+    return value !== null && typeof value === "object" && !Array.isArray(value);
+  }
+
+  function hasKeys(value) {
+    return isRecord(value) && Object.keys(value).length > 0;
+  }
 
   function readJson(key, fallback) {
     try {
@@ -22,7 +33,7 @@
 
   function readSettings() {
     const saved = readJson(SETTINGS_KEY, {});
-    if (!saved || typeof saved !== "object" || Array.isArray(saved)) return {};
+    if (!isRecord(saved)) return {};
     return saved;
   }
 
@@ -102,7 +113,7 @@
     return filtered;
   }
 
-  function migrateLegacyData() {
+  function migrateLegacyData(festivals) {
     try {
       const settings = readSettings();
       const nextSettings = { ...settings };
@@ -118,27 +129,38 @@
         writeJson(PINNED_KEY, Array.isArray(pinned) ? pinned : []);
       }
 
+      const legacyFestivalExists = Array.isArray(festivals)
+        && festivals.some(festival => festival?.id === LEGACY_FESTIVAL_ID);
       const legacy = readJson(LEGACY_PLAN_KEY, null);
-      if (legacy && typeof legacy === "object" && !Array.isArray(legacy)) {
-        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "packing"))) {
+      if (legacyFestivalExists && isRecord(legacy)) {
+        const checked = hasKeys(legacy.checked) ? legacy.checked : {};
+        const favoriteActs = hasKeys(legacy.favoriteActs) ? legacy.favoriteActs : {};
+        const hasPacking = Boolean(legacy.camp || legacy.campType || Object.keys(checked).length);
+        const hasFavorites = Boolean(legacy.lineupDay || Object.keys(favoriteActs).length);
+        const hasTravel = Boolean(
+          legacy.arrivalMode
+          || legacy.mapStart
+          || legacy.mapDestination
+          || legacy.departureTime
+          || legacy.meetingPoint
+        );
+        const hasNotes = typeof legacy.freeNotes === "string" && legacy.freeNotes.trim() !== "";
+
+        if (hasPacking && !localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "packing"))) {
           writeFestivalSection(LEGACY_FESTIVAL_ID, "packing", {
             camp: legacy.camp || "",
             campType: legacy.campType || "",
-            checked: legacy.checked && typeof legacy.checked === "object" && !Array.isArray(legacy.checked)
-              ? legacy.checked
-              : {}
+            checked
           });
         }
-        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "favorites"))) {
+        if (hasFavorites && !localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "favorites"))) {
           const legacyDay = String(legacy.lineupDay || "thursday").toLowerCase();
           writeFestivalSection(LEGACY_FESTIVAL_ID, "favorites", {
             lineupDay: legacyDay,
-            favoriteActs: legacy.favoriteActs && typeof legacy.favoriteActs === "object" && !Array.isArray(legacy.favoriteActs)
-              ? legacy.favoriteActs
-              : {}
+            favoriteActs
           });
         }
-        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "travel"))) {
+        if (hasTravel && !localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "travel"))) {
           writeFestivalSection(LEGACY_FESTIVAL_ID, "travel", {
             arrivalMode: legacy.arrivalMode || "driving",
             mapStart: legacy.mapStart || "",
@@ -147,7 +169,7 @@
             meetingPoint: legacy.meetingPoint || ""
           });
         }
-        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "notes"))) {
+        if (hasNotes && !localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "notes"))) {
           writeFestivalSection(LEGACY_FESTIVAL_ID, "notes", { value: legacy.freeNotes || "" });
         }
       }
@@ -176,14 +198,15 @@
   }
 
   async function fetchJson(path, fallback) {
+    const url = paths.resolveDataPath(path);
     try {
-      const response = await fetch(path, { cache: "no-store" });
-      if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Could not load ${url} (${response.status})`);
       return await response.json();
     } catch (error) {
       const value = typeof fallback === "function" ? fallback() : cloneFallback(fallback);
       if (value !== undefined && value !== null) {
-        warnFallback(path, error);
+        warnFallback(url, error);
         return value;
       }
       throw error;
@@ -191,30 +214,47 @@
   }
 
   async function loadFestivalSummaries() {
-    const data = await fetchJson("data/festivals.json", fallbackSummaries);
-    if (Array.isArray(data) && data.length) return data;
-    const fallback = fallbackSummaries();
-    if (fallback.length) return fallback;
-    throw new Error("No festival list is available.");
+    if (!summariesPromise) {
+      summariesPromise = fetchJson("festivals.json", fallbackSummaries).then(data => {
+        if (Array.isArray(data) && data.length) return data;
+        const fallback = fallbackSummaries();
+        if (fallback.length) return fallback;
+        throw new Error("No festival list is available.");
+      });
+    }
+    return summariesPromise;
   }
 
-  async function loadFestival(festivalId = selectedFestivalId()) {
-    const festivals = await loadFestivalSummaries();
-    const explicitFestivalId = new URLSearchParams(window.location.search).get("festival");
-    const summary = festivals.find(item => item.id === festivalId)
-      || fallbackSummaries().find(item => item.id === festivalId)
-      || (explicitFestivalId ? null : festivals[0]);
-    if (explicitFestivalId && !summary) throw new Error(`Festival "${explicitFestivalId}" is not available.`);
-    if (!summary) throw new Error("No festivals are available.");
-    const festival = await fetchJson(summary.dataFile, () => fallbackFestival(summary.id));
-    if (!festival || typeof festival !== "object") {
-      throw new Error(`Festival "${summary.id}" has no usable data.`);
-    }
-    updateSettings({ selectedFestivalId: festival.id });
-    applyFestivalTheme(festival);
-    window.FESTIPLANNER_FESTIVAL_DATA = festival;
-    window.FESTIPLANNER_LINEUP_DATA = festival.timetable || [];
-    return { summary, festival, festivals };
+  async function bootstrap(festivalId = selectedFestivalId()) {
+    if (bootstrapPromise) return bootstrapPromise;
+    bootstrapPromise = (async () => {
+      const festivals = await loadFestivalSummaries();
+      const explicitFestivalId = new URLSearchParams(window.location.search).get("festival");
+      const summary = festivals.find(item => item.id === festivalId)
+        || fallbackSummaries().find(item => item.id === festivalId)
+        || (explicitFestivalId ? null : festivals[0]);
+      if (explicitFestivalId && !summary) throw new Error(`Festival "${explicitFestivalId}" is not available.`);
+      if (!summary) throw new Error("No festivals are available.");
+      const festival = await fetchJson(summary.dataFile, () => fallbackFestival(summary.id));
+      if (!isRecord(festival)) {
+        throw new Error(`Festival "${summary.id}" has no usable data.`);
+      }
+
+      migrateLegacyData(festivals);
+      updateSettings({ selectedFestivalId: festival.id });
+      applyFestivalTheme(festival);
+      window.FESTIPLANNER_FESTIVAL_DATA = festival;
+      window.FESTIPLANNER_LINEUP_DATA = festival.timetable || [];
+      const detail = { summary, festival, festivals };
+      window.FESTIPLANNER_DATA_READY = detail;
+      window.dispatchEvent(new CustomEvent("festiplanner:data-ready", { detail }));
+      return detail;
+    })();
+    return bootstrapPromise;
+  }
+
+  function resolveAssetPath(path) {
+    return paths.resolveAssetPath(path);
   }
 
   function whenReady(callback) {
@@ -263,7 +303,9 @@
   }
 
   function festivalUrl(path, festivalId = selectedFestivalId()) {
-    return `${path}?festival=${encodeURIComponent(festivalId)}`;
+    const url = new URL(paths.resolveAssetPath(path));
+    url.searchParams.set("festival", festivalId);
+    return url.href;
   }
 
   function showLoadError(error, container = document.querySelector("main")) {
@@ -277,8 +319,6 @@
       </section>
     `;
   }
-
-  migrateLegacyData();
 
   window.FestiPlannerData = {
     SETTINGS_KEY,
@@ -296,8 +336,11 @@
     writeFestivalSection,
     removeFestivalData,
     packingCategoriesForAccommodation,
+    bootstrap,
     loadFestivalSummaries,
-    loadFestival,
+    getAssetBaseUrl: paths.getAssetBaseUrl,
+    resolveAssetPath,
+    resolveDataPath: paths.resolveDataPath,
     whenReady,
     applyFestivalTheme,
     formatDateRange,

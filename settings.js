@@ -1,4 +1,4 @@
-(function () {
+(async function () {
   const dataApi = window.FestiPlannerData;
   const pinnedFirst = document.getElementById("showPinnedFirst");
   const resetFestivalButton = document.getElementById("resetFestivalButton");
@@ -32,36 +32,37 @@
     resetDialog.showModal();
   }
 
-  pinnedFirst.checked = settings().showPinnedFirst !== false;
-  pinnedFirst.addEventListener("change", () => {
-    dataApi.updateSettings({ showPinnedFirst: pinnedFirst.checked });
-    setStatus("Festival preference saved.");
-  });
+  try {
+    const { festivals } = await dataApi.bootstrap();
 
-  resetFestivalButton.addEventListener("click", () => openResetDialog("festival"));
-  resetAllButton.addEventListener("click", () => openResetDialog("all"));
-
-  resetDialog.addEventListener("close", () => {
-    if (resetDialog.returnValue !== "confirm") {
-      pendingReset = "";
-      return;
-    }
-    if (pendingReset === "festival") {
-      dataApi.removeFestivalData(dataApi.selectedFestivalId());
-      setStatus("Current festival data reset.");
-    } else if (pendingReset === "all") {
-      localStorage.clear();
-      setStatus("All local data reset.");
-      setTimeout(() => window.location.reload(), 250);
-    }
-    pendingReset = "";
-  });
-
-  dataApi.loadFestivalSummaries()
-    .then(festivals => {
-      document.getElementById("festivalCount").textContent = String(festivals.length);
-    })
-    .catch(() => {
-      document.getElementById("festivalCount").textContent = "Unavailable";
+    pinnedFirst.checked = settings().showPinnedFirst !== false;
+    pinnedFirst.addEventListener("change", () => {
+      dataApi.updateSettings({ showPinnedFirst: pinnedFirst.checked });
+      setStatus("Festival preference saved.");
     });
+
+    resetFestivalButton.addEventListener("click", () => openResetDialog("festival"));
+    resetAllButton.addEventListener("click", () => openResetDialog("all"));
+
+    resetDialog.addEventListener("close", () => {
+      if (resetDialog.returnValue !== "confirm") {
+        pendingReset = "";
+        return;
+      }
+      if (pendingReset === "festival") {
+        dataApi.removeFestivalData(dataApi.selectedFestivalId());
+        setStatus("Current festival data reset.");
+      } else if (pendingReset === "all") {
+        localStorage.clear();
+        setStatus("All local data reset.");
+        setTimeout(() => window.location.reload(), 250);
+      }
+      pendingReset = "";
+    });
+
+    document.getElementById("festivalCount").textContent = String(festivals.length);
+  } catch (error) {
+    document.getElementById("festivalCount").textContent = "Unavailable";
+    dataApi.showLoadError(error);
+  }
 })();

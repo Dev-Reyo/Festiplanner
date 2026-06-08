@@ -463,7 +463,12 @@
 
     if (controls) controls.appendChild(toggle);
   }
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      await window.FestiPlannerData?.bootstrap();
+    } catch {
+      // Appearance and static translations can still render with saved settings.
+    }
     installToggle();
     installAppearanceToggle();
     applyAppearance();
