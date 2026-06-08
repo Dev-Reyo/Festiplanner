@@ -1,9 +1,5 @@
 (function () {
-  const FESTIVAL_KEY = "graspopPackingPlanner";
-  const PINNED_FIRST_KEY = "festiplannerShowPinnedFirst";
-  const LANGUAGE_KEY = "festiplannerLanguage";
-  const APPEARANCE_KEY = "festiplannerAppearance";
-
+  const dataApi = window.FestiPlannerData;
   const pinnedFirst = document.getElementById("showPinnedFirst");
   const resetFestivalButton = document.getElementById("resetFestivalButton");
   const resetAllButton = document.getElementById("resetAllButton");
@@ -14,8 +10,8 @@
   const status = document.getElementById("settingsStatus");
   let pendingReset = "";
 
-  function pinnedFirstEnabled() {
-    return localStorage.getItem(PINNED_FIRST_KEY) !== "false";
+  function settings() {
+    return dataApi.readSettings();
   }
 
   function setStatus(message) {
@@ -36,9 +32,9 @@
     resetDialog.showModal();
   }
 
-  pinnedFirst.checked = pinnedFirstEnabled();
+  pinnedFirst.checked = settings().showPinnedFirst !== false;
   pinnedFirst.addEventListener("change", () => {
-    localStorage.setItem(PINNED_FIRST_KEY, String(pinnedFirst.checked));
+    dataApi.updateSettings({ showPinnedFirst: pinnedFirst.checked });
     setStatus("Festival preference saved.");
   });
 
@@ -50,36 +46,22 @@
       pendingReset = "";
       return;
     }
-
     if (pendingReset === "festival") {
-      localStorage.removeItem(FESTIVAL_KEY);
+      dataApi.removeFestivalData(dataApi.selectedFestivalId());
       setStatus("Current festival data reset.");
     } else if (pendingReset === "all") {
       localStorage.clear();
-      pinnedFirst.checked = true;
-      document.documentElement.lang = "en";
-      document.documentElement.dataset.appearance = "system";
-      const systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-      document.documentElement.dataset.theme = systemTheme;
-      document.querySelectorAll(".language-toggle button").forEach(button => {
-        const active = button.dataset.lang === "en";
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-      document.querySelectorAll(".appearance-toggle button").forEach(button => {
-        const active = button.dataset.appearance === "system";
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
       setStatus("All local data reset.");
       setTimeout(() => window.location.reload(), 250);
     }
-
     pendingReset = "";
   });
 
-  window.addEventListener("storage", event => {
-    if (event.key === PINNED_FIRST_KEY) pinnedFirst.checked = pinnedFirstEnabled();
-    if (event.key === LANGUAGE_KEY || event.key === APPEARANCE_KEY) setStatus("Settings updated.");
-  });
+  dataApi.loadFestivalSummaries()
+    .then(festivals => {
+      document.getElementById("festivalCount").textContent = String(festivals.length);
+    })
+    .catch(() => {
+      document.getElementById("festivalCount").textContent = "Unavailable";
+    });
 })();

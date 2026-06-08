@@ -1,14 +1,5 @@
-(function () {
-  const STORAGE_KEY = "graspopPackingPlanner";
-  const FESTIVAL_START = new Date("2026-06-18T00:00:00+02:00");
-
-  function readState() {
-    try {
-      return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-    } catch {
-      return {};
-    }
-  }
+(async function () {
+  const dataApi = window.FestiPlannerData;
 
   function setText(id, text) {
     const element = document.getElementById(id);
@@ -20,20 +11,18 @@
     if (element) element.innerHTML = html;
   }
 
-  function itemIdsFromPage() {
-    return Array.from(document.querySelectorAll("#packingGrid input[data-item]"))
-      .map(input => input.dataset.item);
+  function slug(value) {
+    return String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
   function actId(act) {
-    return `${act.day}:${act.stage}:${act.name}:${act.start}`.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    return slug(`${act.day}:${act.stage}:${act.name}:${act.start}`);
   }
 
   function timeToMinutes(value) {
     const [hourText, minuteText] = value.split(".");
     const hour = Number(hourText);
-    const minute = Number(minuteText);
-    return (hour < 6 ? hour + 24 : hour) * 60 + minute;
+    return (hour < 6 ? hour + 24 : hour) * 60 + Number(minuteText);
   }
 
   function formatTime(value) {
@@ -49,19 +38,6 @@
     }[mode] || "Travel details";
   }
 
-  function markedActs(favoriteActs) {
-    const lineup = window.FESTIPLANNER_LINEUP_DATA || [];
-    const dayOrder = { Thursday: 1, Friday: 2, Saturday: 3, Sunday: 4 };
-    return lineup
-      .filter(act => favoriteActs && favoriteActs[actId(act)])
-      .map(act => ({
-        ...act,
-        startMinutes: timeToMinutes(act.start),
-        endMinutes: timeToMinutes(act.end)
-      }))
-      .sort((a, b) => dayOrder[a.day] - dayOrder[b.day] || a.startMinutes - b.startMinutes);
-  }
-
   function clashPairs(marked) {
     const clashes = [];
     marked.forEach((act, index) => {
@@ -74,56 +50,56 @@
     return clashes.sort((a, b) => b.overlap - a.overlap);
   }
 
-  function updateNotesBinding(state) {
-    const notes = document.getElementById("overviewNotes");
-    if (!notes) return;
-    if (!notes.dataset.bound) {
-      notes.dataset.bound = "true";
-      notes.addEventListener("input", () => {
-        const next = readState();
-        next.freeNotes = notes.value;
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      });
-    }
-    if (document.activeElement !== notes) notes.value = state.freeNotes || "";
-  }
-
-  function updateOverview() {
-    const state = readState();
-    const checked = state.checked || {};
-    const visibleItems = itemIdsFromPage();
-    const total = visibleItems.length;
-    const packed = visibleItems.filter(id => checked[id]).length;
-    const packingPercent = total ? Math.round((packed / total) * 100) : 0;
-    const marked = markedActs(state.favoriteActs || {});
+  try {
+    const festival = await window.FESTIPLANNER_APP_READY;
+    const festivalId = festival.id;
+    const favorites = dataApi.readFestivalSection(festivalId, "favorites", { favoriteActs: {} });
+    const travel = dataApi.readFestivalSection(festivalId, "travel", {});
+    const notes = dataApi.readFestivalSection(festivalId, "notes", { value: "" });
+    const checkedIds = Array.from(document.querySelectorAll("#packingGrid input[data-item]")).map(input => input.dataset.item);
+    const packing = dataApi.readFestivalSection(festivalId, "packing", { checked: {} });
+    const checked = packing.checked || {};
+    const packed = checkedIds.filter(id => checked[id]).length;
+    const percent = checkedIds.length ? Math.round((packed / checkedIds.length) * 100) : 0;
+    const daysData = festival.days || [];
+    const dayOrder = Object.fromEntries(daysData.map((day, index) => [day.id, index]));
+    const dayLabel = dayId => dataApi.text(daysData.find(day => day.id === dayId)?.label) || dayId;
+    const marked = (festival.timetable || [])
+      .filter(act => favorites.favoriteActs?.[actId(act)])
+      .map(act => ({ ...act, startMinutes: timeToMinutes(act.start), endMinutes: timeToMinutes(act.end) }))
+      .sort((a, b) => dayOrder[a.day] - dayOrder[b.day] || a.startMinutes - b.startMinutes);
     const clashes = clashPairs(marked);
-    const days = Math.max(0, Math.ceil((FESTIVAL_START - new Date()) / 86400000));
-    const origin = state.mapStart || "";
-    const destination = state.mapDestination || "Dessel";
-    const route = origin ? `${origin} -> ${destination.replace(", Belgium", "")}` : "Plan your route";
+    const start = new Date(`${festival.startDate}T00:00:00`);
+    const days = Math.max(0, Math.ceil((start - new Date()) / 86400000));
+    const destination = travel.mapDestination || festival.travel?.destination || festival.city;
+    const route = travel.mapStart ? `${travel.mapStart} -> ${destination.replace(`, ${festival.country}`, "")}` : "Plan your route";
 
-    setText("overviewCountdown", days === 1 ? "1 day until Graspop" : `${days} days until Graspop`);
-    setText("overviewPacking", `${packed}/${total} items packed`);
-    setText("overviewPackingDetail", `${packingPercent}% ready`);
+    setText("overviewCountdown", days === 1 ? `1 day until ${festival.shortName}` : `${days} days until ${festival.shortName}`);
+    setText("overviewDates", dataApi.formatDateRange(festival.startDate, festival.endDate));
+    setText("overviewPacking", `${packed}/${checkedIds.length} items packed`);
+    setText("overviewPackingDetail", `${percent}% ready`);
     setText("overviewBands", marked.length === 1 ? "1 favourite band" : `${marked.length} favourite bands`);
     setText("overviewClashes", clashes.length === 1 ? "1 schedule conflict" : `${clashes.length} schedule conflicts`);
     setText("overviewTravel", route);
     setText("overviewTravelMode", route === "Plan your route"
       ? "Travel details"
-      : `${routeModeLabel(state.arrivalMode)}${state.departureTime ? " · " + state.departureTime : ""}${state.meetingPoint ? " · " + state.meetingPoint : ""}`);
+      : `${routeModeLabel(travel.arrivalMode)}${travel.departureTime ? " · " + travel.departureTime : ""}${travel.meetingPoint ? " · " + travel.meetingPoint : ""}`);
 
     setHtml("overviewBandList", marked.length ? marked.slice(0, 5).map(act => `
-      <span>${act.name}<small>${act.day} · ${formatTime(act.start)}-${formatTime(act.end)} · ${act.stage}</small></span>
+      <span>${act.name}<small>${dayLabel(act.day)} · ${formatTime(act.start)}-${formatTime(act.end)} · ${act.stage}</small></span>
     `).join("") : `<span>No favourite bands yet<small>Mark bands in the lineup.</small></span>`);
-
     setHtml("overviewClashList", clashes.length ? clashes.slice(0, 4).map(({ act, other, overlap }) => `
       <span>${act.name} vs ${other.name}<small>${overlap} min overlap · ${formatTime(act.start)}-${formatTime(act.end)} / ${formatTime(other.start)}-${formatTime(other.end)}</small></span>
     `).join("") : `<span>No clashes yet<small>Mark bands to detect overlaps.</small></span>`);
 
-    updateNotesBinding(state);
+    const notesField = document.getElementById("overviewNotes");
+    if (notesField) {
+      notesField.value = notes.value || "";
+      notesField.addEventListener("input", () => {
+        dataApi.writeFestivalSection(festivalId, "notes", { value: notesField.value });
+      });
+    }
+  } catch {
+    // The shared loader already displays the readable error state.
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    requestAnimationFrame(updateOverview);
-  });
 })();

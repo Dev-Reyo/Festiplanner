@@ -1,0 +1,20 @@
+[
+  {
+    "id": "graspop-2026",
+    "name": "Graspop Metal Meeting",
+    "shortName": "GMM",
+    "country": "Belgium",
+    "city": "Dessel",
+    "startDate": "2026-06-18",
+    "endDate": "2026-06-21",
+    "status": "available",
+    "featuredImage": "assets/festival-crowd-discovery.png",
+    "theme": {
+      "id": "graspop",
+      "className": "graspop-theme",
+      "accent": "#d82e3f",
+      "accentLight": "#b51f2e"
+    },
+    "dataFile": "data/festivals/graspop-2026.json"
+  }
+]

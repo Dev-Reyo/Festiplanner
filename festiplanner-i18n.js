@@ -1,6 +1,21 @@
 (function () {
-  const LANG_KEY = "festiplannerLanguage";
-  const APPEARANCE_KEY = "festiplannerAppearance";
+  const SETTINGS_KEY = "festiplanner:settings";
+
+  function readSettings() {
+    if (window.FestiPlannerData) return window.FestiPlannerData.readSettings();
+    try {
+      return JSON.parse(localStorage.getItem(SETTINGS_KEY) || "{}");
+    } catch {
+      return {};
+    }
+  }
+
+  function updateSettings(patch) {
+    if (window.FestiPlannerData) return window.FestiPlannerData.updateSettings(patch);
+    const next = { ...readSettings(), ...patch };
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
+    return next;
+  }
 
   const translations = {
     nl: {
@@ -32,7 +47,6 @@
       "Future profile": "Toekomstig profiel",
       "Festival profile": "Festivalprofiel",
       "Location to be added": "Locatie wordt toegevoegd",
-      "Dessel, Belgium": "Dessel, Belgie",
       "Werchter, Belgium": "Werchter, Belgie",
       "Boom, Belgium": "Boom, Belgie",
       "Festival trips, finally organized": "Festivaltrips, eindelijk georganiseerd",
@@ -46,12 +60,9 @@
       "Choose your festival": "Kies je festival",
       "Graspop is ready now. More festival profiles can be added later with their own campsites, travel notes, and lineup tools.": "Graspop is nu klaar. Later kunnen we meer festivalprofielen toevoegen met eigen campings, reisnotities en line-up tools.",
       "Available now": "Nu beschikbaar",
-      "Dessel, Belgium. Dynamic packing, campsite choices, route planning, lineup marking, and clash detection.": "Dessel, Belgie. Dynamisch inpakken, campingkeuzes, routeplanning, line-up markeren en clash-detectie.",
       "Open planner": "Open planner",
       "Calculating countdown": "Aftellen berekenen",
       "Festival started": "Festival begonnen",
-      "Official Graspop website": "Officiele Graspop-website",
-      "Check official timetable": "Check het officiele tijdschema",
       "Check official travel info": "Check de officiele reisinformatie",
       "Future slot": "Toekomstige plek",
       "A future profile could add its own camping setup, transport flow, and artist schedule.": "Een toekomstig profiel kan een eigen campingsetup, transportflow en artiestenschema krijgen.",
@@ -113,7 +124,6 @@
       "Timeline": "Tijdlijn",
       "My Festival": "Mijn festival",
       "My Festival | Festiplanner": "Mijn festival | Festiplanner",
-      "Your Graspop overview: packing, travel, favourite bands, clashes, and notes.": "Je Graspop-overzicht: inpakken, reizen, favoriete bands, clashes en notities.",
       "Countdown": "Aftellen",
       "Graspop is coming": "Graspop komt eraan",
       "Continue checklist": "Ga verder met checklist",
@@ -122,7 +132,6 @@
       "Mark bands in the lineup.": "Markeer bands in de line-up.",
       "Review overlaps": "Bekijk overlappingen",
       "Clash overview": "Clash-overzicht",
-      "No clashes yet. Mark bands to detect overlaps.": "Nog geen clashes. Markeer bands om overlappingen te vinden.",
       "No clashes yet": "Nog geen clashes",
       "Mark bands to detect overlaps.": "Markeer bands om overlappingen te vinden.",
       "ready": "klaar",
@@ -131,135 +140,43 @@
       "Weather summary placeholder": "Weeroverzicht placeholder",
       "Personal festival notes": "Persoonlijke festivalnotities",
       "Saved together with your travel notes.": "Opgeslagen samen met je reisnotities.",
-      "Choose your festival stay and get a packing list that adapts to your campsite or accommodation.": "Kies je festivalverblijf en krijg een paklijst die zich aanpast aan je camping of accommodatie.",
       "Choose a festival and start planning.": "Kies een festival en begin met plannen.",
       "Where are you staying?": "Waar verblijf je?",
       "Pick one option so the planner can highlight campsite-specific reminders.": "Kies een optie zodat de planner camping-specifieke herinneringen kan tonen.",
       "Choose your stay type": "Kies je verblijfstype",
-      "No campsite selected yet": "Nog geen camping geselecteerd",
-      "Choose Boneyard, The Crypt, Inferno, or Devil's Lake to personalize your list.": "Kies Boneyard, The Crypt, Inferno of Devil's Lake om je lijst te personaliseren.",
       "Quick campsite reminders": "Snelle campingherinneringen",
-      "Keep your festival ticket, campsite confirmation, and ID easy to reach.": "Houd je festivalticket, campingbevestiging en ID binnen handbereik.",
-      "Check the latest official Graspop info before you leave.": "Check de laatste officiele Graspop-info voordat je vertrekt.",
       "Your checks are saved automatically in this browser.": "Je vinkjes worden automatisch opgeslagen in deze browser.",
       "Mark essentials": "Markeer essentials",
       "Clear checks": "Wis vinkjes",
       "Packed and ready.": "Ingepakt en klaar.",
 
-      "Closest to the arena": "Dichtst bij de arena",
-      "The classic festival camping choice next to the festival arena: bring your own tent, book a Friends Zone, or rent a FestiTent.": "De klassieke festivalcamping naast de arena: neem je eigen tent mee, boek een Friends Zone of huur een FestiTent.",
-      "Own tent": "Eigen tent",
-      "Friends Zone": "Friends Zone",
-      "FestiTent": "FestiTent",
       "Full camping kit": "Volledige campingkit",
       "Group friendly": "Groepsvriendelijk",
-      "Pitch your own tent at Boneyard with a full camping kit.": "Zet je eigen tent op Boneyard neer met een volledige campingset.",
-      "A reserved Boneyard area for camping together with friends.": "Een gereserveerde Boneyard-zone om samen met vrienden te kamperen.",
-      "A pre-set rental tent at Boneyard, available for smaller groups.": "Een vooraf opgezette huurtent op Boneyard, geschikt voor kleinere groepen.",
-      "Quieter own-tent camping": "Rustiger kamperen met eigen tent",
-      "A calmer campsite about 1.3 km from the arena, with parking nearby and the same need for a valid camping ticket.": "Een rustigere camping op ongeveer 1,3 km van de arena, met parking dichtbij en ook hier een geldig campingticket nodig.",
-      "Quieter": "Rustiger",
-      "Parking nearby": "Parking dichtbij",
       "Accessible facilities": "Toegankelijke voorzieningen",
-      "The Crypt has accessible showers and toilets, but no Inter staff on site.": "The Crypt heeft toegankelijke douches en toiletten, maar geen Inter-medewerkers ter plaatse.",
-      "Comfort and accessibility": "Comfort en toegankelijkheid",
-      "A comfort campsite about 500 metres from the arena, with ready-made accommodations and the separate Inter campsite for disabled visitors.": "Een comfortcamping op ongeveer 500 meter van de arena, met kant-en-klare accommodaties en de aparte Inter-camping voor bezoekers met een beperking.",
-      "Pre-pitched": "Vooraf opgezet",
-      "Inter camping": "Inter-camping",
-      "500 m walk": "500 m lopen",
       "Festihut / XL": "Festihut / XL",
       "Tip-Up": "Tip-Up",
       "Canvas Hut": "Canvas Hut",
       "Group tent": "Groepstent",
       "Boutique Tent": "Boutique Tent",
-      "A dedicated accessible zone at Inferno for disabled visitors, arranged through Inter.": "Een aparte toegankelijke zone op Inferno voor bezoekers met een beperking, geregeld via Inter.",
-      "Holiday park stay": "Verblijf op vakantiepark",
-      "A cottage or hotel-room stay in Lommel, about 25 km from the festival site, with more comfort and daily travel planning.": "Een cottage- of hotelkamerverblijf in Lommel, ongeveer 25 km van het festivalterrein, met meer comfort en dagelijkse reisplanning.",
-      "Comfort cottage": "Comfort cottage",
-      "Premium cottage": "Premium cottage",
-      "Hotel room": "Hotelkamer",
       "Comfort Cottage": "Comfort Cottage",
       "Premium Cottage": "Premium Cottage",
       "VIP Cottage": "VIP Cottage",
-      "Hotel room": "Hotelkamer",
 
-      "Tickets & documents": "Tickets & documenten",
-      "Camping & sleep": "Camping & slapen",
-      "Clothes": "Kleding",
-      "Hygiene": "Hygiene",
-      "Food & drink": "Eten & drinken",
-      "Tech & safety": "Tech & veiligheid",
-      "Stay-specific": "Verblijf-specifiek",
-      "festival ticket": "festivalticket",
-      "campsite or accommodation confirmation": "camping- of accommodatiebevestiging",
-      "ID or passport": "ID of paspoort",
-      "bank card and some cash": "bankpas en wat cash",
-      "health insurance details": "zorgverzekeringsgegevens",
-      "offline screenshots of maps and bookings": "offline screenshots van kaarten en boekingen",
-      "tent or accommodation booking proof": "tent of accommodatiebewijs",
-      "sleeping bag": "slaapzak",
-      "sleeping mat or air mattress": "slaapmat of luchtbed",
-      "pillow or hoodie pillow": "kussen of hoodie-kussen",
-      "earplugs for sleeping": "oordoppen om te slapen",
-      "camping light or headlamp": "campinglamp of hoofdlamp",
-      "tarp, extra pegs, and mallet": "zeil, extra haringen en hamer",
-      "band shirts and daily outfits": "bandshirts en outfits per dag",
-      "warm hoodie or jacket": "warme hoodie of jas",
-      "rain jacket or poncho": "regenjas of poncho",
-      "comfortable broken-in shoes": "comfortabele ingelopen schoenen",
-      "spare socks": "extra sokken",
-      "underwear": "ondergoed",
-      "hat or cap": "hoed of pet",
-      "toothbrush and toothpaste": "tandenborstel en tandpasta",
-      "deodorant": "deodorant",
-      "towel": "handdoek",
-      "shower shoes": "doucheslippers",
-      "wet wipes and tissues": "vochtige doekjes en tissues",
-      "sunscreen": "zonnebrand",
-      "hand sanitizer": "handgel",
-      "reusable water bottle": "herbruikbare waterfles",
-      "travel snacks": "reissnacks",
-      "breakfast items": "ontbijtspullen",
-      "electrolytes or rehydration tablets": "elektrolyten of ORS-tabletten",
-      "small trash bags": "kleine vuilniszakken",
-      "cup or mug": "beker of mok",
-      "phone and charger": "telefoon en oplader",
-      "power bank": "powerbank",
-      "charging cable": "laadkabel",
-      "small first aid kit": "kleine EHBO-kit",
-      "personal medication": "persoonlijke medicatie",
-      "hearing protection for concerts": "gehoorbescherming voor concerten",
-      "small lock for luggage": "klein slot voor bagage",
-      "accommodation voucher and deposit info": "accommodatievoucher en borginformatie",
-      "bedding check for your exact rental type": "check beddengoed voor je exacte huurtype",
-      "room key plan": "kamer-/sleutelplan",
-      "daily festival day bag": "dagrugzak voor het festival",
-      "swimwear or recovery clothes": "zwemkleding of herstelkleding",
-      "Inter approval details": "Inter-goedkeuringsgegevens",
-      "mobility or medical charging cables": "laadkabels voor mobiliteit of medische hulpmiddelen",
-      "doctor's note for medication or special diet": "doktersverklaring voor medicatie of speciaal dieet",
 
       "Travel | Festiplanner": "Reis | Festiplanner",
       "Plan your route, save your meeting point, and keep travel notes close before heading out.": "Plan je route, bewaar je ontmoetingspunt en houd reisnotities bij de hand voor vertrek.",
-      "Set your route and arrival details before you leave.": "Stel je route en aankomstgegevens in voor vertrek.",
       "Travel plan": "Reisplan",
       "Add the details you need for a smooth arrival.": "Voeg de gegevens toe die je nodig hebt voor een vlotte aankomst.",
       "Transport method": "Vervoermiddel",
       "Arrival target": "Gewenste aankomsttijd",
       "Example: Thursday 12:00": "Voorbeeld: donderdag 12:00",
       "Route": "Route",
-      "Review your journey before opening directions.": "Controleer je reis voordat je de routebeschrijving opent.",
       "From": "Van",
       "To": "Naar",
       "Add a starting point": "Voeg een vertrekpunt toe",
       "Estimated travel time": "Geschatte reistijd",
       "Available in a future update": "Beschikbaar in een toekomstige update",
-      "Stenehei, 2480 Dessel, Belgium": "Stenehei, 2480 Dessel, Belgie",
       "Quick arrival tips": "Snelle aankomsttips",
-      "Save parking ticket screenshot": "Bewaar een screenshot van je parkeerticket",
-      "Download route offline": "Download de route offline",
-      "Save campsite location": "Bewaar de locatie van je camping",
-      "Share arrival time with friends": "Deel je aankomsttijd met vrienden",
       "Travel notes": "Reisnotities",
       "Add the practical details you always need at the exact moment your backpack is already closed.": "Voeg de praktische details toe die je altijd nodig hebt zodra je rugzak al dicht zit.",
       "Arrival plan": "Aankomstplan",
@@ -298,22 +215,12 @@
       "Marked bands": "Gemarkeerde bands",
       "Your planning": "Je planning",
       "Clashes": "Clashes",
-      "No bands marked yet.": "Nog geen bands gemarkeerd.",
       "Mark bands to build your planning.": "Markeer bands om je planning te maken.",
       "No clashes among your marked bands yet.": "Nog geen clashes tussen je gemarkeerde bands.",
       "No bands match these filters.": "Geen bands gevonden met deze filters.",
       "Mark": "Markeer",
       "Marked": "Gemarkeerd",
       "Mark band": "Markeer band",
-      "Lineup data is based on the official Graspop 2026 timetable pages checked on 4 June 2026. Always re-check the official timetable before the festival in case set times move.": "Line-updata is gebaseerd op de officiele Graspop 2026-tijdschemapagina's gecontroleerd op 4 juni 2026. Check altijd het officiele tijdschema opnieuw voor het festival, voor het geval tijden wijzigen.",
-      "Thursday": "Donderdag",
-      "Friday": "Vrijdag",
-      "Saturday": "Zaterdag",
-      "Sunday": "Zondag",
-      "Thu": "Do",
-      "Fri": "Vr",
-      "Sat": "Za",
-      "Sun": "Zo",
 
       "A final run-up checklist for the week before, the days before, and the morning you leave.": "Een laatste checklist voor de week ervoor, de dagen ervoor en de ochtend van vertrek.",
       "Before you leave": "Voordat je vertrekt",
@@ -333,22 +240,21 @@
   });
 
   function currentLanguage() {
-    const saved = localStorage.getItem(LANG_KEY);
-    return saved === "nl" ? "nl" : "en";
+    return readSettings().language || "en";
   }
 
   function translateText(text, lang) {
     const trimmed = text.trim();
     if (!trimmed) return text;
-    const untilEn = trimmed.match(/^(\d+) days? until Graspop$/);
+    const untilEn = trimmed.match(/^(\d+) days? until (.+)$/);
     if (lang === "nl" && untilEn) {
       const count = Number(untilEn[1]);
-      return text.replace(trimmed, `${count} ${count === 1 ? "dag" : "dagen"} tot Graspop`);
+      return text.replace(trimmed, `${count} ${count === 1 ? "dag" : "dagen"} tot ${untilEn[2]}`);
     }
-    const untilNl = trimmed.match(/^(\d+) dagen? tot Graspop$/);
+    const untilNl = trimmed.match(/^(\d+) dagen? tot (.+)$/);
     if (lang === "en" && untilNl) {
       const count = Number(untilNl[1]);
-      return text.replace(trimmed, `${count} day${count === 1 ? "" : "s"} until Graspop`);
+      return text.replace(trimmed, `${count} day${count === 1 ? "" : "s"} until ${untilNl[2]}`);
     }
     const packedEn = trimmed.match(/^(\d+)\/(\d+) items packed$/);
     if (lang === "nl" && packedEn) {
@@ -503,7 +409,7 @@
     `;
     toggle.querySelectorAll("button").forEach(button => {
       button.addEventListener("click", () => {
-        localStorage.setItem(LANG_KEY, button.dataset.lang);
+        updateSettings({ language: button.dataset.lang });
         applyTranslations();
       });
     });
@@ -512,7 +418,7 @@
   }
 
   function appearanceMode() {
-    const saved = localStorage.getItem(APPEARANCE_KEY);
+    const saved = readSettings().appearance;
     return ["light", "dark", "system"].includes(saved) ? saved : "system";
   }
 
@@ -549,7 +455,7 @@
     `;
     toggle.querySelectorAll("button").forEach(button => {
       button.addEventListener("click", () => {
-        localStorage.setItem(APPEARANCE_KEY, button.dataset.appearance);
+        updateSettings({ appearance: button.dataset.appearance });
         applyAppearance();
         applyTranslations();
       });

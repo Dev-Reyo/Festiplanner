@@ -29,10 +29,10 @@
       <section class="fp-featured" id="featuredFestival" data-festival-card>
         <img src="assets/festival-crowd-discovery.png" alt="Festival crowd at dusk">
         <div class="fp-featured-content">
-          <h2 id="featuredName">Graspop Metal Meeting</h2>
-          <span id="featuredDates">18-21 June 2026</span>
+          <h2 id="featuredName">Loading festival</h2>
+          <span id="featuredDates"></span>
           <p class="fp-countdown" id="featuredCountdown" aria-live="polite">Calculating countdown</p>
-          <p id="featuredLocation">Dessel, Belgium</p>
+          <p id="featuredLocation"></p>
           <a class="fp-primary-button" id="featuredLink" href="packing.html">Open planner</a>
         </div>
         <button class="fp-featured-pin" id="featuredPin" type="button" aria-label="Pin festival" aria-pressed="false">☆</button>
@@ -46,192 +46,17 @@
         <p class="fp-empty-state" id="pinnedEmptyState">Pin festivals to keep them close.</p>
       </section>
 
-      <section class="fp-section">
+      <section class="fp-section" id="allFestivalsSection">
         <div class="fp-section-title">
           <h2>All Festivals</h2>
         </div>
-        <div class="fp-festival-list" id="allFestivalList">
-          <article
-            class="fp-festival-item"
-            data-festival-card
-            data-festival-id="graspop-2026"
-            data-name="Graspop Metal Meeting"
-            data-location="Dessel, Belgium"
-            data-dates="18-21 June 2026"
-            data-start="2026-06-18T00:00:00+02:00"
-            data-href="packing.html"
-            data-image="assets/festival-crowd-discovery.png"
-            role="link"
-            tabindex="0">
-            <img src="assets/festival-crowd-discovery.png" alt="">
-            <div class="fp-festival-copy">
-              <strong>Graspop Metal Meeting</strong>
-              <span>Dessel, Belgium · 18-21 June 2026</span>
-              <span class="fp-row-countdown" aria-live="polite">Calculating countdown</span>
-            </div>
-            <button class="fp-pin-button" type="button" aria-label="Pin festival" aria-pressed="false">☆</button>
-          </article>
-        </div>
+        <div class="fp-festival-list" id="allFestivalList"></div>
       </section>
     </main>
   </div>
 
-  <script>
-    const PINNED_KEY = "festiplannerPinnedFestivals";
-    const festivalSearch = document.getElementById("festivalSearch");
-    const featuredCountdown = document.getElementById("featuredCountdown");
-    const graspopStart = new Date("2026-06-18T00:00:00+02:00").getTime();
-    const availableFestivalRows = Array.from(document.querySelectorAll("#allFestivalList [data-festival-id]"));
-
-    function readPinnedFestivals() {
-      try {
-        const saved = JSON.parse(localStorage.getItem(PINNED_KEY) || "[]");
-        return new Set(Array.isArray(saved) ? saved : []);
-      } catch {
-        return new Set();
-      }
-    }
-
-    function savePinnedFestivals(pinned) {
-      localStorage.setItem(PINNED_KEY, JSON.stringify(Array.from(pinned)));
-    }
-
-    function festivalFromRow(row) {
-      return {
-        id: row.dataset.festivalId,
-        name: row.dataset.name,
-        location: row.dataset.location,
-        dates: row.dataset.dates,
-        start: new Date(row.dataset.start).getTime(),
-        href: row.dataset.href,
-        image: row.dataset.image
-      };
-    }
-
-    function countdownText(start) {
-      const remaining = start - Date.now();
-      if (remaining <= 0) return "Festival started";
-      const totalHours = Math.ceil(remaining / (1000 * 60 * 60));
-      if (totalHours < 24) return `${formatCountdownUnit(totalHours, "hour")} remaining`;
-      if (totalHours < 7 * 24) {
-        const days = Math.floor(totalHours / 24);
-        const hours = totalHours % 24;
-        return `${formatCountdownUnit(days, "day")} ${formatCountdownUnit(hours, "hour")} remaining`;
-      }
-      return `${formatCountdownUnit(Math.ceil(totalHours / 24), "day")} remaining`;
-    }
-
-    function formatCountdownUnit(value, unit) {
-      return `${value} ${unit}${value === 1 ? "" : "s"}`;
-    }
-
-    function updateFeaturedCountdown() {
-      if (!featuredCountdown) return;
-      const start = Number(document.getElementById("featuredFestival").dataset.start) || graspopStart;
-      featuredCountdown.textContent = countdownText(start);
-      document.querySelectorAll(".fp-row-countdown").forEach(element => {
-        const row = element.closest("[data-festival-id]");
-        element.textContent = countdownText(new Date(row.dataset.start).getTime());
-      });
-    }
-
-    function createPinnedRow(sourceRow) {
-      const row = sourceRow.cloneNode(true);
-      row.classList.add("is-pinned");
-      delete row.dataset.bound;
-      return row;
-    }
-
-    function setPinButton(button, pinned) {
-      button.textContent = pinned ? "★" : "☆";
-      button.setAttribute("aria-pressed", String(pinned));
-      button.setAttribute("aria-label", pinned ? "Unpin festival" : "Pin festival");
-      button.title = pinned ? "Unpin festival" : "Pin festival";
-    }
-
-    function updateFeaturedFestival(pinned) {
-      const festivals = availableFestivalRows.map(festivalFromRow);
-      const pinnedUpcoming = festivals
-        .filter(festival => pinned.has(festival.id) && festival.start >= Date.now())
-        .sort((a, b) => a.start - b.start);
-      const featured = pinnedUpcoming[0] || festivals[0];
-      if (!featured) return;
-
-      const featuredElement = document.getElementById("featuredFestival");
-      featuredElement.dataset.start = String(featured.start);
-      featuredElement.querySelector("img").src = featured.image;
-      document.getElementById("featuredName").textContent = featured.name;
-      document.getElementById("featuredDates").textContent = featured.dates;
-      document.getElementById("featuredLocation").textContent = featured.location;
-      document.getElementById("featuredLink").href = featured.href;
-      const featuredPin = document.getElementById("featuredPin");
-      featuredPin.dataset.festivalId = featured.id;
-      setPinButton(featuredPin, pinned.has(featured.id));
-    }
-
-    function bindFestivalRow(row, pinned) {
-      const festival = festivalFromRow(row);
-      const pinButton = row.querySelector(".fp-pin-button");
-      setPinButton(pinButton, pinned.has(festival.id));
-      if (row.dataset.bound === "true") return;
-      row.dataset.bound = "true";
-      pinButton.addEventListener("click", event => {
-        event.stopPropagation();
-        togglePinnedFestival(festival.id);
-      });
-      row.addEventListener("click", () => {
-        window.location.href = festival.href;
-      });
-      row.addEventListener("keydown", event => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          window.location.href = festival.href;
-        }
-      });
-    }
-
-    function renderFestivalHub() {
-      const pinned = readPinnedFestivals();
-      const pinnedList = document.getElementById("pinnedFestivalList");
-      pinnedList.innerHTML = "";
-
-      availableFestivalRows.forEach(row => bindFestivalRow(row, pinned));
-      availableFestivalRows
-        .filter(row => pinned.has(row.dataset.festivalId))
-        .forEach(row => {
-          const pinnedRow = createPinnedRow(row);
-          pinnedList.appendChild(pinnedRow);
-          bindFestivalRow(pinnedRow, pinned);
-        });
-
-      document.getElementById("pinnedEmptyState").hidden = pinnedList.children.length > 0;
-      updateFeaturedFestival(pinned);
-      updateFeaturedCountdown();
-    }
-
-    function togglePinnedFestival(festivalId) {
-      const pinned = readPinnedFestivals();
-      if (pinned.has(festivalId)) pinned.delete(festivalId);
-      else pinned.add(festivalId);
-      savePinnedFestivals(pinned);
-      renderFestivalHub();
-    }
-
-    document.getElementById("featuredPin").addEventListener("click", () => {
-      togglePinnedFestival(document.getElementById("featuredPin").dataset.festivalId);
-    });
-
-    festivalSearch.addEventListener("input", () => {
-      const query = festivalSearch.value.trim().toLowerCase();
-      document.querySelectorAll(".fp-festival-item").forEach(row => {
-        row.hidden = Boolean(query && !row.textContent.toLowerCase().includes(query));
-      });
-    });
-
-    renderFestivalHub();
-    setInterval(updateFeaturedCountdown, 60000);
-
-  </script>
+  <script src="festival-data.js"></script>
+  <script src="home.js"></script>
   <script src="festiplanner-i18n.js"></script>
 </body>
 </html>

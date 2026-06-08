@@ -12,7 +12,7 @@
       <div class="title-block">
         <p class="eyebrow">Festiplanner</p>
         <h1>My Festival</h1>
-        <p class="subtitle">Your Graspop overview: packing, travel, favourite bands, clashes, and notes.</p>
+        <p class="subtitle">Your festival overview: packing, travel, favourite bands, clashes, and notes.</p>
       </div>
       <aside class="progress-card" aria-live="polite">
         <span class="progress-number" id="progressNumber">0%</span>
@@ -40,19 +40,19 @@
     </nav>
     <section class="festival-profile-header">
       <div>
-        <span>Graspop Metal Meeting</span>
-        <strong>18-21 June 2026</strong>
+        <span>Loading festival</span>
+        <strong></strong>
       </div>
-      <p>Dessel, Belgium</p>
-      <a class="official-link" href="https://www.graspop.be/en" target="_blank" rel="noopener">Official Graspop website</a>
+      <p></p>
+      <a class="official-link" href="#" target="_blank" rel="noopener">Official website</a>
     </section>
     <main>
       <section class="band" id="my-festival">
         <div class="overview-grid">
           <a class="overview-widget feature" href="lineup.html">
             <span>Countdown</span>
-            <strong id="overviewCountdown">Graspop is coming</strong>
-            <p>18-21 June 2026</p>
+            <strong id="overviewCountdown">Festival countdown</strong>
+            <p id="overviewDates"></p>
           </a>
           <a class="overview-widget" href="packing.html">
             <span>Packing</span>
@@ -118,6 +118,7 @@
 <div id="planList"></div>
   </div>
   </div>
+  <script src="festival-data.js"></script>
   <script src="festiplanner.js"></script>
   <script src="my-festival.js"></script>
   <script src="festiplanner-i18n.js"></script>
