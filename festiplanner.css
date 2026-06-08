@@ -5399,8 +5399,39 @@
       margin-bottom: 0;
     }
 
+    .fp-settings-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 760;
+    }
+
+    .fp-settings-link svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    .fp-settings-link:hover {
+      background: var(--surface-2);
+    }
+
     .settings-page header {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .settings-page .settings-card,
+    .settings-page .settings-dialog {
+      background: var(--surface);
+      box-shadow: 0 12px 34px rgba(30, 50, 90, 0.07);
     }
 
     .settings-main {
@@ -5493,6 +5524,8 @@
       grid-template-columns: none;
       flex-wrap: nowrap;
       justify-content: stretch;
+      border-color: var(--border);
+      background: var(--surface-2);
     }
 
     .settings-page .language-toggle button,
