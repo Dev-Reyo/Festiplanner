@@ -2484,19 +2484,31 @@
   "packingAdaptation": {
     "removeByMode": {
       "rental": [
-        "tent-or-accommodation-booking-proof",
-        "sleeping-mat-or-air-mattress",
-        "tarp-extra-pegs-and-mallet"
+        "camping-sleep-tent-or-accommodation-booking-proof",
+        "camping-sleep-sleeping-mat-or-air-mattress",
+        "camping-sleep-tarp-extra-pegs-and-mallet"
       ],
       "room": [
-        "tent-or-accommodation-booking-proof",
-        "sleeping-bag",
-        "sleeping-mat-or-air-mattress",
-        "camping-light-or-headlamp",
-        "tarp-extra-pegs-and-mallet",
-        "shower-shoes",
-        "small-trash-bags",
-        "cup-or-mug"
+        "camping-sleep-tent-or-accommodation-booking-proof",
+        "camping-sleep-sleeping-bag",
+        "camping-sleep-sleeping-mat-or-air-mattress",
+        "camping-sleep-camping-light-or-headlamp",
+        "camping-sleep-tarp-extra-pegs-and-mallet",
+        "hygiene-shower-shoes",
+        "food-drink-small-trash-bags",
+        "food-drink-cup-or-mug"
+      ]
+    },
+    "extraByAccommodation": {
+      "devils-lake:comfort-cottage": [
+        {
+          "id": "stay-specific-cottage-groceries-and-coffee-plan",
+          "name": {
+            "en": "cottage groceries and coffee plan",
+            "nl": "boodschappen- en koffieplan voor de cottage"
+          },
+          "essential": false
+        }
       ]
     },
     "extraByMode": {

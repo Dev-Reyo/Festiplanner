@@ -51,7 +51,7 @@
   }
 
   try {
-    const festival = await window.FESTIPLANNER_APP_READY;
+    const festival = await dataApi.whenReady();
     const festivalId = festival.id;
     const favorites = dataApi.readFestivalSection(festivalId, "favorites", { favoriteActs: {} });
     const travel = dataApi.readFestivalSection(festivalId, "travel", {});

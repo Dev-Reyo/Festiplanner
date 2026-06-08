@@ -41,7 +41,6 @@
       const camps = festival.campings || [];
       const accommodationTypes = festival.accommodationTypes || [];
       const lineup = festival.timetable || [];
-      const baseCategories = festival.packingCategories || [];
       const days = festival.days?.length
         ? festival.days
         : [...new Set(lineup.map(act => act.day))].map(day => ({ id: day, label: { en: day }, shortLabel: { en: day.slice(0, 3) } }));
@@ -272,22 +271,7 @@
       }
 
       function packingCategoriesForStay() {
-        const type = selectedType();
-        const mode = type?.stayMode || (state.camp ? "ownTent" : "ownTent");
-        const remove = new Set(festival.packingAdaptation?.removeByMode?.[mode] || []);
-        const categories = baseCategories.map(category => ({
-          ...category,
-          items: (category.items || []).filter(item => !remove.has(item.id))
-        })).filter(category => category.items.length);
-        const extras = festival.packingAdaptation?.extraByMode?.[mode] || [];
-        if (extras.length) {
-          categories.push({
-            id: "stay-specific",
-            name: festival.packingAdaptation.staySpecificCategory || { en: "Stay-specific" },
-            items: extras
-          });
-        }
-        return categories;
+        return dataApi.packingCategoriesForAccommodation(festival, state.camp, state.campType);
       }
 
       function renderPacking() {
@@ -572,11 +556,14 @@
       bindTools();
       renderPackingPage();
       renderLineup();
-      window.dispatchEvent(new CustomEvent("festiplanner:festival-ready", { detail: festival }));
+      const readyDetail = { festival };
+      window.FESTIPLANNER_READY_DETAIL = readyDetail;
+      window.dispatchEvent(new CustomEvent("festiplanner:ready", { detail: readyDetail }));
       return festival;
     } catch (error) {
       dataApi.showLoadError(error);
-      throw error;
+      window.dispatchEvent(new CustomEvent("festiplanner:error", { detail: { error } }));
+      return null;
     }
   }
 

@@ -4,6 +4,8 @@
   const LEGACY_PLAN_KEY = "graspopPackingPlanner";
   const LEGACY_PINNED_KEY = "festiplannerPinnedFestivals";
   const DEFAULT_FESTIVAL_ID = "graspop-2026";
+  const LEGACY_FESTIVAL_ID = "graspop-2026";
+  const fallbackData = window.FESTIPLANNER_FALLBACK_DATA || { summaries: [], festivals: {} };
 
   function readJson(key, fallback) {
     try {
@@ -67,79 +69,171 @@
     });
   }
 
+  function packingCategoriesForAccommodation(festival, campingId, accommodationTypeId) {
+    const categories = Array.isArray(festival?.packingCategories) ? festival.packingCategories : [];
+    const types = Array.isArray(festival?.accommodationTypes) ? festival.accommodationTypes : [];
+    const type = types.find(item => item.campingId === campingId && item.id === accommodationTypeId);
+    const mode = type?.stayMode || "ownTent";
+    const adaptation = festival?.packingAdaptation || {};
+    const accommodationKey = type ? `${type.campingId}:${type.id}` : "";
+    const list = value => Array.isArray(value) ? value : [];
+    const remove = new Set([
+      ...list(adaptation.removeByMode?.[mode]),
+      ...list(adaptation.removeByAccommodation?.[accommodationKey]),
+      ...list(type?.packing?.removeItemIds)
+    ]);
+    const filtered = categories.map(category => ({
+      ...category,
+      items: list(category.items).filter(item => !remove.has(item.id))
+    })).filter(category => category.items.length);
+    const extras = [
+      ...list(adaptation.extraByMode?.[mode]),
+      ...list(adaptation.extraByAccommodation?.[accommodationKey]),
+      ...list(type?.packing?.items)
+    ];
+
+    if (extras.length) {
+      filtered.push({
+        id: "stay-specific",
+        name: adaptation.staySpecificCategory || { en: "Stay-specific" },
+        items: extras
+      });
+    }
+    return filtered;
+  }
+
   function migrateLegacyData() {
-    const settings = readSettings();
-    const legacyAlreadyMigrated = settings.legacyMigrated === true;
-    const nextSettings = { ...settings };
-    if (!nextSettings.language) nextSettings.language = localStorage.getItem("festiplannerLanguage") || "en";
-    if (!nextSettings.appearance) nextSettings.appearance = localStorage.getItem("festiplannerAppearance") || "system";
-    if (nextSettings.showPinnedFirst === undefined) {
-      nextSettings.showPinnedFirst = localStorage.getItem("festiplannerShowPinnedFirst") !== "false";
-    }
-    if (!nextSettings.selectedFestivalId) nextSettings.selectedFestivalId = DEFAULT_FESTIVAL_ID;
-    nextSettings.legacyMigrated = true;
-    writeJson(SETTINGS_KEY, nextSettings);
+    try {
+      const settings = readSettings();
+      const nextSettings = { ...settings };
+      if (!nextSettings.language) nextSettings.language = localStorage.getItem("festiplannerLanguage") || "en";
+      if (!nextSettings.appearance) nextSettings.appearance = localStorage.getItem("festiplannerAppearance") || "system";
+      if (nextSettings.showPinnedFirst === undefined) {
+        nextSettings.showPinnedFirst = localStorage.getItem("festiplannerShowPinnedFirst") !== "false";
+      }
+      if (!nextSettings.selectedFestivalId) nextSettings.selectedFestivalId = DEFAULT_FESTIVAL_ID;
 
-    if (!localStorage.getItem(PINNED_KEY)) {
-      const pinned = readJson(LEGACY_PINNED_KEY, []);
-      writeJson(PINNED_KEY, Array.isArray(pinned) ? pinned : []);
-    }
+      if (!localStorage.getItem(PINNED_KEY)) {
+        const pinned = readJson(LEGACY_PINNED_KEY, []);
+        writeJson(PINNED_KEY, Array.isArray(pinned) ? pinned : []);
+      }
 
-    if (legacyAlreadyMigrated) return;
-    const legacy = readJson(LEGACY_PLAN_KEY, null);
-    if (!legacy || typeof legacy !== "object") return;
+      const legacy = readJson(LEGACY_PLAN_KEY, null);
+      if (legacy && typeof legacy === "object" && !Array.isArray(legacy)) {
+        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "packing"))) {
+          writeFestivalSection(LEGACY_FESTIVAL_ID, "packing", {
+            camp: legacy.camp || "",
+            campType: legacy.campType || "",
+            checked: legacy.checked && typeof legacy.checked === "object" && !Array.isArray(legacy.checked)
+              ? legacy.checked
+              : {}
+          });
+        }
+        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "favorites"))) {
+          const legacyDay = String(legacy.lineupDay || "thursday").toLowerCase();
+          writeFestivalSection(LEGACY_FESTIVAL_ID, "favorites", {
+            lineupDay: legacyDay,
+            favoriteActs: legacy.favoriteActs && typeof legacy.favoriteActs === "object" && !Array.isArray(legacy.favoriteActs)
+              ? legacy.favoriteActs
+              : {}
+          });
+        }
+        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "travel"))) {
+          writeFestivalSection(LEGACY_FESTIVAL_ID, "travel", {
+            arrivalMode: legacy.arrivalMode || "driving",
+            mapStart: legacy.mapStart || "",
+            mapDestination: legacy.mapDestination || "",
+            departureTime: legacy.departureTime || "",
+            meetingPoint: legacy.meetingPoint || ""
+          });
+        }
+        if (!localStorage.getItem(festivalKey(LEGACY_FESTIVAL_ID, "notes"))) {
+          writeFestivalSection(LEGACY_FESTIVAL_ID, "notes", { value: legacy.freeNotes || "" });
+        }
+      }
 
-    if (!localStorage.getItem(festivalKey(DEFAULT_FESTIVAL_ID, "packing"))) {
-      writeFestivalSection(DEFAULT_FESTIVAL_ID, "packing", {
-        camp: legacy.camp || "",
-        campType: legacy.campType || "",
-        checked: legacy.checked && typeof legacy.checked === "object" ? legacy.checked : {}
-      });
-    }
-    if (!localStorage.getItem(festivalKey(DEFAULT_FESTIVAL_ID, "favorites"))) {
-      writeFestivalSection(DEFAULT_FESTIVAL_ID, "favorites", {
-        lineupDay: legacy.lineupDay || "Thursday",
-        favoriteActs: legacy.favoriteActs && typeof legacy.favoriteActs === "object" ? legacy.favoriteActs : {}
-      });
-    }
-    if (!localStorage.getItem(festivalKey(DEFAULT_FESTIVAL_ID, "travel"))) {
-      writeFestivalSection(DEFAULT_FESTIVAL_ID, "travel", {
-        arrivalMode: legacy.arrivalMode || "driving",
-        mapStart: legacy.mapStart || "",
-        mapDestination: legacy.mapDestination || "",
-        departureTime: legacy.departureTime || "",
-        meetingPoint: legacy.meetingPoint || ""
-      });
-    }
-    if (!localStorage.getItem(festivalKey(DEFAULT_FESTIVAL_ID, "notes"))) {
-      writeFestivalSection(DEFAULT_FESTIVAL_ID, "notes", { value: legacy.freeNotes || "" });
+      nextSettings.legacyMigrated = true;
+      writeJson(SETTINGS_KEY, nextSettings);
+    } catch (error) {
+      console.warn("Legacy Festiplanner data could not be migrated yet.", error);
     }
   }
 
-  async function fetchJson(path) {
-    const response = await fetch(path, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
-    return response.json();
+  function cloneFallback(value) {
+    return value === undefined ? undefined : JSON.parse(JSON.stringify(value));
+  }
+
+  function fallbackSummaries() {
+    return cloneFallback(fallbackData.summaries) || [];
+  }
+
+  function fallbackFestival(festivalId) {
+    return cloneFallback(fallbackData.festivals?.[festivalId]);
+  }
+
+  function warnFallback(path, error) {
+    console.warn(`Using bundled festival data because ${path} could not be loaded.`, error);
+  }
+
+  async function fetchJson(path, fallback) {
+    try {
+      const response = await fetch(path, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
+      return await response.json();
+    } catch (error) {
+      const value = typeof fallback === "function" ? fallback() : cloneFallback(fallback);
+      if (value !== undefined && value !== null) {
+        warnFallback(path, error);
+        return value;
+      }
+      throw error;
+    }
   }
 
   async function loadFestivalSummaries() {
-    const data = await fetchJson("data/festivals.json");
-    if (!Array.isArray(data)) throw new Error("Festival list is invalid.");
-    return data;
+    const data = await fetchJson("data/festivals.json", fallbackSummaries);
+    if (Array.isArray(data) && data.length) return data;
+    const fallback = fallbackSummaries();
+    if (fallback.length) return fallback;
+    throw new Error("No festival list is available.");
   }
 
   async function loadFestival(festivalId = selectedFestivalId()) {
     const festivals = await loadFestivalSummaries();
     const explicitFestivalId = new URLSearchParams(window.location.search).get("festival");
-    const summary = festivals.find(item => item.id === festivalId) || (explicitFestivalId ? null : festivals[0]);
+    const summary = festivals.find(item => item.id === festivalId)
+      || fallbackSummaries().find(item => item.id === festivalId)
+      || (explicitFestivalId ? null : festivals[0]);
     if (explicitFestivalId && !summary) throw new Error(`Festival "${explicitFestivalId}" is not available.`);
     if (!summary) throw new Error("No festivals are available.");
-    const festival = await fetchJson(summary.dataFile);
+    const festival = await fetchJson(summary.dataFile, () => fallbackFestival(summary.id));
+    if (!festival || typeof festival !== "object") {
+      throw new Error(`Festival "${summary.id}" has no usable data.`);
+    }
     updateSettings({ selectedFestivalId: festival.id });
     applyFestivalTheme(festival);
     window.FESTIPLANNER_FESTIVAL_DATA = festival;
     window.FESTIPLANNER_LINEUP_DATA = festival.timetable || [];
     return { summary, festival, festivals };
+  }
+
+  function whenReady(callback) {
+    if (window.FESTIPLANNER_READY_DETAIL?.festival) {
+      const festival = window.FESTIPLANNER_READY_DETAIL.festival;
+      return Promise.resolve(callback ? callback(festival) : festival);
+    }
+    return new Promise((resolve, reject) => {
+      const onReady = event => {
+        window.removeEventListener("festiplanner:error", onError);
+        resolve(callback ? callback(event.detail.festival) : event.detail.festival);
+      };
+      const onError = event => {
+        window.removeEventListener("festiplanner:ready", onReady);
+        reject(event.detail.error);
+      };
+      window.addEventListener("festiplanner:ready", onReady, { once: true });
+      window.addEventListener("festiplanner:error", onError, { once: true });
+    });
   }
 
   function applyFestivalTheme(festival) {
@@ -201,8 +295,10 @@
     readFestivalSection,
     writeFestivalSection,
     removeFestivalData,
+    packingCategoriesForAccommodation,
     loadFestivalSummaries,
     loadFestival,
+    whenReady,
     applyFestivalTheme,
     formatDateRange,
     festivalUrl,
