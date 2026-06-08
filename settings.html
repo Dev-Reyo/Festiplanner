@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | Festiplanner</title>
+  <link rel="stylesheet" href="festiplanner.css">
+</head>
+<body class="festival-page graspop-theme settings-page">
+  <div class="app">
+    <header>
+      <div class="title-block">
+        <p class="eyebrow">Festiplanner</p>
+        <h1>Settings</h1>
+        <p class="subtitle">Manage app-wide preferences and locally saved festival data.</p>
+      </div>
+    </header>
+
+    <div class="profile-actions">
+      <a class="profile-home-link" href="index.html" aria-label="Home">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.75 12 3l9 7.75V21a1 1 0 0 1-1 1h-5.25v-6.5h-5.5V22H4a1 1 0 0 1-1-1V10.75Z"/></svg>
+        <span>Home</span>
+      </a>
+    </div>
+
+    <main class="settings-main">
+      <div class="settings-grid">
+        <section class="settings-card" aria-labelledby="appearanceTitle">
+          <div class="settings-card-heading">
+            <h2 id="appearanceTitle">Appearance</h2>
+            <p>Choose how Festiplanner looks on this device.</p>
+          </div>
+          <div class="settings-row">
+            <div>
+              <strong>Theme</strong>
+              <span>System follows your device appearance.</span>
+            </div>
+            <div id="appearanceSettings"></div>
+          </div>
+        </section>
+
+        <section class="settings-card" aria-labelledby="languageTitle">
+          <div class="settings-card-heading">
+            <h2 id="languageTitle">Language</h2>
+            <p>Choose the language used throughout the app.</p>
+          </div>
+          <div class="settings-row">
+            <div>
+              <strong>Language</strong>
+            </div>
+            <div id="languageSettings"></div>
+          </div>
+        </section>
+
+        <section class="settings-card settings-card-wide" aria-labelledby="preferencesTitle">
+          <div class="settings-card-heading">
+            <h2 id="preferencesTitle">Festival Preferences</h2>
+            <p>Control how festivals are organized in the Festival Hub.</p>
+          </div>
+          <label class="settings-row settings-toggle-row" for="showPinnedFirst">
+            <div>
+              <strong>Show pinned festivals first</strong>
+              <span>Keep pinned festivals above the full festival list.</span>
+            </div>
+            <input class="settings-switch" id="showPinnedFirst" type="checkbox">
+          </label>
+        </section>
+
+        <section class="settings-card settings-card-wide" aria-labelledby="dataTitle">
+          <div class="settings-card-heading">
+            <h2 id="dataTitle">Data</h2>
+            <p>Manage information saved locally in this browser.</p>
+          </div>
+          <div class="settings-action-row">
+            <div>
+              <strong>Reset current festival</strong>
+              <span>Clears campsite, travel, bands, notes, and packing progress.</span>
+            </div>
+            <button class="settings-button" id="resetFestivalButton" type="button">Reset festival</button>
+          </div>
+          <div class="settings-action-row">
+            <div>
+              <strong>Reset all local data</strong>
+              <span>Clears festival plans, pinned festivals, and all app preferences.</span>
+            </div>
+            <button class="settings-button danger" id="resetAllButton" type="button">Reset all data</button>
+          </div>
+          <p class="settings-status" id="settingsStatus" aria-live="polite"></p>
+        </section>
+
+        <section class="settings-card settings-card-wide" aria-labelledby="aboutTitle">
+          <div class="settings-card-heading">
+            <h2 id="aboutTitle">About</h2>
+          </div>
+          <dl class="settings-about-list">
+            <div>
+              <dt>FestiPlanner version</dt>
+              <dd>1.0.0</dd>
+            </div>
+            <div>
+              <dt>Current festival count</dt>
+              <dd>1</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="settings-dialog" id="resetDialog" aria-labelledby="resetDialogTitle">
+    <form method="dialog">
+      <h2 id="resetDialogTitle">Reset local data?</h2>
+      <p id="resetDialogText">This action cannot be undone.</p>
+      <div class="settings-dialog-actions">
+        <button class="settings-button" value="cancel">Cancel</button>
+        <button class="settings-button danger" id="confirmResetButton" value="confirm">Reset</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="festiplanner-i18n.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

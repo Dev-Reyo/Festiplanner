@@ -64,6 +64,44 @@
       "Every festival can have its own rules, campsites, routes, and timetable. Graspop is the first profile, with room for more later.": "Elk festival kan eigen regels, campings, routes en tijdschema's hebben. Graspop is het eerste profiel, met ruimte voor meer.",
 
       "Home": "Home",
+      "Settings": "Instellingen",
+      "Settings | Festiplanner": "Instellingen | Festiplanner",
+      "Manage app-wide preferences and locally saved festival data.": "Beheer app-brede voorkeuren en lokaal opgeslagen festivalgegevens.",
+      "Appearance": "Weergave",
+      "Choose how Festiplanner looks on this device.": "Kies hoe Festiplanner er op dit apparaat uitziet.",
+      "Theme": "Thema",
+      "System": "Systeem",
+      "System follows your device appearance.": "Systeem volgt de weergave van je apparaat.",
+      "Language": "Taal",
+      "Choose the language used throughout the app.": "Kies de taal die in de hele app wordt gebruikt.",
+      "English": "Engels",
+      "Nederlands": "Nederlands",
+      "Festival Preferences": "Festivalvoorkeuren",
+      "Control how festivals are organized in the Festival Hub.": "Bepaal hoe festivals in de Festivalhub worden geordend.",
+      "Show pinned festivals first": "Toon vastgezette festivals eerst",
+      "Keep pinned festivals above the full festival list.": "Houd vastgezette festivals boven de volledige festivallijst.",
+      "Data": "Gegevens",
+      "Manage information saved locally in this browser.": "Beheer informatie die lokaal in deze browser is opgeslagen.",
+      "Reset current festival": "Huidig festival resetten",
+      "Clears campsite, travel, bands, notes, and packing progress.": "Wist camping, reizen, bands, notities en inpakvoortgang.",
+      "Reset festival": "Festival resetten",
+      "Reset all local data": "Alle lokale gegevens resetten",
+      "Clears festival plans, pinned festivals, and all app preferences.": "Wist festivalplannen, vastgezette festivals en alle app-voorkeuren.",
+      "Reset all data": "Alle gegevens resetten",
+      "About": "Over",
+      "FestiPlanner version": "FestiPlanner-versie",
+      "Current festival count": "Huidig aantal festivals",
+      "Reset local data?": "Lokale gegevens resetten?",
+      "This action cannot be undone.": "Deze actie kan niet ongedaan worden gemaakt.",
+      "Cancel": "Annuleren",
+      "Reset": "Resetten",
+      "Reset current festival?": "Huidig festival resetten?",
+      "Campsite, travel information, selected bands, notes, and packing progress will be cleared.": "Camping, reisinformatie, geselecteerde bands, notities en inpakvoortgang worden gewist.",
+      "Reset all local data?": "Alle lokale gegevens resetten?",
+      "All festival plans, pinned festivals, language, theme, and app preferences will be cleared. This cannot be undone.": "Alle festivalplannen, vastgezette festivals, taal, thema en app-voorkeuren worden gewist. Dit kan niet ongedaan worden gemaakt.",
+      "Festival preference saved.": "Festivalvoorkeur opgeslagen.",
+      "Current festival data reset.": "Gegevens van het huidige festival gereset.",
+      "All local data reset.": "Alle lokale gegevens gereset.",
       "Site navigation": "Sitenavigatie",
       "Packing progress": "Inpakvoortgang",
       "Packing": "Inpakken",
@@ -454,13 +492,14 @@
 
   function installToggle() {
     if (document.querySelector(".language-toggle")) return;
-    const controls = ensureHeaderControls();
+    const controls = document.getElementById("languageSettings");
+    if (!controls) return;
     const toggle = document.createElement("div");
     toggle.className = "language-toggle";
     toggle.setAttribute("aria-label", "Language");
     toggle.innerHTML = `
-      <button type="button" data-lang="nl">NL</button>
-      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="nl">Nederlands</button>
     `;
     toggle.querySelectorAll("button").forEach(button => {
       button.addEventListener("click", () => {
@@ -498,11 +537,13 @@
 
   function installAppearanceToggle() {
     if (document.querySelector(".appearance-toggle")) return;
-    const controls = ensureHeaderControls();
+    const controls = document.getElementById("appearanceSettings");
+    if (!controls) return;
     const toggle = document.createElement("div");
     toggle.className = "appearance-toggle";
     toggle.setAttribute("aria-label", "Appearance");
     toggle.innerHTML = `
+      <button type="button" data-appearance="system">System</button>
       <button type="button" data-appearance="light">Light</button>
       <button type="button" data-appearance="dark">Dark</button>
     `;
@@ -516,19 +557,6 @@
 
     if (controls) controls.appendChild(toggle);
   }
-
-  function ensureHeaderControls() {
-    const header = document.querySelector(".fp-topbar, header");
-    if (!header) return null;
-    let controls = header.querySelector(":scope > .header-controls");
-    if (!controls) {
-      controls = document.createElement("div");
-      controls.className = "header-controls";
-      header.appendChild(controls);
-    }
-    return controls;
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     installToggle();
     installAppearanceToggle();

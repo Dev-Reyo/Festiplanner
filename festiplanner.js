@@ -616,7 +616,6 @@
     const lineupTitle = document.getElementById("lineupTitle");
     const actList = document.getElementById("actList");
     const clashList = document.getElementById("clashList");
-    const clashOverviewList = document.getElementById("clashOverviewList");
     const markedList = document.getElementById("markedList");
     const planList = document.getElementById("planList");
     const mapsLink = document.getElementById("mapsLink");
@@ -1000,9 +999,9 @@
                   const start = timeToMinutes(act.start);
                   const end = timeToMinutes(act.end);
                   const left = ((start - bounds.min) / bounds.span) * 100;
-                  const width = Math.max(((end - start) / bounds.span) * 100, 4);
+                  const width = ((end - start) / bounds.span) * 100;
                   return `
-                    <article class="act-card ${favorite ? "favorite" : ""} ${clash ? "clashing" : ""}" style="left: ${left}%; width: ${width}%;">
+                    <article class="act-card ${favorite ? "favorite" : ""} ${clash ? "clashing" : ""}" style="--act-left: ${left}%; --act-width: ${width}%;">
                       <div class="act-card-content">
                         <span class="act-name">${act.name}</span>
                         <span class="act-meta">${formatTime(act.start)} - ${formatTime(act.end)}</span>
@@ -1042,7 +1041,9 @@
 
     function renderClashes() {
       const marked = markedActsWithMinutes();
-      const clashes = clashPairs(marked).sort((a, b) => b.overlap - a.overlap);
+      const clashes = clashPairs(marked).sort((a, b) =>
+        a.act.startMinutes - b.act.startMinutes || b.overlap - a.overlap
+      );
       const clashing = clashingActIds();
 
       markedList.innerHTML = marked.length ? marked.map(act => `
@@ -1067,7 +1068,6 @@
         ? clashes.map(clashCardMarkup).join("")
         : `<p class="hint">No clashes yet. Mark bands to detect overlaps.</p>`;
       clashList.innerHTML = clashContent;
-      if (clashOverviewList) clashOverviewList.innerHTML = clashContent;
     }
 
     function renderLineup() {
@@ -1089,15 +1089,25 @@
       const mode = ["driving", "transit", "walking", "bicycling"].includes(state.arrivalMode)
         ? state.arrivalMode
         : "driving";
-      const destination = state.mapDestination || "Graspop Metal Meeting, Dessel, Belgium";
-      const origin = state.mapStart || "";
-      const params = new URLSearchParams({
-        api: "1",
-        destination,
-        travelmode: mode
-      });
-      if (origin) params.set("origin", origin);
-      mapsLink.href = `https://www.google.com/maps/dir/?${params.toString()}`;
+      const destination = (state.mapDestination || "Graspop Metal Meeting, Dessel, Belgium").trim();
+      const origin = (state.mapStart || "").trim();
+
+      if (origin) {
+        const params = new URLSearchParams({
+          api: "1",
+          origin,
+          destination,
+          travelmode: mode
+        });
+        mapsLink.href = `https://www.google.com/maps/dir/?${params.toString()}`;
+      } else {
+        const params = new URLSearchParams({
+          api: "1",
+          query: destination
+        });
+        mapsLink.href = `https://www.google.com/maps/search/?${params.toString()}`;
+      }
+
       mapsPreview.textContent = `${routeModeLabel(mode)} route ${origin ? "from " + origin + " " : ""}to ${destination}.`;
       if (routeFrom) routeFrom.textContent = origin || "Add a starting point";
       if (routeTo) routeTo.textContent = destination;
