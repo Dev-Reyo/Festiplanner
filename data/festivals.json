@@ -16,5 +16,23 @@
       "accentLight": "#b51f2e"
     },
     "dataFile": "data/festivals/graspop-2026.json"
+  },
+  {
+    "id": "rock-werchter-2026",
+    "name": "Rock Werchter",
+    "shortName": "RW",
+    "country": "Belgium",
+    "city": "Werchter",
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-05",
+    "status": "available",
+    "featuredImage": "assets/rock-werchter-2026.png",
+    "theme": {
+      "id": "rock-werchter",
+      "className": "rock-werchter-theme",
+      "accent": "#ec174f",
+      "accentLight": "#d50f43"
+    },
+    "dataFile": "data/festivals/rock-werchter-2026.json"
   }
 ]

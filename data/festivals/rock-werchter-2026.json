@@ -1,0 +1,1003 @@
+{
+  "id": "rock-werchter-2026",
+  "name": "Rock Werchter",
+  "shortName": "RW",
+  "location": "Festivalpark Werchter, Werchter, Belgium",
+  "country": "Belgium",
+  "city": "Werchter",
+  "startDate": "2026-07-02",
+  "endDate": "2026-07-05",
+  "officialWebsite": "https://www.rockwerchter.be/en/",
+  "officialLinks": {
+    "website": {
+      "url": "https://www.rockwerchter.be/en/",
+      "label": {
+        "en": "Official Rock Werchter website",
+        "nl": "Officiële Rock Werchter-website"
+      }
+    },
+    "timetable": {
+      "url": "https://www.rockwerchter.be/en/line-up/thursday/schedule",
+      "label": {
+        "en": "Check official timetable",
+        "nl": "Bekijk het officiële tijdschema"
+      }
+    },
+    "camping": {
+      "url": "https://www.rockwerchter.be/en/info/camping",
+      "label": {
+        "en": "Official camping information",
+        "nl": "Officiële campinginformatie"
+      }
+    }
+  },
+  "theme": {
+    "id": "rock-werchter",
+    "className": "rock-werchter-theme",
+    "accent": "#ec174f",
+    "accentLight": "#d50f43"
+  },
+  "images": {
+    "featured": "assets/rock-werchter-2026.png"
+  },
+  "days": [
+    {
+      "id": "thursday",
+      "label": {
+        "en": "Thursday",
+        "nl": "Donderdag"
+      },
+      "shortLabel": {
+        "en": "Thu",
+        "nl": "Do"
+      }
+    },
+    {
+      "id": "friday",
+      "label": {
+        "en": "Friday",
+        "nl": "Vrijdag"
+      },
+      "shortLabel": {
+        "en": "Fri",
+        "nl": "Vr"
+      }
+    },
+    {
+      "id": "saturday",
+      "label": {
+        "en": "Saturday",
+        "nl": "Zaterdag"
+      },
+      "shortLabel": {
+        "en": "Sat",
+        "nl": "Za"
+      }
+    },
+    {
+      "id": "sunday",
+      "label": {
+        "en": "Sunday",
+        "nl": "Zondag"
+      },
+      "shortLabel": {
+        "en": "Sun",
+        "nl": "Zo"
+      }
+    }
+  ],
+  "campings": [
+    {
+      "id": "camping-regular",
+      "name": "Camping Regular",
+      "icon": "R",
+      "style": {
+        "en": "Basic campsites within walking distance",
+        "nl": "Eenvoudige campings op wandelafstand"
+      },
+      "description": {
+        "en": "Independent regular campsites close to Festivalpark Werchter for visitors bringing their own tent.",
+        "nl": "Onafhankelijke reguliere campings dicht bij Festivalpark Werchter voor bezoekers met een eigen tent."
+      },
+      "reminders": [
+        {
+          "en": "Keep your camping ticket and exact campsite location available offline.",
+          "nl": "Bewaar je campingticket en exacte campinglocatie offline."
+        },
+        {
+          "en": "Bring a complete tent and sleeping setup because facilities are more basic.",
+          "nl": "Neem een volledige tent- en slaapuitrusting mee, want de voorzieningen zijn eenvoudiger."
+        }
+      ],
+      "tags": [
+        {
+          "en": "Own tent",
+          "nl": "Eigen tent"
+        },
+        {
+          "en": "Walking distance",
+          "nl": "Op wandelafstand"
+        },
+        {
+          "en": "Basic facilities",
+          "nl": "Basisvoorzieningen"
+        }
+      ],
+      "accommodationTypeIds": [
+        "regular-own-tent"
+      ]
+    },
+    {
+      "id": "the-hive",
+      "name": "The Hive",
+      "icon": "H",
+      "style": {
+        "en": "Festival campsite with Central Park",
+        "nl": "Festivalcamping met Central Park"
+      },
+      "description": {
+        "en": "Rock Werchter's main campsite for visitors bringing their own tents, with extensive facilities and activities.",
+        "nl": "De hoofdcamping van Rock Werchter voor bezoekers met een eigen tent, met uitgebreide voorzieningen en activiteiten."
+      },
+      "reminders": [
+        {
+          "en": "Plan shared tent gear with your group before travelling.",
+          "nl": "Verdeel gedeelde tentspullen binnen je groep voor vertrek."
+        },
+        {
+          "en": "Save the route between your tent, Central Park, and the festival entrance.",
+          "nl": "Bewaar de route tussen je tent, Central Park en de festivalingang."
+        }
+      ],
+      "tags": [
+        {
+          "en": "Own tent",
+          "nl": "Eigen tent"
+        },
+        "Central Park",
+        {
+          "en": "Extra activities",
+          "nl": "Extra activiteiten"
+        }
+      ],
+      "accommodationTypeIds": [
+        "hive-own-tent"
+      ]
+    },
+    {
+      "id": "the-hive-resort",
+      "name": "The Hive Resort",
+      "icon": "HR",
+      "style": {
+        "en": "Pre-pitched comfort camping",
+        "nl": "Comfortcamping met vooraf opgezette accommodatie"
+      },
+      "description": {
+        "en": "A more comfortable camping experience with reserved, pre-arranged accommodation.",
+        "nl": "Een comfortabelere kampeerervaring met gereserveerde, vooraf geregelde accommodatie."
+      },
+      "reminders": [
+        {
+          "en": "Bring your booking confirmation and check exactly what bedding is included.",
+          "nl": "Neem je boekingsbevestiging mee en controleer welk beddengoed inbegrepen is."
+        },
+        {
+          "en": "Leave tent canvas and pegs at home unless your booking explicitly requires them.",
+          "nl": "Laat tentdoek en haringen thuis, tenzij je boeking die expliciet vereist."
+        }
+      ],
+      "tags": [
+        {
+          "en": "Pre-pitched",
+          "nl": "Vooraf opgezet"
+        },
+        {
+          "en": "Comfort",
+          "nl": "Comfort"
+        },
+        {
+          "en": "Reservation required",
+          "nl": "Reservatie vereist"
+        }
+      ],
+      "accommodationTypeIds": [
+        "resort-accommodation"
+      ]
+    },
+    {
+      "id": "the-hive-my-space",
+      "name": "The Hive My Space",
+      "icon": "MS",
+      "style": {
+        "en": "Reserved space with optional tent",
+        "nl": "Gereserveerde plek met optionele tent"
+      },
+      "description": {
+        "en": "A reserved camping pitch with more space, available either for your own tent or with a tent included.",
+        "nl": "Een gereserveerde kampeerplek met meer ruimte, beschikbaar voor je eigen tent of met een inbegrepen tent."
+      },
+      "reminders": [
+        {
+          "en": "Check whether your package includes a tent before packing bulky equipment.",
+          "nl": "Controleer of je pakket een tent bevat voordat je grote kampeerspullen inpakt."
+        },
+        {
+          "en": "Keep the lead booker's package details accessible for arrival.",
+          "nl": "Houd de pakketgegevens van de hoofdboeker bij de hand bij aankomst."
+        }
+      ],
+      "tags": [
+        {
+          "en": "Reserved pitch",
+          "nl": "Gereserveerde plek"
+        },
+        {
+          "en": "Own or included tent",
+          "nl": "Eigen of inbegrepen tent"
+        },
+        {
+          "en": "Group friendly",
+          "nl": "Groepsvriendelijk"
+        }
+      ],
+      "accommodationTypeIds": [
+        "my-space-own-tent",
+        "my-space-tent-included"
+      ]
+    }
+  ],
+  "accommodationTypes": [
+    {
+      "id": "regular-own-tent",
+      "campingId": "camping-regular",
+      "name": "Own tent",
+      "description": {
+        "en": "Bring and pitch your full camping setup at a regular campsite.",
+        "nl": "Neem je volledige kampeeruitrusting mee naar een reguliere camping."
+      },
+      "reminders": [
+        {
+          "en": "Pack tent, pegs, mallet, sleeping mat, sleeping bag, and a campsite light.",
+          "nl": "Pak tent, haringen, hamer, slaapmat, slaapzak en een campinglamp in."
+        }
+      ],
+      "stayMode": "ownTent"
+    },
+    {
+      "id": "hive-own-tent",
+      "campingId": "the-hive",
+      "name": "Own tent",
+      "description": {
+        "en": "Bring your own tent to The Hive and use the campsite's expanded facilities.",
+        "nl": "Neem je eigen tent mee naar The Hive en gebruik de uitgebreide campingvoorzieningen."
+      },
+      "reminders": [
+        {
+          "en": "Bring a recognizable tent marker and coordinate shared gear.",
+          "nl": "Neem een herkenbaar tentmarkeerpunt mee en stem gedeelde spullen af."
+        }
+      ],
+      "stayMode": "ownTent"
+    },
+    {
+      "id": "resort-accommodation",
+      "campingId": "the-hive-resort",
+      "name": "Resort accommodation",
+      "description": {
+        "en": "Stay in reserved pre-pitched accommodation at The Hive Resort.",
+        "nl": "Verblijf in gereserveerde vooraf opgezette accommodatie op The Hive Resort."
+      },
+      "reminders": [
+        {
+          "en": "Pack personal bedding only if it is not included in your selected package.",
+          "nl": "Pak alleen persoonlijk beddengoed in als dit niet in je pakket zit."
+        }
+      ],
+      "stayMode": "rental"
+    },
+    {
+      "id": "my-space-own-tent",
+      "campingId": "the-hive-my-space",
+      "name": "Reserved pitch - own tent",
+      "description": {
+        "en": "Use a reserved My Space pitch and bring your own tent.",
+        "nl": "Gebruik een gereserveerde My Space-plek en neem je eigen tent mee."
+      },
+      "reminders": [
+        {
+          "en": "Your space is reserved, but you still need the complete tent setup.",
+          "nl": "Je plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+        }
+      ],
+      "stayMode": "ownTent"
+    },
+    {
+      "id": "my-space-tent-included",
+      "campingId": "the-hive-my-space",
+      "name": "Reserved pitch - tent included",
+      "description": {
+        "en": "Use a reserved My Space package with a tent already provided.",
+        "nl": "Gebruik een gereserveerd My Space-pakket met een inbegrepen tent."
+      },
+      "reminders": [
+        {
+          "en": "Leave tent, pegs, and mallet at home; confirm bedding details before departure.",
+          "nl": "Laat tent, haringen en hamer thuis; controleer het beddengoed voor vertrek."
+        }
+      ],
+      "stayMode": "rental"
+    }
+  ],
+  "packingCategories": [
+    {
+      "id": "tickets-documents",
+      "name": {
+        "en": "Tickets & documents",
+        "nl": "Tickets & documenten"
+      },
+      "items": [
+        {
+          "id": "tickets-documents-festival-ticket",
+          "name": {
+            "en": "festival ticket",
+            "nl": "festivalticket"
+          },
+          "essential": true
+        },
+        {
+          "id": "tickets-documents-campsite-or-accommodation-confirmation",
+          "name": {
+            "en": "campsite or accommodation confirmation",
+            "nl": "camping- of accommodatiebevestiging"
+          },
+          "essential": true
+        },
+        {
+          "id": "tickets-documents-id-or-passport",
+          "name": {
+            "en": "ID or passport",
+            "nl": "ID of paspoort"
+          },
+          "essential": true
+        },
+        {
+          "id": "tickets-documents-bank-card-and-some-cash",
+          "name": {
+            "en": "bank card and some cash",
+            "nl": "bankpas en wat cash"
+          },
+          "essential": true
+        },
+        {
+          "id": "tickets-documents-health-insurance-details",
+          "name": {
+            "en": "health insurance details",
+            "nl": "zorgverzekeringsgegevens"
+          },
+          "essential": false
+        },
+        {
+          "id": "tickets-documents-offline-screenshots-of-maps-and-bookings",
+          "name": {
+            "en": "offline screenshots of maps and bookings",
+            "nl": "offline screenshots van kaarten en boekingen"
+          },
+          "essential": false
+        }
+      ]
+    },
+    {
+      "id": "camping-sleep",
+      "name": {
+        "en": "Camping & sleep",
+        "nl": "Camping & slapen"
+      },
+      "items": [
+        {
+          "id": "camping-sleep-tent-or-accommodation-booking-proof",
+          "name": {
+            "en": "tent or accommodation booking proof",
+            "nl": "tent of accommodatiebewijs"
+          },
+          "essential": true
+        },
+        {
+          "id": "camping-sleep-sleeping-bag",
+          "name": {
+            "en": "sleeping bag",
+            "nl": "slaapzak"
+          },
+          "essential": true
+        },
+        {
+          "id": "camping-sleep-sleeping-mat-or-air-mattress",
+          "name": {
+            "en": "sleeping mat or air mattress",
+            "nl": "slaapmat of luchtbed"
+          },
+          "essential": true
+        },
+        {
+          "id": "camping-sleep-pillow-or-hoodie-pillow",
+          "name": {
+            "en": "pillow or hoodie pillow",
+            "nl": "kussen of hoodie-kussen"
+          },
+          "essential": false
+        },
+        {
+          "id": "camping-sleep-earplugs-for-sleeping",
+          "name": {
+            "en": "earplugs for sleeping",
+            "nl": "oordoppen om te slapen"
+          },
+          "essential": true
+        },
+        {
+          "id": "camping-sleep-camping-light-or-headlamp",
+          "name": {
+            "en": "camping light or headlamp",
+            "nl": "campinglamp of hoofdlamp"
+          },
+          "essential": false
+        },
+        {
+          "id": "camping-sleep-tarp-extra-pegs-and-mallet",
+          "name": {
+            "en": "tarp, extra pegs, and mallet",
+            "nl": "zeil, extra haringen en hamer"
+          },
+          "essential": false
+        }
+      ]
+    },
+    {
+      "id": "clothes",
+      "name": {
+        "en": "Clothes",
+        "nl": "Kleding"
+      },
+      "items": [
+        {
+          "id": "clothes-band-shirts-and-daily-outfits",
+          "name": {
+            "en": "band shirts and daily outfits",
+            "nl": "bandshirts en outfits per dag"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-warm-hoodie-or-jacket",
+          "name": {
+            "en": "warm hoodie or jacket",
+            "nl": "warme hoodie of jas"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-rain-jacket-or-poncho",
+          "name": {
+            "en": "rain jacket or poncho",
+            "nl": "regenjas of poncho"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-comfortable-broken-in-shoes",
+          "name": {
+            "en": "comfortable broken-in shoes",
+            "nl": "comfortabele ingelopen schoenen"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-spare-socks",
+          "name": {
+            "en": "spare socks",
+            "nl": "extra sokken"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-underwear",
+          "name": {
+            "en": "underwear",
+            "nl": "ondergoed"
+          },
+          "essential": true
+        },
+        {
+          "id": "clothes-hat-or-cap",
+          "name": {
+            "en": "hat or cap",
+            "nl": "hoed of pet"
+          },
+          "essential": false
+        }
+      ]
+    },
+    {
+      "id": "hygiene",
+      "name": {
+        "en": "Hygiene",
+        "nl": "Hygiene"
+      },
+      "items": [
+        {
+          "id": "hygiene-toothbrush-and-toothpaste",
+          "name": {
+            "en": "toothbrush and toothpaste",
+            "nl": "tandenborstel en tandpasta"
+          },
+          "essential": true
+        },
+        {
+          "id": "hygiene-deodorant",
+          "name": {
+            "en": "deodorant",
+            "nl": "deodorant"
+          },
+          "essential": true
+        },
+        {
+          "id": "hygiene-towel",
+          "name": {
+            "en": "towel",
+            "nl": "handdoek"
+          },
+          "essential": true
+        },
+        {
+          "id": "hygiene-shower-shoes",
+          "name": {
+            "en": "shower shoes",
+            "nl": "doucheslippers"
+          },
+          "essential": false
+        },
+        {
+          "id": "hygiene-wet-wipes-and-tissues",
+          "name": {
+            "en": "wet wipes and tissues",
+            "nl": "vochtige doekjes en tissues"
+          },
+          "essential": false
+        },
+        {
+          "id": "hygiene-sunscreen",
+          "name": {
+            "en": "sunscreen",
+            "nl": "zonnebrand"
+          },
+          "essential": true
+        },
+        {
+          "id": "hygiene-hand-sanitizer",
+          "name": {
+            "en": "hand sanitizer",
+            "nl": "handgel"
+          },
+          "essential": false
+        }
+      ]
+    },
+    {
+      "id": "food-drink",
+      "name": {
+        "en": "Food & drink",
+        "nl": "Eten & drinken"
+      },
+      "items": [
+        {
+          "id": "food-drink-reusable-water-bottle",
+          "name": {
+            "en": "reusable water bottle",
+            "nl": "herbruikbare waterfles"
+          },
+          "essential": true
+        },
+        {
+          "id": "food-drink-travel-snacks",
+          "name": {
+            "en": "travel snacks",
+            "nl": "reissnacks"
+          },
+          "essential": false
+        },
+        {
+          "id": "food-drink-breakfast-items",
+          "name": {
+            "en": "breakfast items",
+            "nl": "ontbijtspullen"
+          },
+          "essential": false
+        },
+        {
+          "id": "food-drink-electrolytes-or-rehydration-tablets",
+          "name": {
+            "en": "electrolytes or rehydration tablets",
+            "nl": "elektrolyten of ORS-tabletten"
+          },
+          "essential": false
+        },
+        {
+          "id": "food-drink-small-trash-bags",
+          "name": {
+            "en": "small trash bags",
+            "nl": "kleine vuilniszakken"
+          },
+          "essential": false
+        },
+        {
+          "id": "food-drink-cup-or-mug",
+          "name": {
+            "en": "cup or mug",
+            "nl": "beker of mok"
+          },
+          "essential": false
+        }
+      ]
+    },
+    {
+      "id": "tech-safety",
+      "name": {
+        "en": "Tech & safety",
+        "nl": "Tech & veiligheid"
+      },
+      "items": [
+        {
+          "id": "tech-safety-phone-and-charger",
+          "name": {
+            "en": "phone and charger",
+            "nl": "telefoon en oplader"
+          },
+          "essential": true
+        },
+        {
+          "id": "tech-safety-power-bank",
+          "name": {
+            "en": "power bank",
+            "nl": "powerbank"
+          },
+          "essential": true
+        },
+        {
+          "id": "tech-safety-charging-cable",
+          "name": {
+            "en": "charging cable",
+            "nl": "laadkabel"
+          },
+          "essential": true
+        },
+        {
+          "id": "tech-safety-small-first-aid-kit",
+          "name": {
+            "en": "small first aid kit",
+            "nl": "kleine EHBO-kit"
+          },
+          "essential": false
+        },
+        {
+          "id": "tech-safety-personal-medication",
+          "name": {
+            "en": "personal medication",
+            "nl": "persoonlijke medicatie"
+          },
+          "essential": true
+        },
+        {
+          "id": "tech-safety-hearing-protection-for-concerts",
+          "name": {
+            "en": "hearing protection for concerts",
+            "nl": "gehoorbescherming voor concerten"
+          },
+          "essential": true
+        },
+        {
+          "id": "tech-safety-small-lock-for-luggage",
+          "name": {
+            "en": "small lock for luggage",
+            "nl": "klein slot voor bagage"
+          },
+          "essential": false
+        }
+      ]
+    }
+  ],
+  "packingAdaptation": {
+    "removeByMode": {
+      "rental": [
+        "camping-sleep-tent-or-accommodation-booking-proof",
+        "camping-sleep-sleeping-mat-or-air-mattress",
+        "camping-sleep-tarp-extra-pegs-and-mallet"
+      ]
+    },
+    "extraByMode": {
+      "rental": [
+        {
+          "id": "stay-specific-accommodation-voucher",
+          "name": {
+            "en": "accommodation voucher and package details",
+            "nl": "accommodatievoucher en pakketdetails"
+          },
+          "essential": true
+        },
+        {
+          "id": "stay-specific-bedding-inclusions-check",
+          "name": {
+            "en": "check which bedding is included",
+            "nl": "controleer welk beddengoed inbegrepen is"
+          },
+          "essential": true
+        }
+      ]
+    },
+    "extraByAccommodation": {
+      "the-hive:hive-own-tent": [
+        {
+          "id": "stay-specific-central-park-meeting-point",
+          "name": {
+            "en": "saved Central Park meeting point",
+            "nl": "opgeslagen ontmoetingspunt in Central Park"
+          },
+          "essential": false
+        }
+      ],
+      "the-hive-my-space:my-space-own-tent": [
+        {
+          "id": "stay-specific-my-space-booking-details",
+          "name": {
+            "en": "My Space booking and pitch details",
+            "nl": "My Space-boeking en plekdetails"
+          },
+          "essential": true
+        }
+      ],
+      "the-hive-my-space:my-space-tent-included": [
+        {
+          "id": "stay-specific-my-space-booking-details",
+          "name": {
+            "en": "My Space booking and pitch details",
+            "nl": "My Space-boeking en plekdetails"
+          },
+          "essential": true
+        }
+      ]
+    },
+    "staySpecificCategory": {
+      "en": "Stay-specific",
+      "nl": "Verblijf-specifiek"
+    }
+  },
+  "travel": {
+    "destination": "Festivalpark Werchter, Werchter, Belgium",
+    "address": "Festivalpark Werchter, Werchter, Belgium",
+    "mapQuery": "Festivalpark Werchter, Werchter, Belgium",
+    "tips": [
+      {
+        "en": "Download your free train ticket if your festival ticket includes one",
+        "nl": "Download je gratis treinticket als dit bij je festivalticket inbegrepen is"
+      },
+      {
+        "en": "Save your camping and parking ticket screenshots",
+        "nl": "Bewaar screenshots van je camping- en parkingtickets"
+      },
+      {
+        "en": "Download the route and festival bus details offline",
+        "nl": "Download de route en festivalbusinformatie offline"
+      },
+      {
+        "en": "Share your campsite and arrival time with your group",
+        "nl": "Deel je camping en aankomsttijd met je groep"
+      }
+    ],
+    "routeHelper": {
+      "en": "Review your route to Festivalpark Werchter before opening directions.",
+      "nl": "Controleer je route naar Festivalpark Werchter voordat je de navigatie opent."
+    }
+  },
+  "stages": [
+    "Main Stage",
+    "The Barn",
+    "KluB C",
+    "NEST"
+  ],
+  "lineup": [
+    {
+      "name": "Yong Yello"
+    },
+    {
+      "name": "Kasabian"
+    },
+    {
+      "name": "The War on Drugs"
+    },
+    {
+      "name": "Mumford & Sons"
+    },
+    {
+      "name": "All Them Witches"
+    },
+    {
+      "name": "Loyle Carner"
+    },
+    {
+      "name": "The Prodigy"
+    },
+    {
+      "name": "Monza"
+    },
+    {
+      "name": "Yard Act"
+    },
+    {
+      "name": "Blood Incantation"
+    },
+    {
+      "name": "Ben Ellis"
+    },
+    {
+      "name": "PUP"
+    },
+    {
+      "name": "Midnight Generation"
+    }
+  ],
+  "timetable": [
+    {
+      "day": "thursday",
+      "stage": "Main Stage",
+      "name": "Yong Yello",
+      "start": "13.00",
+      "end": "13.40"
+    },
+    {
+      "day": "thursday",
+      "stage": "Main Stage",
+      "name": "Kasabian",
+      "start": "17.40",
+      "end": "18.40"
+    },
+    {
+      "day": "thursday",
+      "stage": "Main Stage",
+      "name": "The War on Drugs",
+      "start": "21.15",
+      "end": "22.30"
+    },
+    {
+      "day": "thursday",
+      "stage": "Main Stage",
+      "name": "Mumford & Sons",
+      "start": "23.30",
+      "end": "1.00"
+    },
+    {
+      "day": "thursday",
+      "stage": "The Barn",
+      "name": "All Them Witches",
+      "start": "14.05",
+      "end": "15.05"
+    },
+    {
+      "day": "thursday",
+      "stage": "The Barn",
+      "name": "Loyle Carner",
+      "start": "17.50",
+      "end": "18.50"
+    },
+    {
+      "day": "thursday",
+      "stage": "The Barn",
+      "name": "The Prodigy",
+      "start": "21.50",
+      "end": "23.05"
+    },
+    {
+      "day": "thursday",
+      "stage": "KluB C",
+      "name": "Monza",
+      "start": "13.30",
+      "end": "14.05"
+    },
+    {
+      "day": "thursday",
+      "stage": "KluB C",
+      "name": "Yard Act",
+      "start": "16.50",
+      "end": "17.50"
+    },
+    {
+      "day": "thursday",
+      "stage": "KluB C",
+      "name": "Blood Incantation",
+      "start": "23.05",
+      "end": "0.20"
+    },
+    {
+      "day": "thursday",
+      "stage": "NEST",
+      "name": "Ben Ellis",
+      "start": "13.40",
+      "end": "14.15"
+    },
+    {
+      "day": "thursday",
+      "stage": "NEST",
+      "name": "PUP",
+      "start": "20.20",
+      "end": "21.10"
+    },
+    {
+      "day": "thursday",
+      "stage": "NEST",
+      "name": "Midnight Generation",
+      "start": "22.30",
+      "end": "23.25"
+    }
+  ],
+  "text": {
+    "pageSubtitle": {
+      "packing": {
+        "en": "Choose your Rock Werchter stay and build the right packing list.",
+        "nl": "Kies je Rock Werchter-verblijf en stel de juiste paklijst samen."
+      },
+      "travel": {
+        "en": "Plan your route to Festivalpark Werchter and keep arrival details together.",
+        "nl": "Plan je route naar Festivalpark Werchter en bewaar je aankomstgegevens samen."
+      },
+      "lineup": {
+        "en": "Mark artists, build your Rock Werchter plan, and spot timetable clashes.",
+        "nl": "Markeer artiesten, bouw je Rock Werchter-planning en ontdek timetableconflicten."
+      },
+      "myFestival": {
+        "en": "Your Rock Werchter overview: packing, travel, favourite artists, clashes, and notes.",
+        "nl": "Jouw Rock Werchter-overzicht: inpakken, reizen, favoriete artiesten, conflicten en notities."
+      }
+    },
+    "packing": {
+      "emptyTitle": {
+        "en": "No campsite selected yet",
+        "nl": "Nog geen camping geselecteerd"
+      },
+      "emptyDescription": {
+        "en": "Choose Camping Regular, The Hive, The Hive Resort, or The Hive My Space to personalize your list.",
+        "nl": "Kies Camping Regular, The Hive, The Hive Resort of The Hive My Space om je lijst te personaliseren."
+      },
+      "defaultTips": [
+        {
+          "en": "Keep your festival ticket, camping confirmation, and ID easy to reach.",
+          "nl": "Houd je festivalticket, campingbevestiging en ID binnen handbereik."
+        },
+        {
+          "en": "Check the latest official Rock Werchter camping information before leaving.",
+          "nl": "Controleer voor vertrek de nieuwste officiële Rock Werchter-campinginformatie."
+        }
+      ]
+    },
+    "lineup": {
+      "sourceNote": {
+        "en": "This is a representative sample from the official Rock Werchter 2026 Thursday timetable checked on 9 June 2026. Re-check the official timetable before the festival.",
+        "nl": "Dit is een representatieve selectie uit het officiële Rock Werchter 2026-tijdschema voor donderdag, gecontroleerd op 9 juni 2026. Controleer het officiële tijdschema opnieuw voor het festival."
+      },
+      "dayTitle": {
+        "en": "{day} lineup",
+        "nl": "Line-up {day}"
+      }
+    },
+    "emptyStates": {
+      "noBands": {
+        "en": "No artists marked yet.",
+        "nl": "Nog geen artiesten gemarkeerd."
+      },
+      "noClashes": {
+        "en": "No clashes yet. Mark artists to detect overlaps.",
+        "nl": "Nog geen conflicten. Markeer artiesten om overlappingen te vinden."
+      },
+      "travelTips": {
+        "en": "No arrival tips available.",
+        "nl": "Geen aankomsttips beschikbaar."
+      }
+    }
+  }
+}

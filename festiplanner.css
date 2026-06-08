@@ -3278,6 +3278,35 @@
       border-color: color-mix(in srgb, var(--festival-accent), transparent 75%);
     }
 
+    .rock-werchter-theme {
+      --festival-accent: #ec174f;
+      --primary-accent: #ec174f;
+      --accent: #ec174f;
+    }
+
+    .rock-werchter-theme .festival-profile-header {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, #10bcd4, transparent 78%), transparent 48%),
+        linear-gradient(315deg, color-mix(in srgb, var(--festival-accent), transparent 76%), transparent 52%),
+        var(--surface);
+      border-color: color-mix(in srgb, var(--festival-accent), transparent 62%);
+    }
+
+    .rock-werchter-theme .camp-card.active,
+    .rock-werchter-theme .type-card.active,
+    .rock-werchter-theme .day-tab.active {
+      border-color: color-mix(in srgb, var(--festival-accent), transparent 36%);
+      background:
+        linear-gradient(180deg, color-mix(in srgb, #10bcd4, transparent 92%), transparent),
+        color-mix(in srgb, var(--surface) 86%, var(--festival-accent));
+    }
+
+    html[data-theme="light"] .rock-werchter-theme {
+      --festival-accent: #d50f43;
+      --primary-accent: #d50f43;
+      --accent: #d50f43;
+    }
+
     .graspop-theme .festival-profile-header span {
       color: var(--text);
     }
