@@ -1002,7 +1002,7 @@
     }
 
     .language-toggle {
-      display: inline-grid;
+      display: inline-grid !important;
       grid-template-columns: 1fr 1fr;
       gap: 3px;
       padding: 4px;
@@ -1644,7 +1644,7 @@
       border-radius: 999px;
       background: linear-gradient(180deg, #dce8ff, #8fb7ff);
       color: #08111f;
-      text-decoration: none;
+      text-decoration: none !important;
       font-weight: 900;
       text-transform: uppercase;
       cursor: pointer;
@@ -5400,8 +5400,10 @@
     }
 
     .fp-settings-link {
-      display: inline-flex;
+      display: inline-grid;
+      grid-template-columns: 17px max-content;
       align-items: center;
+      justify-content: center;
       gap: 7px;
       min-height: 38px;
       padding: 0 12px;
@@ -5412,12 +5414,20 @@
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 760;
+      line-height: 1;
     }
 
     .fp-settings-link svg {
+      display: block;
       width: 17px;
       height: 17px;
       fill: currentColor;
+      flex: none;
+    }
+
+    .fp-settings-link span {
+      display: block;
+      white-space: nowrap;
     }
 
     .fp-settings-link:hover {
@@ -5664,6 +5674,18 @@
     }
 
     @media (max-width: 430px) {
+      .fp-topbar .fp-settings-link {
+        display: inline-grid !important;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        align-self: start;
+        width: auto;
+        min-width: 106px;
+        min-height: 38px;
+        margin: 0;
+      }
+
       .profile-actions {
         flex-wrap: nowrap;
       }
