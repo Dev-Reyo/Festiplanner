@@ -418,11 +418,13 @@
   }
 
   function appearanceMode() {
+    if (window.FestiPlannerData?.appearanceMode) return window.FestiPlannerData.appearanceMode();
     const saved = readSettings().appearance;
     return ["light", "dark", "system"].includes(saved) ? saved : "system";
   }
 
   function resolvedTheme(mode) {
+    if (window.FestiPlannerData?.resolvedTheme) return window.FestiPlannerData.resolvedTheme(mode);
     if (mode === "system") {
       return window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     }
@@ -431,9 +433,13 @@
 
   function applyAppearance() {
     const mode = appearanceMode();
-    const theme = resolvedTheme(mode);
+    const theme = window.FestiPlannerData?.applyUserTheme
+      ? window.FestiPlannerData.applyUserTheme()
+      : resolvedTheme(mode);
     document.documentElement.dataset.appearance = mode;
     document.documentElement.dataset.theme = theme;
+    document.body.dataset.appearance = mode;
+    document.body.dataset.theme = theme;
     document.querySelectorAll(".appearance-toggle button").forEach(button => {
       const active = button.dataset.appearance === mode;
       button.classList.toggle("active", active);
@@ -473,11 +479,6 @@
     installAppearanceToggle();
     applyAppearance();
     applyTranslations();
-    if (window.matchMedia) {
-      window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
-        if (appearanceMode() === "system") applyAppearance();
-      });
-    }
     let queued = false;
     const observer = new MutationObserver(() => {
       if (queued) return;

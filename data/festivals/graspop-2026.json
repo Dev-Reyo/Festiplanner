@@ -97,7 +97,7 @@
     {
       "id": "boneyard",
       "name": "Boneyard",
-      "icon": "B",
+      "icon": "tent",
       "style": {
         "en": "Closest to the arena",
         "nl": "Dichtst bij de arena"
@@ -147,7 +147,7 @@
     {
       "id": "crypt",
       "name": "The Crypt",
-      "icon": "C",
+      "icon": "tent",
       "style": {
         "en": "Quieter own-tent camping",
         "nl": "Rustiger kamperen met eigen tent"
@@ -192,7 +192,7 @@
     {
       "id": "inferno",
       "name": "Inferno",
-      "icon": "I",
+      "icon": "cabin",
       "style": {
         "en": "Comfort and accessibility",
         "nl": "Comfort en toegankelijkheid"
@@ -245,7 +245,7 @@
     {
       "id": "devils-lake",
       "name": "Devil's Lake",
-      "icon": "D",
+      "icon": "cottage",
       "style": {
         "en": "Holiday park stay",
         "nl": "Verblijf op vakantiepark"
@@ -298,6 +298,7 @@
     {
       "id": "own-tent",
       "campingId": "boneyard",
+      "icon": "tent",
       "name": "Own tent",
       "description": {
         "en": "Pitch your own tent at Boneyard with a full camping kit.",
@@ -318,6 +319,7 @@
     {
       "id": "friends-zone",
       "campingId": "boneyard",
+      "icon": "tent",
       "name": "Friends Zone",
       "description": {
         "en": "A reserved Boneyard area for camping together with friends.",
@@ -338,6 +340,7 @@
     {
       "id": "festitent",
       "campingId": "boneyard",
+      "icon": "tent",
       "name": "FestiTent",
       "description": {
         "en": "A pre-set rental tent at Boneyard, available for smaller groups.",
@@ -358,6 +361,7 @@
     {
       "id": "own-tent",
       "campingId": "crypt",
+      "icon": "tent",
       "name": "Own tent",
       "description": {
         "en": "Set up your own tent in a quieter campsite outside the busiest festival area.",
@@ -378,6 +382,7 @@
     {
       "id": "accessible-facilities",
       "campingId": "crypt",
+      "icon": "tent",
       "name": "Accessible facilities",
       "description": {
         "en": "The Crypt has accessible showers and toilets, but no Inter staff on site.",
@@ -398,6 +403,7 @@
     {
       "id": "festihut",
       "campingId": "inferno",
+      "icon": "cabin",
       "name": "Festihut / XL",
       "description": {
         "en": "A lockable hut-style stay for a more solid base at Inferno.",
@@ -418,6 +424,7 @@
     {
       "id": "tip-up",
       "campingId": "inferno",
+      "icon": "cabin",
       "name": "Tip-Up",
       "description": {
         "en": "A compact two-person wooden-frame option with more comfort than a basic tent.",
@@ -438,6 +445,7 @@
     {
       "id": "canvas-hut",
       "campingId": "inferno",
+      "icon": "cabin",
       "name": "Canvas Hut",
       "description": {
         "en": "A four-person canvas stay on a wooden floor.",
@@ -458,6 +466,7 @@
     {
       "id": "group-tent",
       "campingId": "inferno",
+      "icon": "tent",
       "name": "Group tent",
       "description": {
         "en": "A larger Inferno option for 6, 8, or 12 people.",
@@ -478,6 +487,7 @@
     {
       "id": "boutique",
       "campingId": "inferno",
+      "icon": "tent",
       "name": "Boutique Tent",
       "description": {
         "en": "A pre-pitched boutique tent option for 2, 4, or 6 people.",
@@ -498,6 +508,7 @@
     {
       "id": "inter",
       "campingId": "inferno",
+      "icon": "tent",
       "name": "Inter camping",
       "description": {
         "en": "A dedicated accessible zone at Inferno for disabled visitors, arranged through Inter.",
@@ -522,6 +533,7 @@
     {
       "id": "comfort-cottage",
       "campingId": "devils-lake",
+      "icon": "cottage",
       "name": "Comfort Cottage",
       "description": {
         "en": "A practical cottage with kitchen, bathroom, terrace, safe, linen, and towels included.",
@@ -542,6 +554,7 @@
     {
       "id": "premium-cottage",
       "campingId": "devils-lake",
+      "icon": "cottage",
       "name": "Premium Cottage",
       "description": {
         "en": "A higher-comfort cottage with made-up beds and towel/kitchen pack included.",
@@ -562,6 +575,7 @@
     {
       "id": "vip-cottage",
       "campingId": "devils-lake",
+      "icon": "cottage",
       "name": "VIP Cottage",
       "description": {
         "en": "A luxury cottage option with made-up beds and spa-style comfort features.",
@@ -582,6 +596,7 @@
     {
       "id": "hotel-room",
       "campingId": "devils-lake",
+      "icon": "hotel",
       "name": "Hotel room",
       "description": {
         "en": "A hotel-style stay with daily service and breakfast access.",

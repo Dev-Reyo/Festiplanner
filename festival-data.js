@@ -7,8 +7,10 @@
   const LEGACY_FESTIVAL_ID = "graspop-2026";
   const fallbackData = window.FESTIPLANNER_FALLBACK_DATA || { summaries: [], festivals: {} };
   const paths = window.FestiPlannerPaths;
+  const appearanceMedia = window.matchMedia?.("(prefers-color-scheme: light)");
   let summariesPromise;
   let bootstrapPromise;
+  let activeFestivalTheme = {};
 
   function isRecord(value) {
     return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -40,8 +42,47 @@
   function updateSettings(patch) {
     const next = { ...readSettings(), ...patch };
     writeJson(SETTINGS_KEY, next);
+    if (Object.prototype.hasOwnProperty.call(patch, "appearance")) {
+      applyUserTheme();
+    }
     return next;
   }
+
+  function appearanceMode() {
+    const saved = readSettings().appearance;
+    return ["light", "dark", "system"].includes(saved) ? saved : "system";
+  }
+
+  function resolvedTheme(mode = appearanceMode()) {
+    if (mode === "system") return appearanceMedia?.matches ? "light" : "dark";
+    return mode;
+  }
+
+  function applyUserTheme(festival) {
+    const mode = appearanceMode();
+    const resolved = resolvedTheme(mode);
+    const theme = festival?.theme || activeFestivalTheme;
+    const accent = resolved === "light"
+      ? (theme.accentLight || theme.accent)
+      : (theme.accent || theme.accentLight);
+
+    document.documentElement.dataset.appearance = mode;
+    document.documentElement.dataset.theme = resolved;
+    if (document.body) {
+      document.body.dataset.appearance = mode;
+      document.body.dataset.theme = resolved;
+      if (accent) {
+        document.body.style.setProperty("--festival-accent", accent);
+        document.body.style.setProperty("--primary-accent", accent);
+        document.body.style.setProperty("--accent", accent);
+      }
+    }
+    return resolved;
+  }
+
+  appearanceMedia?.addEventListener("change", () => {
+    if (appearanceMode() === "system") applyUserTheme();
+  });
 
   function language() {
     return readSettings().language || "en";
@@ -278,15 +319,12 @@
 
   function applyFestivalTheme(festival) {
     const theme = festival?.theme || {};
+    activeFestivalTheme = theme;
     document.body.classList.forEach(className => {
       if (className.endsWith("-theme")) document.body.classList.remove(className);
     });
     if (theme.className) document.body.classList.add(theme.className);
-    if (theme.accent) {
-      document.body.style.setProperty("--festival-accent", theme.accent);
-      document.body.style.setProperty("--primary-accent", theme.accent);
-      document.body.style.setProperty("--accent", theme.accent);
-    }
+    applyUserTheme(festival);
   }
 
   function formatDateRange(startDate, endDate, lang = language()) {
@@ -328,6 +366,9 @@
     writeJson,
     readSettings,
     updateSettings,
+    appearanceMode,
+    resolvedTheme,
+    applyUserTheme,
     language,
     text,
     selectedFestivalId,

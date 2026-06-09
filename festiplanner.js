@@ -1,12 +1,25 @@
 (function () {
   const dataApi = window.FestiPlannerData;
+  const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const CAMPING_ICONS = {
+    tent: svg('<path d="m3 20 9-16 9 16M7.5 20 12 12l4.5 8M3 20h18"/>'),
+    cabin: svg('<path d="m3 11 9-7 9 7v9H3zM8 20v-6h8v6M6 9h12"/>'),
+    resort: svg('<path d="M4 20h16M6 20V8h12v12M9 12h2M13 12h2M9 16h2M13 16h2M8 8l4-4 4 4"/>'),
+    cottage: svg('<path d="m3 11 9-7 9 7v9H3zM16 7V3h3v7M7 14h4v6M15 14h2"/>'),
+    hotel: svg('<path d="M5 21V4h14v17M3 21h18M9 8h2M13 8h2M9 12h2M13 12h2M10 21v-5h4v5"/>'),
+    fallback: svg('<path d="M4 20h16M6 20V9l6-5 6 5v11M9 13h6M12 10v6"/>')
+  };
 
   function slug(value) {
     return String(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
 
   function actId(act) {
-    return slug(`${act.day}:${act.stage}:${act.name}:${act.start}`);
+    return act.id || slug(`${act.day}:${act.stage}:${act.name}:${act.start}`);
+  }
+
+  function campingIcon(key) {
+    return CAMPING_ICONS[key] || CAMPING_ICONS.fallback;
   }
 
   function timeToMinutes(value) {
@@ -213,7 +226,7 @@
         }
         campGrid.innerHTML = camps.map(camp => `
           <button class="camp-card ${state.camp === camp.id ? "active" : ""}" type="button" data-camp="${camp.id}">
-            <span class="camp-icon" aria-hidden="true">${camp.icon || camp.name.slice(0, 1)}</span>
+            <span class="camp-icon" aria-hidden="true">${campingIcon(camp.icon)}</span>
             <h3>${camp.name}</h3>
             <p><strong>${t(camp.style)}</strong></p>
             <p>${t(camp.description)}</p>
@@ -240,6 +253,7 @@
         campTypePanel.hidden = false;
         campTypeGrid.innerHTML = types.map(type => `
           <button class="type-card ${state.campType === type.id ? "active" : ""}" type="button" data-type="${type.id}">
+            <span class="type-icon" aria-hidden="true">${campingIcon(type.icon)}</span>
             <strong>${type.name}</strong>
             <span>${t(type.description)}</span>
           </button>

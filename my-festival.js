@@ -16,7 +16,7 @@
   }
 
   function actId(act) {
-    return slug(`${act.day}:${act.stage}:${act.name}:${act.start}`);
+    return act.id || slug(`${act.day}:${act.stage}:${act.name}:${act.start}`);
   }
 
   function timeToMinutes(value) {

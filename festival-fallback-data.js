@@ -138,7 +138,7 @@
         {
           "id": "boneyard",
           "name": "Boneyard",
-          "icon": "B",
+          "icon": "tent",
           "style": {
             "en": "Closest to the arena",
             "nl": "Dichtst bij de arena"
@@ -188,7 +188,7 @@
         {
           "id": "crypt",
           "name": "The Crypt",
-          "icon": "C",
+          "icon": "tent",
           "style": {
             "en": "Quieter own-tent camping",
             "nl": "Rustiger kamperen met eigen tent"
@@ -233,7 +233,7 @@
         {
           "id": "inferno",
           "name": "Inferno",
-          "icon": "I",
+          "icon": "cabin",
           "style": {
             "en": "Comfort and accessibility",
             "nl": "Comfort en toegankelijkheid"
@@ -286,7 +286,7 @@
         {
           "id": "devils-lake",
           "name": "Devil's Lake",
-          "icon": "D",
+          "icon": "cottage",
           "style": {
             "en": "Holiday park stay",
             "nl": "Verblijf op vakantiepark"
@@ -339,6 +339,7 @@
         {
           "id": "own-tent",
           "campingId": "boneyard",
+          "icon": "tent",
           "name": "Own tent",
           "description": {
             "en": "Pitch your own tent at Boneyard with a full camping kit.",
@@ -359,6 +360,7 @@
         {
           "id": "friends-zone",
           "campingId": "boneyard",
+          "icon": "tent",
           "name": "Friends Zone",
           "description": {
             "en": "A reserved Boneyard area for camping together with friends.",
@@ -379,6 +381,7 @@
         {
           "id": "festitent",
           "campingId": "boneyard",
+          "icon": "tent",
           "name": "FestiTent",
           "description": {
             "en": "A pre-set rental tent at Boneyard, available for smaller groups.",
@@ -399,6 +402,7 @@
         {
           "id": "own-tent",
           "campingId": "crypt",
+          "icon": "tent",
           "name": "Own tent",
           "description": {
             "en": "Set up your own tent in a quieter campsite outside the busiest festival area.",
@@ -419,6 +423,7 @@
         {
           "id": "accessible-facilities",
           "campingId": "crypt",
+          "icon": "tent",
           "name": "Accessible facilities",
           "description": {
             "en": "The Crypt has accessible showers and toilets, but no Inter staff on site.",
@@ -439,6 +444,7 @@
         {
           "id": "festihut",
           "campingId": "inferno",
+          "icon": "cabin",
           "name": "Festihut / XL",
           "description": {
             "en": "A lockable hut-style stay for a more solid base at Inferno.",
@@ -459,6 +465,7 @@
         {
           "id": "tip-up",
           "campingId": "inferno",
+          "icon": "cabin",
           "name": "Tip-Up",
           "description": {
             "en": "A compact two-person wooden-frame option with more comfort than a basic tent.",
@@ -479,6 +486,7 @@
         {
           "id": "canvas-hut",
           "campingId": "inferno",
+          "icon": "cabin",
           "name": "Canvas Hut",
           "description": {
             "en": "A four-person canvas stay on a wooden floor.",
@@ -499,6 +507,7 @@
         {
           "id": "group-tent",
           "campingId": "inferno",
+          "icon": "tent",
           "name": "Group tent",
           "description": {
             "en": "A larger Inferno option for 6, 8, or 12 people.",
@@ -519,6 +528,7 @@
         {
           "id": "boutique",
           "campingId": "inferno",
+          "icon": "tent",
           "name": "Boutique Tent",
           "description": {
             "en": "A pre-pitched boutique tent option for 2, 4, or 6 people.",
@@ -539,6 +549,7 @@
         {
           "id": "inter",
           "campingId": "inferno",
+          "icon": "tent",
           "name": "Inter camping",
           "description": {
             "en": "A dedicated accessible zone at Inferno for disabled visitors, arranged through Inter.",
@@ -563,6 +574,7 @@
         {
           "id": "comfort-cottage",
           "campingId": "devils-lake",
+          "icon": "cottage",
           "name": "Comfort Cottage",
           "description": {
             "en": "A practical cottage with kitchen, bathroom, terrace, safe, linen, and towels included.",
@@ -583,6 +595,7 @@
         {
           "id": "premium-cottage",
           "campingId": "devils-lake",
+          "icon": "cottage",
           "name": "Premium Cottage",
           "description": {
             "en": "A higher-comfort cottage with made-up beds and towel/kitchen pack included.",
@@ -603,6 +616,7 @@
         {
           "id": "vip-cottage",
           "campingId": "devils-lake",
+          "icon": "cottage",
           "name": "VIP Cottage",
           "description": {
             "en": "A luxury cottage option with made-up beds and spa-style comfort features.",
@@ -623,6 +637,7 @@
         {
           "id": "hotel-room",
           "campingId": "devils-lake",
+          "icon": "hotel",
           "name": "Hotel room",
           "description": {
             "en": "A hotel-style stay with daily service and breakfast access.",
@@ -2768,7 +2783,7 @@
         {
           "id": "camping-regular",
           "name": "Camping Regular",
-          "icon": "R",
+          "icon": "tent",
           "style": {
             "en": "Basic campsites within walking distance",
             "nl": "Eenvoudige campings op wandelafstand"
@@ -2808,7 +2823,7 @@
         {
           "id": "the-hive",
           "name": "The Hive",
-          "icon": "H",
+          "icon": "tent",
           "style": {
             "en": "Festival campsite with Central Park",
             "nl": "Festivalcamping met Central Park"
@@ -2845,7 +2860,7 @@
         {
           "id": "the-hive-resort",
           "name": "The Hive Resort",
-          "icon": "HR",
+          "icon": "resort",
           "style": {
             "en": "Pre-pitched comfort camping",
             "nl": "Comfortcamping met vooraf opgezette accommodatie"
@@ -2885,7 +2900,7 @@
         {
           "id": "the-hive-my-space",
           "name": "The Hive My Space",
-          "icon": "MS",
+          "icon": "tent",
           "style": {
             "en": "Reserved space with optional tent",
             "nl": "Gereserveerde plek met optionele tent"
@@ -2928,6 +2943,7 @@
         {
           "id": "regular-own-tent",
           "campingId": "camping-regular",
+          "icon": "tent",
           "name": "Own tent",
           "description": {
             "en": "Bring and pitch your full camping setup at a regular campsite.",
@@ -2944,6 +2960,7 @@
         {
           "id": "hive-own-tent",
           "campingId": "the-hive",
+          "icon": "tent",
           "name": "Own tent",
           "description": {
             "en": "Bring your own tent to The Hive and use the campsite's expanded facilities.",
@@ -2960,6 +2977,7 @@
         {
           "id": "resort-accommodation",
           "campingId": "the-hive-resort",
+          "icon": "resort",
           "name": "Resort accommodation",
           "description": {
             "en": "Stay in reserved pre-pitched accommodation at The Hive Resort.",
@@ -2976,6 +2994,7 @@
         {
           "id": "my-space-own-tent",
           "campingId": "the-hive-my-space",
+          "icon": "tent",
           "name": "Reserved pitch - own tent",
           "description": {
             "en": "Use a reserved My Space pitch and bring your own tent.",
@@ -2992,6 +3011,7 @@
         {
           "id": "my-space-tent-included",
           "campingId": "the-hive-my-space",
+          "icon": "tent",
           "name": "Reserved pitch - tent included",
           "description": {
             "en": "Use a reserved My Space package with a tent already provided.",
@@ -3477,131 +3497,154 @@
       "stages": [
         "Main Stage",
         "The Barn",
-        "KluB C",
-        "NEST"
+        "KluB C"
       ],
       "lineup": [
         {
+          "id": "rw-2026-linkin-park",
           "name": "Linkin Park"
         },
         {
-          "name": "Architects"
-        },
-        {
-          "name": "Currents"
-        },
-        {
-          "name": "Night Verses"
-        },
-        {
+          "id": "rw-2026-green-day",
           "name": "Green Day"
         },
         {
-          "name": "Spiritbox"
-        },
-        {
-          "name": "Polaris"
-        },
-        {
-          "name": "Boston Manor"
-        },
-        {
+          "id": "rw-2026-olivia-rodrigo",
           "name": "Olivia Rodrigo"
         },
         {
+          "id": "rw-2026-spiritbox",
+          "name": "Spiritbox"
+        },
+        {
+          "id": "rw-2026-architects",
+          "name": "Architects"
+        },
+        {
+          "id": "rw-2026-while-she-sleeps",
           "name": "While She Sleeps"
         },
         {
-          "name": "Paleface Swiss"
+          "id": "rw-2026-currents",
+          "name": "Currents"
         },
         {
-          "name": "Static Dress"
+          "id": "rw-2026-polaris",
+          "name": "Polaris"
+        },
+        {
+          "id": "rw-2026-paleface-swiss",
+          "name": "Paleface Swiss"
         }
       ],
       "timetable": [
         {
-          "day": "thursday",
-          "stage": "Main Stage",
+          "id": "rw-2026-thursday-linkin-park",
           "name": "Linkin Park",
-          "start": "22.00",
-          "end": "23.30"
-        },
-        {
           "day": "thursday",
-          "stage": "The Barn",
-          "name": "Architects",
-          "start": "22.15",
-          "end": "23.15"
-        },
-        {
-          "day": "thursday",
-          "stage": "KluB C",
-          "name": "Currents",
-          "start": "22.30",
-          "end": "23.20"
-        },
-        {
-          "day": "thursday",
-          "stage": "NEST",
-          "name": "Night Verses",
-          "start": "20.45",
-          "end": "21.35"
-        },
-        {
-          "day": "friday",
           "stage": "Main Stage",
-          "name": "Green Day",
-          "start": "21.45",
-          "end": "23.30"
+          "start": "22.00",
+          "end": "23.30",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
         },
         {
-          "day": "friday",
-          "stage": "The Barn",
+          "id": "rw-2026-thursday-spiritbox",
           "name": "Spiritbox",
-          "start": "22.00",
-          "end": "23.00"
+          "day": "thursday",
+          "stage": "The Barn",
+          "start": "22.15",
+          "end": "23.15",
+          "details": {
+            "en": "Intentionally overlaps Linkin Park for clash testing",
+            "nl": "Overlapt bewust met Linkin Park voor conflicttests"
+          }
         },
         {
+          "id": "rw-2026-thursday-currents",
+          "name": "Currents",
+          "day": "thursday",
+          "stage": "KluB C",
+          "start": "21.30",
+          "end": "22.20",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
+        },
+        {
+          "id": "rw-2026-friday-green-day",
+          "name": "Green Day",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "21.30",
+          "end": "23.15",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
+        },
+        {
+          "id": "rw-2026-friday-architects",
+          "name": "Architects",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "21.45",
+          "end": "22.45",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
+        },
+        {
+          "id": "rw-2026-friday-polaris",
+          "name": "Polaris",
           "day": "friday",
           "stage": "KluB C",
-          "name": "Polaris",
-          "start": "21.30",
-          "end": "22.25"
+          "start": "21.15",
+          "end": "22.10",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
         },
         {
-          "day": "friday",
-          "stage": "NEST",
-          "name": "Boston Manor",
-          "start": "19.30",
-          "end": "20.20"
-        },
-        {
+          "id": "rw-2026-saturday-olivia-rodrigo",
+          "name": "Olivia Rodrigo",
           "day": "saturday",
           "stage": "Main Stage",
-          "name": "Olivia Rodrigo",
-          "start": "21.30",
-          "end": "23.00"
+          "start": "21.15",
+          "end": "22.45",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
         },
         {
+          "id": "rw-2026-saturday-while-she-sleeps",
+          "name": "While She Sleeps",
           "day": "saturday",
           "stage": "The Barn",
-          "name": "While She Sleeps",
-          "start": "21.45",
-          "end": "22.45"
+          "start": "21.30",
+          "end": "22.30",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
         },
         {
+          "id": "rw-2026-saturday-paleface-swiss",
+          "name": "Paleface Swiss",
           "day": "saturday",
           "stage": "KluB C",
-          "name": "Paleface Swiss",
-          "start": "21.15",
-          "end": "22.10"
-        },
-        {
-          "day": "saturday",
-          "stage": "NEST",
-          "name": "Static Dress",
-          "start": "19.15",
-          "end": "20.00"
+          "start": "21.00",
+          "end": "21.55",
+          "details": {
+            "en": "Representative sample set",
+            "nl": "Representatieve voorbeeldset"
+          }
         }
       ],
       "timetableMetadata": {
