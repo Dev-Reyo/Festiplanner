@@ -5819,3 +5819,282 @@
         width: 100%;
       }
     }
+
+    body[data-theme="light"]::before,
+    html[data-theme="light"] body::before {
+      background: none;
+      border: 0;
+      opacity: 0;
+    }
+
+    /* Final light-mode readability pass */
+    body[data-theme="light"] {
+      --background: #f5f7fb;
+      --surface: #ffffff;
+      --surface-2: #f1f4f8;
+      --bg: var(--background);
+      --panel: var(--surface);
+      --panel-2: var(--surface-2);
+      --text: #161b26;
+      --muted: #596273;
+      --muted-text: #596273;
+      --border: #d8dee8;
+      --line: var(--border);
+      --danger: #b42335;
+    }
+
+    body[data-theme="light"].graspop-theme {
+      --background: #f6f7fa;
+      --surface: #ffffff;
+      --surface-2: #f3f4f7;
+      --text: #1b1b20;
+      --muted: #5f626c;
+      --muted-text: #5f626c;
+      --border: #dcdde3;
+      --festival-accent: #a91d2b;
+      --primary-accent: #a91d2b;
+      --accent: #a91d2b;
+      --accent-soft: rgba(169, 29, 43, 0.1);
+    }
+
+    html[data-theme="light"] body.graspop-theme .app {
+      background: transparent;
+    }
+
+    body[data-theme="light"] input,
+    body[data-theme="light"] select,
+    body[data-theme="light"] textarea,
+    body[data-theme="light"] .panel,
+    body[data-theme="light"] .category,
+    body[data-theme="light"] .camp-card,
+    body[data-theme="light"] .type-card,
+    body[data-theme="light"] .type-panel,
+    body[data-theme="light"] .progress-card,
+    body[data-theme="light"] .travel-form-card,
+    body[data-theme="light"] .route-card,
+    body[data-theme="light"] .arrival-tips-card,
+    body[data-theme="light"] .map-card,
+    body[data-theme="light"] .overview-widget,
+    body[data-theme="light"] .settings-card,
+    body[data-theme="light"] .settings-dialog,
+    body[data-theme="light"] .fp-festival-list {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] input::placeholder,
+    body[data-theme="light"] textarea::placeholder {
+      color: #667085;
+      opacity: 1;
+    }
+
+    body[data-theme="light"] .counter {
+      color: var(--primary-accent);
+    }
+
+    body[data-theme="light"] .field > span,
+    body[data-theme="light"] .hint,
+    body[data-theme="light"] .subtitle,
+    body[data-theme="light"] .source-note,
+    body[data-theme="light"] .act-meta,
+    body[data-theme="light"] .official-link,
+    body[data-theme="light"] .settings-card p,
+    body[data-theme="light"] .settings-card span,
+    body[data-theme="light"] .settings-dialog p,
+    body[data-theme="light"] .overview-widget span,
+    body[data-theme="light"] .overview-widget p,
+    body[data-theme="light"] .overview-detail-list small {
+      color: var(--muted-text);
+    }
+
+    body[data-theme="light"] nav.site-nav {
+      background: rgba(255, 255, 255, 0.94);
+      border-color: var(--border);
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    }
+
+    html[data-theme="light"] body.graspop-theme nav.site-nav,
+    html[data-theme="light"] body.graspop-theme .festival-profile-header,
+    html[data-theme="light"] body.graspop-theme .profile-home-link,
+    html[data-theme="light"] body.graspop-theme .fp-settings-link {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] nav.site-nav a {
+      color: #4b5565;
+    }
+
+    body[data-theme="light"] nav.site-nav a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    body[data-theme="light"] nav.site-nav a.active {
+      background: var(--primary-accent);
+      color: #ffffff;
+      box-shadow: 0 1px 3px color-mix(in srgb, var(--primary-accent), transparent 66%);
+    }
+
+    body[data-theme="light"] .festival-profile-header,
+    body[data-theme="light"] .profile-home-link,
+    body[data-theme="light"] .fp-settings-link {
+      background-color: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] .profile-home-link:hover,
+    body[data-theme="light"] .fp-settings-link:hover,
+    body[data-theme="light"] .official-link:hover,
+    body[data-theme="light"] .settings-button:hover {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--primary-accent) 55%, var(--border));
+    }
+
+    body[data-theme="light"] .tool-button,
+    body[data-theme="light"] .maps-link,
+    body[data-theme="light"] .primary-action,
+    body[data-theme="light"] .fp-primary-button {
+      background: var(--primary-accent);
+      color: #ffffff;
+      border-color: var(--primary-accent);
+    }
+
+    body[data-theme="light"] .tool-button:hover,
+    body[data-theme="light"] .maps-link:hover,
+    body[data-theme="light"] .primary-action:hover,
+    body[data-theme="light"] .fp-primary-button:hover {
+      background: color-mix(in srgb, var(--primary-accent) 86%, #000000);
+      color: #ffffff;
+      border-color: color-mix(in srgb, var(--primary-accent) 86%, #000000);
+      filter: none;
+    }
+
+    body[data-theme="light"] .camp-card:hover,
+    body[data-theme="light"] .type-card:hover,
+    body[data-theme="light"] .category:hover,
+    body[data-theme="light"] .overview-widget:hover,
+    body[data-theme="light"] .mini-act:hover,
+    body[data-theme="light"] .act-card:hover {
+      background: #f8fafc;
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--primary-accent) 38%, var(--border));
+      filter: none;
+    }
+
+    body[data-theme="light"] .camp-card.active,
+    body[data-theme="light"] .type-card.active {
+      background: color-mix(in srgb, var(--primary-accent) 9%, #ffffff);
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--primary-accent) 72%, var(--border));
+      box-shadow: inset 0 -2px 0 var(--primary-accent);
+    }
+
+    body[data-theme="light"] .day-tab.active {
+      background: var(--primary-accent);
+      color: #ffffff;
+      border-color: var(--primary-accent);
+      box-shadow: 0 1px 3px color-mix(in srgb, var(--primary-accent), transparent 66%);
+    }
+
+    body[data-theme="light"] .lineup-shell .time-axis,
+    body[data-theme="light"] .lineup-shell .axis-spacer,
+    body[data-theme="light"] .lineup-shell .stage-name {
+      background: var(--background);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] .lineup-shell .stage-track,
+    body[data-theme="light"] .lineup-shell .act-card {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] .lineup-shell .act-card.favorite {
+      background: color-mix(in srgb, var(--primary-accent) 10%, #ffffff);
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--primary-accent) 72%, var(--border));
+      box-shadow: inset 0 -2px 0 var(--primary-accent);
+    }
+
+    body[data-theme="light"] .lineup-shell .act-card.clashing,
+    body[data-theme="light"] .lineup-shell .clash-card {
+      background: #fff1f3;
+      color: var(--text);
+      border-color: #d92d45;
+    }
+
+    body[data-theme="light"] .lineup-shell .favorite-button {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] .lineup-shell .favorite-button:hover {
+      background: color-mix(in srgb, var(--primary-accent) 10%, #ffffff);
+      color: var(--text);
+      border-color: var(--primary-accent);
+    }
+
+    body[data-theme="light"] .lineup-shell .favorite-button[aria-pressed="true"] {
+      background: var(--primary-accent);
+      color: #ffffff;
+      border-color: var(--primary-accent);
+    }
+
+    body[data-theme="light"] .overview-widget.feature {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--primary-accent) 9%, transparent), transparent),
+        var(--surface);
+    }
+
+    body[data-theme="light"] .overview-widget.warning {
+      background: #fffafb;
+      border-color: #f1b7c0;
+    }
+
+    body[data-theme="light"] .appearance-toggle,
+    body[data-theme="light"] .language-toggle,
+    body[data-theme="light"] .settings-button {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    body[data-theme="light"] .appearance-toggle button,
+    body[data-theme="light"] .language-toggle button {
+      color: #4b5565;
+    }
+
+    body[data-theme="light"] .appearance-toggle button.active,
+    body[data-theme="light"] .language-toggle button.active {
+      background: var(--primary-accent);
+      color: #ffffff;
+    }
+
+    body[data-theme="light"] .settings-button.danger {
+      background: #fff1f3;
+      color: #a8182a;
+      border-color: #e5a4ae;
+    }
+
+    body[data-theme="light"] .settings-button.danger:hover {
+      background: #ffe4e8;
+      color: #8f1021;
+      border-color: #c93a4d;
+    }
+
+    body[data-theme="light"] .fp-festival-item:hover,
+    body[data-theme="light"] .fp-festival-item:focus-visible {
+      background: var(--surface);
+    }
+
+    body[data-theme="light"] .fp-festival-item.is-pinned {
+      background: color-mix(in srgb, var(--primary-accent) 7%, #ffffff);
+    }

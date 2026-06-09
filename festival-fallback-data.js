@@ -2710,7 +2710,7 @@
           }
         },
         "timetable": {
-          "url": "https://www.rockwerchter.be/en/line-up/thursday/schedule",
+          "url": "https://www.rockwerchter.be/nl/line-up/a-z",
           "label": {
             "en": "Check official timetable",
             "nl": "Bekijk het officiële tijdschema"
@@ -2721,6 +2721,13 @@
           "label": {
             "en": "Official camping information",
             "nl": "Officiële campinginformatie"
+          }
+        },
+        "travel": {
+          "url": "https://www.rockwerchter.be/nl/info/heen-en-weer",
+          "label": {
+            "en": "Official travel information",
+            "nl": "Officiële reisinformatie"
           }
         }
       },
@@ -2781,65 +2788,25 @@
       ],
       "campings": [
         {
-          "id": "camping-regular",
-          "name": "Camping Regular",
-          "icon": "tent",
-          "style": {
-            "en": "Basic campsites within walking distance",
-            "nl": "Eenvoudige campings op wandelafstand"
-          },
-          "description": {
-            "en": "Independent regular campsites close to Festivalpark Werchter for visitors bringing their own tent.",
-            "nl": "Onafhankelijke reguliere campings dicht bij Festivalpark Werchter voor bezoekers met een eigen tent."
-          },
-          "reminders": [
-            {
-              "en": "Keep your camping ticket and exact campsite location available offline.",
-              "nl": "Bewaar je campingticket en exacte campinglocatie offline."
-            },
-            {
-              "en": "Bring a complete tent and sleeping setup because facilities are more basic.",
-              "nl": "Neem een volledige tent- en slaapuitrusting mee, want de voorzieningen zijn eenvoudiger."
-            }
-          ],
-          "tags": [
-            {
-              "en": "Own tent",
-              "nl": "Eigen tent"
-            },
-            {
-              "en": "Walking distance",
-              "nl": "Op wandelafstand"
-            },
-            {
-              "en": "Basic facilities",
-              "nl": "Basisvoorzieningen"
-            }
-          ],
-          "accommodationTypeIds": [
-            "regular-own-tent"
-          ]
-        },
-        {
           "id": "the-hive",
           "name": "The Hive",
           "icon": "tent",
           "style": {
-            "en": "Festival campsite with Central Park",
-            "nl": "Festivalcamping met Central Park"
+            "en": "Main festival campsite with Central Park",
+            "nl": "Hoofdcamping met Central Park"
           },
           "description": {
-            "en": "Rock Werchter's main campsite for visitors bringing their own tents, with extensive facilities and activities.",
-            "nl": "De hoofdcamping van Rock Werchter voor bezoekers met een eigen tent, met uitgebreide voorzieningen en activiteiten."
+            "en": "Bring your own tent to the main festival campsite near Festivalpark. Central Park offers breakfast, late drinks and nightly parties.",
+            "nl": "Neem je eigen tent mee naar de hoofdcamping vlak bij het Festivalpark. Central Park biedt ontbijt, late drankjes en avondfeesten."
           },
           "reminders": [
             {
-              "en": "Plan shared tent gear with your group before travelling.",
-              "nl": "Verdeel gedeelde tentspullen binnen je groep voor vertrek."
+              "en": "The Hive opens Wednesday 1 July at 14:00.",
+              "nl": "The Hive opent woensdag 1 juli om 14.00 uur."
             },
             {
-              "en": "Save the route between your tent, Central Park, and the festival entrance.",
-              "nl": "Bewaar de route tussen je tent, Central Park en de festivalingang."
+              "en": "Coordinate shared tent gear and save your meeting point in Central Park.",
+              "nl": "Verdeel gedeelde tentspullen en bewaar je ontmoetingspunt in Central Park."
             }
           ],
           "tags": [
@@ -2849,8 +2816,8 @@
             },
             "Central Park",
             {
-              "en": "Extra activities",
-              "nl": "Extra activiteiten"
+              "en": "Near Festivalpark",
+              "nl": "Vlak bij Festivalpark"
             }
           ],
           "accommodationTypeIds": [
@@ -2862,21 +2829,21 @@
           "name": "The Hive Resort",
           "icon": "resort",
           "style": {
-            "en": "Pre-pitched comfort camping",
-            "nl": "Comfortcamping met vooraf opgezette accommodatie"
+            "en": "Pre-pitched glamping and lodges",
+            "nl": "Vooraf opgezette glamping en lodges"
           },
           "description": {
-            "en": "A more comfortable camping experience with reserved, pre-arranged accommodation.",
-            "nl": "Een comfortabelere kampeerervaring met gereserveerde, vooraf geregelde accommodatie."
+            "en": "Comfort camping ranging from glamping tents to premium lodges. Breakfast is included with every package, with selected packages adding power, lockable doors, fixed floors or private facilities.",
+            "nl": "Comfortcamping van glampingtenten tot premium lodges. Ontbijt is bij elk pakket inbegrepen; geselecteerde pakketten bieden stroom, afsluitbare deuren, vaste vloeren of privévoorzieningen."
           },
           "reminders": [
             {
-              "en": "Bring your booking confirmation and check exactly what bedding is included.",
-              "nl": "Neem je boekingsbevestiging mee en controleer welk beddengoed inbegrepen is."
+              "en": "The Hive Resort opens Wednesday 1 July at 14:00.",
+              "nl": "The Hive Resort opent woensdag 1 juli om 14.00 uur."
             },
             {
-              "en": "Leave tent canvas and pegs at home unless your booking explicitly requires them.",
-              "nl": "Laat tentdoek en haringen thuis, tenzij je boeking die expliciet vereist."
+              "en": "Check your exact package for bedding, power, floor and bathroom inclusions.",
+              "nl": "Controleer je exacte pakket op beddengoed, stroom, vloer en badkamer."
             }
           ],
           "tags": [
@@ -2885,16 +2852,38 @@
               "nl": "Vooraf opgezet"
             },
             {
-              "en": "Comfort",
-              "nl": "Comfort"
+              "en": "Breakfast included",
+              "nl": "Ontbijt inbegrepen"
             },
             {
-              "en": "Reservation required",
-              "nl": "Reservatie vereist"
+              "en": "Comfort",
+              "nl": "Comfort"
             }
           ],
           "accommodationTypeIds": [
-            "resort-accommodation"
+            "resort-lodge-2",
+            "resort-sahara-2",
+            "resort-lodge-plus-2",
+            "resort-tanami-2",
+            "resort-cube-2",
+            "resort-wave-2",
+            "resort-air-2",
+            "resort-kayuto-2",
+            "resort-sahara-4",
+            "resort-cube-4",
+            "resort-sphere-5",
+            "resort-bunk-house-4",
+            "resort-pit-5",
+            "resort-sahara-6",
+            "resort-cube-2-luxe",
+            "resort-boho-2",
+            "resort-kayuto-2-luxe",
+            "resort-boho-suite-2",
+            "resort-boho-ultra-suite-2",
+            "resort-boho-4",
+            "resort-lounge-2",
+            "resort-resort-suite-2",
+            "resort-diamond-2"
           ]
         },
         {
@@ -2902,21 +2891,21 @@
           "name": "The Hive My Space",
           "icon": "tent",
           "style": {
-            "en": "Reserved space with optional tent",
-            "nl": "Gereserveerde plek met optionele tent"
+            "en": "Reserved pitches and tent packages",
+            "nl": "Gereserveerde plekken en tentpakketten"
           },
           "description": {
-            "en": "A reserved camping pitch with more space, available either for your own tent or with a tent included.",
-            "nl": "Een gereserveerde kampeerplek met meer ruimte, beschikbaar voor je eigen tent of met een inbegrepen tent."
+            "en": "Reserved camping space for groups, available with your own tent, a rented tent or an official Rock Werchter tent.",
+            "nl": "Gereserveerde kampeerruimte voor groepen, met eigen tent, huurtent of officiële Rock Werchter-tent."
           },
           "reminders": [
             {
-              "en": "Check whether your package includes a tent before packing bulky equipment.",
-              "nl": "Controleer of je pakket een tent bevat voordat je grote kampeerspullen inpakt."
+              "en": "The Hive My Space opens Wednesday 1 July at 14:00.",
+              "nl": "The Hive My Space opent woensdag 1 juli om 14.00 uur."
             },
             {
-              "en": "Keep the lead booker's package details accessible for arrival.",
-              "nl": "Houd de pakketgegevens van de hoofdboeker bij de hand bij aankomst."
+              "en": "Confirm whether your package includes a tent, picnic table or shelter.",
+              "nl": "Controleer of je pakket een tent, picknicktafel of shelter bevat."
             }
           ],
           "tags": [
@@ -2934,37 +2923,147 @@
             }
           ],
           "accommodationTypeIds": [
-            "my-space-own-tent",
-            "my-space-tent-included"
+            "my-space-my-space-8-m2",
+            "my-space-my-space-16-m2",
+            "my-space-my-space-24-m2",
+            "my-space-my-space-60-m2",
+            "my-space-my-space-60-m2-shelter",
+            "my-space-my-space-apollo-2",
+            "my-space-my-space-tent-2",
+            "my-space-my-space-tent-4",
+            "my-space-my-rock-werchter-tent-2",
+            "my-space-my-rock-werchter-tent-4"
+          ]
+        },
+        {
+          "id": "camping-regular",
+          "name": "Camping Regular",
+          "icon": "tent",
+          "style": {
+            "en": "Basic independent campsites",
+            "nl": "Eenvoudige onafhankelijke campings"
+          },
+          "description": {
+            "en": "The independent A1, C3 and C7 campsites are within walking distance of Festivalpark and offer a simpler camping setup.",
+            "nl": "De onafhankelijke campings A1, C3 en C7 liggen op wandelafstand van Festivalpark en bieden een eenvoudigere kampeeropzet."
+          },
+          "reminders": [
+            {
+              "en": "Camping Regular opens Thursday 2 July at 08:00.",
+              "nl": "Camping Regular opent donderdag 2 juli om 08.00 uur."
+            },
+            {
+              "en": "Bring a complete tent and sleeping setup because facilities are basic.",
+              "nl": "Neem een volledige tent- en slaapuitrusting mee, want de voorzieningen zijn eenvoudig."
+            }
+          ],
+          "tags": [
+            {
+              "en": "Own tent",
+              "nl": "Eigen tent"
+            },
+            "A1 / C3 / C7",
+            {
+              "en": "Basic facilities",
+              "nl": "Basisvoorzieningen"
+            }
+          ],
+          "accommodationTypeIds": [
+            "regular-own-tent"
+          ]
+        },
+        {
+          "id": "the-hive-mobilhome",
+          "name": "The Hive Mobilhome",
+          "icon": "cottage",
+          "style": {
+            "en": "Reserved motorhome pitches",
+            "nl": "Gereserveerde mobilhomeplaatsen"
+          },
+          "description": {
+            "en": "Reserved 36 m² or XL 54 m² pitches for motorhomes, with packages for two, four or six people and access to Central Park.",
+            "nl": "Gereserveerde plaatsen van 36 m² of XL 54 m² voor mobilhomes, met pakketten voor twee, vier of zes personen en toegang tot Central Park."
+          },
+          "reminders": [
+            {
+              "en": "The campsite is open Wednesday 1 July at 18:00 until Monday 6 July at 12:00.",
+              "nl": "De camping is open van woensdag 1 juli om 18.00 uur tot maandag 6 juli om 12.00 uur."
+            },
+            {
+              "en": "Bring the motorhome parking ticket and every included camping ticket.",
+              "nl": "Neem het mobilhome-parkingticket en alle inbegrepen campingtickets mee."
+            }
+          ],
+          "tags": [
+            {
+              "en": "Motorhome",
+              "nl": "Mobilhome"
+            },
+            {
+              "en": "Standard or XL pitch",
+              "nl": "Standaard- of XL-plek"
+            },
+            "Central Park"
+          ],
+          "accommodationTypeIds": [
+            "mobilhome-mobilhome-2",
+            "mobilhome-mobilhome-xl-2",
+            "mobilhome-mobilhome-4",
+            "mobilhome-mobilhome-xl-4",
+            "mobilhome-mobilhome-6",
+            "mobilhome-mobilhome-xl-6"
+          ]
+        },
+        {
+          "id": "the-hive-adl",
+          "name": "The Hive ADL",
+          "icon": "tent",
+          "style": {
+            "en": "Accessible camping zone",
+            "nl": "Toegankelijke campingzone"
+          },
+          "description": {
+            "en": "A reserved accessible camping area near the festival entrance in the blue zone, organised with Inter and equipped for visitors with disabilities.",
+            "nl": "Een voorbehouden toegankelijke camping vlak bij de festivalingang in de blauwe zone, georganiseerd met Inter en uitgerust voor bezoekers met een beperking."
+          },
+          "reminders": [
+            {
+              "en": "A specific ADL camping ticket is required.",
+              "nl": "Een specifiek ADL-campingticket is vereist."
+            },
+            {
+              "en": "Register required accessibility facilities with Inter before 10 June 2026.",
+              "nl": "Registreer benodigde toegankelijkheidsvoorzieningen bij Inter vóór 10 juni 2026."
+            }
+          ],
+          "tags": [
+            {
+              "en": "Accessible",
+              "nl": "Toegankelijk"
+            },
+            {
+              "en": "Near entrance",
+              "nl": "Dicht bij ingang"
+            },
+            {
+              "en": "Specific ticket",
+              "nl": "Specifiek ticket"
+            }
+          ],
+          "accommodationTypeIds": [
+            "adl-own-tent"
           ]
         }
       ],
       "accommodationTypes": [
-        {
-          "id": "regular-own-tent",
-          "campingId": "camping-regular",
-          "icon": "tent",
-          "name": "Own tent",
-          "description": {
-            "en": "Bring and pitch your full camping setup at a regular campsite.",
-            "nl": "Neem je volledige kampeeruitrusting mee naar een reguliere camping."
-          },
-          "reminders": [
-            {
-              "en": "Pack tent, pegs, mallet, sleeping mat, sleeping bag, and a campsite light.",
-              "nl": "Pak tent, haringen, hamer, slaapmat, slaapzak en een campinglamp in."
-            }
-          ],
-          "stayMode": "ownTent"
-        },
         {
           "id": "hive-own-tent",
           "campingId": "the-hive",
           "icon": "tent",
           "name": "Own tent",
           "description": {
-            "en": "Bring your own tent to The Hive and use the campsite's expanded facilities.",
-            "nl": "Neem je eigen tent mee naar The Hive en gebruik de uitgebreide campingvoorzieningen."
+            "en": "Bring and pitch your own tent at The Hive.",
+            "nl": "Neem je eigen tent mee en zet die op The Hive op."
           },
           "reminders": [
             {
@@ -2975,55 +3074,701 @@
           "stayMode": "ownTent"
         },
         {
-          "id": "resort-accommodation",
+          "id": "resort-lodge-2",
           "campingId": "the-hive-resort",
           "icon": "resort",
-          "name": "Resort accommodation",
+          "name": "Lodge 2",
           "description": {
-            "en": "Stay in reserved pre-pitched accommodation at The Hive Resort.",
-            "nl": "Verblijf in gereserveerde vooraf opgezette accommodatie op The Hive Resort."
+            "en": "Lodge 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Lodge 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
           },
           "reminders": [
             {
-              "en": "Pack personal bedding only if it is not included in your selected package.",
-              "nl": "Pak alleen persoonlijk beddengoed in als dit niet in je pakket zit."
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
             }
           ],
           "stayMode": "rental"
         },
         {
-          "id": "my-space-own-tent",
-          "campingId": "the-hive-my-space",
-          "icon": "tent",
-          "name": "Reserved pitch - own tent",
+          "id": "resort-sahara-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Sahara 2",
           "description": {
-            "en": "Use a reserved My Space pitch and bring your own tent.",
-            "nl": "Gebruik een gereserveerde My Space-plek en neem je eigen tent mee."
+            "en": "Sahara 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Sahara 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
           },
           "reminders": [
             {
-              "en": "Your space is reserved, but you still need the complete tent setup.",
-              "nl": "Je plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-lodge-plus-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Lodge Plus 2",
+          "description": {
+            "en": "Lodge Plus 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Lodge Plus 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-tanami-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Tanami 2",
+          "description": {
+            "en": "Tanami 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Tanami 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-cube-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Cube 2",
+          "description": {
+            "en": "Cube 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Cube 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-wave-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Wave 2",
+          "description": {
+            "en": "Wave 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Wave 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-air-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Air 2",
+          "description": {
+            "en": "Air 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Air 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-kayuto-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Kayuto 2",
+          "description": {
+            "en": "Kayuto 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Kayuto 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-sahara-4",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Sahara 4",
+          "description": {
+            "en": "Sahara 4 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Sahara 4 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-cube-4",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Cube 4",
+          "description": {
+            "en": "Cube 4 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Cube 4 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-sphere-5",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Sphere 5",
+          "description": {
+            "en": "Sphere 5 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Sphere 5 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-bunk-house-4",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Bunk House 4",
+          "description": {
+            "en": "Bunk House 4 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Bunk House 4 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-pit-5",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Pit 5",
+          "description": {
+            "en": "Pit 5 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Pit 5 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-sahara-6",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Sahara 6",
+          "description": {
+            "en": "Sahara 6 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Sahara 6 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-cube-2-luxe",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Cube 2 (Luxe)",
+          "description": {
+            "en": "Cube 2 (Luxe) pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Cube 2 (Luxe) vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-boho-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Boho 2",
+          "description": {
+            "en": "Boho 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Boho 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-kayuto-2-luxe",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Kayuto 2 (Luxe)",
+          "description": {
+            "en": "Kayuto 2 (Luxe) pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Kayuto 2 (Luxe) vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-boho-suite-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Boho Suite 2",
+          "description": {
+            "en": "Boho Suite 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Boho Suite 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-boho-ultra-suite-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Boho Ultra Suite 2",
+          "description": {
+            "en": "Boho Ultra Suite 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Boho Ultra Suite 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-boho-4",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Boho 4",
+          "description": {
+            "en": "Boho 4 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Boho 4 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-lounge-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Lounge 2",
+          "description": {
+            "en": "Lounge 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Lounge 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-resort-suite-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Resort Suite 2",
+          "description": {
+            "en": "Resort Suite 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Resort Suite 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "resort-diamond-2",
+          "campingId": "the-hive-resort",
+          "icon": "resort",
+          "name": "Diamond 2",
+          "description": {
+            "en": "Diamond 2 pre-pitched accommodation at The Hive Resort with breakfast included. Check the official package details for exact facilities.",
+            "nl": "Diamond 2 vooraf opgezette accommodatie op The Hive Resort met ontbijt inbegrepen. Controleer de officiële pakketdetails voor de exacte voorzieningen."
+          },
+          "reminders": [
+            {
+              "en": "Bring your booking voucher and verify bedding, power and bathroom inclusions.",
+              "nl": "Neem je boekingsvoucher mee en controleer beddengoed, stroom en badkamer."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "my-space-my-space-8-m2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space 8 m²",
+          "description": {
+            "en": "My Space 8 m² reserved pitch at The Hive My Space; bring your own tent and sleeping setup.",
+            "nl": "My Space 8 m² gereserveerde plek op The Hive My Space; neem je eigen tent en slaapuitrusting mee."
+          },
+          "reminders": [
+            {
+              "en": "The pitch is reserved, but you still need a complete tent setup.",
+              "nl": "De plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
             }
           ],
           "stayMode": "ownTent"
         },
         {
-          "id": "my-space-tent-included",
+          "id": "my-space-my-space-16-m2",
           "campingId": "the-hive-my-space",
           "icon": "tent",
-          "name": "Reserved pitch - tent included",
+          "name": "My Space 16 m²",
           "description": {
-            "en": "Use a reserved My Space package with a tent already provided.",
-            "nl": "Gebruik een gereserveerd My Space-pakket met een inbegrepen tent."
+            "en": "My Space 16 m² reserved pitch at The Hive My Space; bring your own tent and sleeping setup.",
+            "nl": "My Space 16 m² gereserveerde plek op The Hive My Space; neem je eigen tent en slaapuitrusting mee."
           },
           "reminders": [
             {
-              "en": "Leave tent, pegs, and mallet at home; confirm bedding details before departure.",
-              "nl": "Laat tent, haringen en hamer thuis; controleer het beddengoed voor vertrek."
+              "en": "The pitch is reserved, but you still need a complete tent setup.",
+              "nl": "De plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+            }
+          ],
+          "stayMode": "ownTent"
+        },
+        {
+          "id": "my-space-my-space-24-m2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space 24 m²",
+          "description": {
+            "en": "My Space 24 m² reserved pitch at The Hive My Space; bring your own tent and sleeping setup.",
+            "nl": "My Space 24 m² gereserveerde plek op The Hive My Space; neem je eigen tent en slaapuitrusting mee."
+          },
+          "reminders": [
+            {
+              "en": "The pitch is reserved, but you still need a complete tent setup.",
+              "nl": "De plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+            }
+          ],
+          "stayMode": "ownTent"
+        },
+        {
+          "id": "my-space-my-space-60-m2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space 60 m²",
+          "description": {
+            "en": "My Space 60 m² reserved pitch at The Hive My Space; bring your own tent and sleeping setup.",
+            "nl": "My Space 60 m² gereserveerde plek op The Hive My Space; neem je eigen tent en slaapuitrusting mee."
+          },
+          "reminders": [
+            {
+              "en": "The pitch is reserved, but you still need a complete tent setup.",
+              "nl": "De plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+            }
+          ],
+          "stayMode": "ownTent"
+        },
+        {
+          "id": "my-space-my-space-60-m2-shelter",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space 60 m² Shelter",
+          "description": {
+            "en": "My Space 60 m² Shelter reserved pitch at The Hive My Space; bring your own tent and sleeping setup.",
+            "nl": "My Space 60 m² Shelter gereserveerde plek op The Hive My Space; neem je eigen tent en slaapuitrusting mee."
+          },
+          "reminders": [
+            {
+              "en": "The pitch is reserved, but you still need a complete tent setup.",
+              "nl": "De plek is gereserveerd, maar je hebt nog steeds een volledige tentuitrusting nodig."
+            }
+          ],
+          "stayMode": "ownTent"
+        },
+        {
+          "id": "my-space-my-space-apollo-2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space Apollo 2",
+          "description": {
+            "en": "My Space Apollo 2 package with a tent supplied at The Hive My Space.",
+            "nl": "My Space Apollo 2 pakket met een voorziene tent op The Hive My Space."
+          },
+          "reminders": [
+            {
+              "en": "Confirm the supplied tent and bedding details before departure.",
+              "nl": "Controleer voor vertrek de inbegrepen tent en het beddengoed."
             }
           ],
           "stayMode": "rental"
+        },
+        {
+          "id": "my-space-my-space-tent-2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space Tent 2",
+          "description": {
+            "en": "My Space Tent 2 package with a tent supplied at The Hive My Space.",
+            "nl": "My Space Tent 2 pakket met een voorziene tent op The Hive My Space."
+          },
+          "reminders": [
+            {
+              "en": "Confirm the supplied tent and bedding details before departure.",
+              "nl": "Controleer voor vertrek de inbegrepen tent en het beddengoed."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "my-space-my-space-tent-4",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Space Tent 4",
+          "description": {
+            "en": "My Space Tent 4 package with a tent supplied at The Hive My Space.",
+            "nl": "My Space Tent 4 pakket met een voorziene tent op The Hive My Space."
+          },
+          "reminders": [
+            {
+              "en": "Confirm the supplied tent and bedding details before departure.",
+              "nl": "Controleer voor vertrek de inbegrepen tent en het beddengoed."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "my-space-my-rock-werchter-tent-2",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Rock Werchter Tent 2",
+          "description": {
+            "en": "My Rock Werchter Tent 2 package with a tent supplied at The Hive My Space.",
+            "nl": "My Rock Werchter Tent 2 pakket met een voorziene tent op The Hive My Space."
+          },
+          "reminders": [
+            {
+              "en": "Confirm the supplied tent and bedding details before departure.",
+              "nl": "Controleer voor vertrek de inbegrepen tent en het beddengoed."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "my-space-my-rock-werchter-tent-4",
+          "campingId": "the-hive-my-space",
+          "icon": "tent",
+          "name": "My Rock Werchter Tent 4",
+          "description": {
+            "en": "My Rock Werchter Tent 4 package with a tent supplied at The Hive My Space.",
+            "nl": "My Rock Werchter Tent 4 pakket met een voorziene tent op The Hive My Space."
+          },
+          "reminders": [
+            {
+              "en": "Confirm the supplied tent and bedding details before departure.",
+              "nl": "Controleer voor vertrek de inbegrepen tent en het beddengoed."
+            }
+          ],
+          "stayMode": "rental"
+        },
+        {
+          "id": "regular-own-tent",
+          "campingId": "camping-regular",
+          "icon": "tent",
+          "name": "Own tent - A1, C3 or C7",
+          "description": {
+            "en": "Bring a complete camping setup to one of the independent Regular campsites.",
+            "nl": "Neem een volledige kampeeruitrusting mee naar een van de onafhankelijke Regular-campings."
+          },
+          "reminders": [
+            {
+              "en": "Save the exact campsite and entrance shown on your ticket.",
+              "nl": "Bewaar de exacte camping en ingang die op je ticket staan."
+            }
+          ],
+          "stayMode": "ownTent"
+        },
+        {
+          "id": "mobilhome-mobilhome-2",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome 2",
+          "description": {
+            "en": "Mobilhome 2 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome 2 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "mobilhome-mobilhome-xl-2",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome XL 2",
+          "description": {
+            "en": "Mobilhome XL 2 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome XL 2 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "mobilhome-mobilhome-4",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome 4",
+          "description": {
+            "en": "Mobilhome 4 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome 4 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "mobilhome-mobilhome-xl-4",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome XL 4",
+          "description": {
+            "en": "Mobilhome XL 4 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome XL 4 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "mobilhome-mobilhome-6",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome 6",
+          "description": {
+            "en": "Mobilhome 6 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome 6 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "mobilhome-mobilhome-xl-6",
+          "campingId": "the-hive-mobilhome",
+          "icon": "cottage",
+          "name": "Mobilhome XL 6",
+          "description": {
+            "en": "Mobilhome XL 6 package at The Hive Mobilhome, including a motorhome parking ticket and camping tickets for the booked group size.",
+            "nl": "Mobilhome XL 6 pakket op The Hive Mobilhome, inclusief mobilhome-parkingticket en campingtickets voor de geboekte groepsgrootte."
+          },
+          "reminders": [
+            {
+              "en": "Check vehicle dimensions and keep every package ticket ready for arrival.",
+              "nl": "Controleer de voertuigafmetingen en houd alle pakkettickets klaar bij aankomst."
+            }
+          ],
+          "stayMode": "mobilhome"
+        },
+        {
+          "id": "adl-own-tent",
+          "campingId": "the-hive-adl",
+          "icon": "tent",
+          "name": "Accessible camping pitch",
+          "description": {
+            "en": "An accessible own-tent pitch with adapted facilities near the festival entrance.",
+            "nl": "Een toegankelijke plek voor een eigen tent met aangepaste voorzieningen vlak bij de festivalingang."
+          },
+          "reminders": [
+            {
+              "en": "Bring the specific ADL ticket and any accessibility confirmation from Inter.",
+              "nl": "Neem het specifieke ADL-ticket en je toegankelijkheidsbevestiging van Inter mee."
+            }
+          ],
+          "stayMode": "ownTent"
         }
       ],
       "packingCategories": [
@@ -3081,6 +3826,14 @@
                 "nl": "offline screenshots van kaarten en boekingen"
               },
               "essential": false
+            },
+            {
+              "id": "tickets-documents-travel-ticket-or-parking-ticket",
+              "name": {
+                "en": "train, shuttle, parking or bike-route confirmation",
+                "nl": "trein-, shuttle-, parking- of fietsroutebevestiging"
+              },
+              "essential": true
             }
           ]
         },
@@ -3211,6 +3964,14 @@
                 "nl": "hoed of pet"
               },
               "essential": false
+            },
+            {
+              "id": "clothes-lightweight-layer-for-hot-weather",
+              "name": {
+                "en": "lightweight layer for hot weather",
+                "nl": "lichte laag voor warm weer"
+              },
+              "essential": false
             }
           ]
         },
@@ -3276,6 +4037,14 @@
                 "nl": "handgel"
               },
               "essential": false
+            },
+            {
+              "id": "hygiene-toilet-paper",
+              "name": {
+                "en": "small toilet paper pack",
+                "nl": "klein pak toiletpapier"
+              },
+              "essential": false
             }
           ]
         },
@@ -3331,6 +4100,14 @@
               "name": {
                 "en": "cup or mug",
                 "nl": "beker of mok"
+              },
+              "essential": false
+            },
+            {
+              "id": "food-drink-breakfast-voucher-or-plan",
+              "name": {
+                "en": "breakfast voucher or breakfast plan",
+                "nl": "ontbijtvoucher of ontbijtplan"
               },
               "essential": false
             }
@@ -3398,6 +4175,14 @@
                 "nl": "klein slot voor bagage"
               },
               "essential": false
+            },
+            {
+              "id": "tech-safety-offline-festival-and-campsite-map",
+              "name": {
+                "en": "offline festival, campsite and meeting-point map",
+                "nl": "offline festival-, camping- en ontmoetingspuntkaart"
+              },
+              "essential": false
             }
           ]
         }
@@ -3405,6 +4190,11 @@
       "packingAdaptation": {
         "removeByMode": {
           "rental": [
+            "camping-sleep-tent-or-accommodation-booking-proof",
+            "camping-sleep-sleeping-mat-or-air-mattress",
+            "camping-sleep-tarp-extra-pegs-and-mallet"
+          ],
+          "mobilhome": [
             "camping-sleep-tent-or-accommodation-booking-proof",
             "camping-sleep-sleeping-mat-or-air-mattress",
             "camping-sleep-tarp-extra-pegs-and-mallet"
@@ -3425,6 +4215,24 @@
               "name": {
                 "en": "check which bedding is included",
                 "nl": "controleer welk beddengoed inbegrepen is"
+              },
+              "essential": true
+            }
+          ],
+          "mobilhome": [
+            {
+              "id": "stay-specific-mobilhome-documents",
+              "name": {
+                "en": "motorhome documents, parking ticket and camping tickets",
+                "nl": "mobilhomedocumenten, parkingticket en campingtickets"
+              },
+              "essential": true
+            },
+            {
+              "id": "stay-specific-mobilhome-utilities",
+              "name": {
+                "en": "vehicle power, water and levelling essentials",
+                "nl": "benodigdheden voor stroom, water en nivellering"
               },
               "essential": true
             }
@@ -3469,190 +4277,1848 @@
       },
       "travel": {
         "destination": "Festivalpark Werchter, Werchter, Belgium",
-        "address": "Festivalpark Werchter, Werchter, Belgium",
+        "address": "Festivalpark Werchter, 3118 Werchter, Belgium",
         "mapQuery": "Festivalpark Werchter, Werchter, Belgium",
+        "officialUrl": "https://www.rockwerchter.be/nl/info/heen-en-weer",
         "tips": [
           {
-            "en": "Download your free train ticket if your festival ticket includes one",
-            "nl": "Download je gratis treinticket als dit bij je festivalticket inbegrepen is"
+            "en": "Claim the included Belgian return train ticket from 10 June; the festival ticket itself is not a train ticket",
+            "nl": "Claim vanaf 10 juni het inbegrepen Belgische retourtreinticket; het festivalticket zelf is geen treinticket"
           },
           {
-            "en": "Save your camping and parking ticket screenshots",
-            "nl": "Bewaar screenshots van je camping- en parkingtickets"
+            "en": "Use the free De Lijn shuttle buses from Leuven or Aarschot station",
+            "nl": "Gebruik de gratis pendelbussen van De Lijn vanaf station Leuven of Aarschot"
           },
           {
-            "en": "Download the route and festival bus details offline",
-            "nl": "Download de route en festivalbusinformatie offline"
+            "en": "Cyclists can use the staffed blue, pink or green bicycle parking near Festivalpark",
+            "nl": "Fietsers kunnen de bemande blauwe, roze of groene fietsenstalling bij Festivalpark gebruiken"
           },
           {
-            "en": "Share your campsite and arrival time with your group",
-            "nl": "Deel je camping en aankomsttijd met je groep"
+            "en": "Park+Bike sites are free when you bring your own bicycle and are up to 15 minutes from Werchter",
+            "nl": "Park+Bike-locaties zijn gratis als je je eigen fiets meebrengt en liggen tot 15 minuten van Werchter"
+          },
+          {
+            "en": "Buy a festival parking ticket before travelling by car or motorcycle",
+            "nl": "Koop vooraf een festivalparkingticket als je met auto of motor reist"
+          },
+          {
+            "en": "Use only the designated Kiss+Ride areas at Leuven or Aarschot station",
+            "nl": "Gebruik alleen de aangewezen Kiss+Ride-zones bij station Leuven of Aarschot"
+          },
+          {
+            "en": "Event shuttles serve 21 departure points and aim to arrive around 12:30",
+            "nl": "Eventshuttles vertrekken vanaf 21 opstapplaatsen en komen rond 12.30 uur aan"
+          },
+          {
+            "en": "Leave early, follow the route supplied with your ticket and save all travel details offline",
+            "nl": "Vertrek vroeg, volg de route bij je ticket en bewaar alle reisinformatie offline"
           }
         ],
         "routeHelper": {
-          "en": "Review your route to Festivalpark Werchter before opening directions.",
-          "nl": "Controleer je route naar Festivalpark Werchter voordat je de navigatie opent."
+          "en": "Choose your transport before departure, allow extra travel time and follow the official route for your ticket or parking zone.",
+          "nl": "Kies je vervoer voor vertrek, voorzie extra reistijd en volg de officiële route voor je ticket of parkingzone."
         }
       },
       "stages": [
         "Main Stage",
         "The Barn",
-        "KluB C"
+        "KluB C",
+        "NEST"
       ],
       "lineup": [
         {
-          "id": "rw-2026-linkin-park",
-          "name": "Linkin Park"
+          "id": "rw-2026-a-perfect-circle",
+          "name": "A Perfect Circle",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/a-perfect-circle"
         },
         {
-          "id": "rw-2026-green-day",
-          "name": "Green Day"
+          "id": "rw-2026-adrian-quesada-s-trio-asesino",
+          "name": "Adrian Quesada's Trio Asesino",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/adrian-quesada-s-trio-asesino"
         },
         {
-          "id": "rw-2026-olivia-rodrigo",
-          "name": "Olivia Rodrigo"
+          "id": "rw-2026-agnes-obel",
+          "name": "Agnes Obel",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/agnes-obel"
         },
         {
-          "id": "rw-2026-spiritbox",
-          "name": "Spiritbox"
+          "id": "rw-2026-all-them-witches",
+          "name": "All Them Witches",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/all-them-witches"
         },
         {
-          "id": "rw-2026-architects",
-          "name": "Architects"
+          "id": "rw-2026-bad-nerves",
+          "name": "Bad Nerves",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/bad-nerves"
         },
         {
-          "id": "rw-2026-while-she-sleeps",
-          "name": "While She Sleeps"
+          "id": "rw-2026-balu-brigada",
+          "name": "Balu Brigada",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/balu-brigada"
         },
         {
-          "id": "rw-2026-currents",
-          "name": "Currents"
+          "id": "rw-2026-basht",
+          "name": "Basht.",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/basht"
         },
         {
-          "id": "rw-2026-polaris",
-          "name": "Polaris"
+          "id": "rw-2026-beirut",
+          "name": "Beirut",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/beirut"
         },
         {
-          "id": "rw-2026-paleface-swiss",
-          "name": "Paleface Swiss"
+          "id": "rw-2026-ben-ellis",
+          "name": "Ben Ellis",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ben-ellis"
+        },
+        {
+          "id": "rw-2026-bente",
+          "name": "Bente",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/bente"
+        },
+        {
+          "id": "rw-2026-blood-incantation",
+          "name": "Blood Incantation",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/blood-incantation"
+        },
+        {
+          "id": "rw-2026-cardinals",
+          "name": "Cardinals",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cardinals"
+        },
+        {
+          "id": "rw-2026-charlotte-de-witte",
+          "name": "Charlotte de Witte",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/charlotte-de-witte"
+        },
+        {
+          "id": "rw-2026-chezile",
+          "name": "Chezile",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/chezile"
+        },
+        {
+          "id": "rw-2026-cmat",
+          "name": "CMAT",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cmat"
+        },
+        {
+          "id": "rw-2026-cory-wong",
+          "name": "Cory Wong",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cory-wong"
+        },
+        {
+          "id": "rw-2026-the-cure",
+          "name": "The Cure",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-cure"
+        },
+        {
+          "id": "rw-2026-darren-kiely",
+          "name": "Darren Kiely",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/darren-kiely"
+        },
+        {
+          "id": "rw-2026-david-byrne",
+          "name": "David Byrne",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/david-byrne"
+        },
+        {
+          "id": "rw-2026-dogstar",
+          "name": "Dogstar",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dogstar"
+        },
+        {
+          "id": "rw-2026-don-west",
+          "name": "Don West",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/don-west"
+        },
+        {
+          "id": "rw-2026-dressed-like-boys",
+          "name": "Dressed Like Boys",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dressed-like-boys"
+        },
+        {
+          "id": "rw-2026-dylan-gossett",
+          "name": "Dylan Gossett",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dylan-gossett"
+        },
+        {
+          "id": "rw-2026-ecca-vandal",
+          "name": "Ecca Vandal",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ecca-vandal"
+        },
+        {
+          "id": "rw-2026-elvis-costello-and-the-imposters-with-charlie-sexton",
+          "name": "Elvis Costello & The Imposters with Charlie Sexton",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/elvis-costello-the-imposters-with-charlie-sexton"
+        },
+        {
+          "id": "rw-2026-ethel-cain",
+          "name": "Ethel Cain",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ethel-cain"
+        },
+        {
+          "id": "rw-2026-fka-twigs",
+          "name": "FKA twigs",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/fka-twigs"
+        },
+        {
+          "id": "rw-2026-florence-road",
+          "name": "Florence Road",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/florence-road"
+        },
+        {
+          "id": "rw-2026-franz-ferdinand",
+          "name": "Franz Ferdinand",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/franz-ferdinand"
+        },
+        {
+          "id": "rw-2026-good-neighbours",
+          "name": "Good Neighbours",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/good-neighbours"
+        },
+        {
+          "id": "rw-2026-gorillaz",
+          "name": "Gorillaz",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/gorillaz"
+        },
+        {
+          "id": "rw-2026-haevn",
+          "name": "HAEVN",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/haevn"
+        },
+        {
+          "id": "rw-2026-halsey",
+          "name": "Halsey",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/halsey"
+        },
+        {
+          "id": "rw-2026-harry-mack",
+          "name": "Harry Mack",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/harry-mack"
+        },
+        {
+          "id": "rw-2026-the-haunted-youth",
+          "name": "The Haunted Youth",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-haunted-youth"
+        },
+        {
+          "id": "rw-2026-high-hi",
+          "name": "High Hi",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/high-hi"
+        },
+        {
+          "id": "rw-2026-house-of-protection",
+          "name": "House Of Protection",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/house-of-protection"
+        },
+        {
+          "id": "rw-2026-ise",
+          "name": "ISE",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ise"
+        },
+        {
+          "id": "rw-2026-jade",
+          "name": "JADE",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/jade"
+        },
+        {
+          "id": "rw-2026-jessie-murph",
+          "name": "Jessie Murph",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/jessie-murph"
+        },
+        {
+          "id": "rw-2026-joy-crookes",
+          "name": "Joy Crookes",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/joy-crookes"
+        },
+        {
+          "id": "rw-2026-kaat-van-stralen",
+          "name": "Kaat Van Stralen",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kaat-van-stralen"
+        },
+        {
+          "id": "rw-2026-kae-tempest",
+          "name": "Kae Tempest",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kae-tempest"
+        },
+        {
+          "id": "rw-2026-karen-dio",
+          "name": "Karen Dió",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/karen-dio"
+        },
+        {
+          "id": "rw-2026-kasabian",
+          "name": "Kasabian",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kasabian"
+        },
+        {
+          "id": "rw-2026-keo",
+          "name": "Keo",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/keo"
+        },
+        {
+          "id": "rw-2026-kingfishr",
+          "name": "Kingfishr",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kingfishr"
+        },
+        {
+          "id": "rw-2026-kneecap",
+          "name": "Kneecap",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kneecap"
+        },
+        {
+          "id": "rw-2026-kokoroko",
+          "name": "Kokoroko",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kokoroko"
+        },
+        {
+          "id": "rw-2026-la-lom",
+          "name": "LA LOM",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/la-lom"
+        },
+        {
+          "id": "rw-2026-landmvrks",
+          "name": "LANDMVRKS",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/landmvrks"
+        },
+        {
+          "id": "rw-2026-the-last-dinner-party",
+          "name": "The Last Dinner Party",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-last-dinner-party"
+        },
+        {
+          "id": "rw-2026-last-train",
+          "name": "Last Train",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/last-train"
+        },
+        {
+          "id": "rw-2026-lauren-spencer-smith",
+          "name": "Lauren Spencer Smith",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/lauren-spencer-smith"
+        },
+        {
+          "id": "rw-2026-lewis-capaldi",
+          "name": "Lewis Capaldi",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/lewis-capaldi"
+        },
+        {
+          "id": "rw-2026-linka-moja",
+          "name": "Linka Moja",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/linka-moja"
+        },
+        {
+          "id": "rw-2026-loyle-carner",
+          "name": "Loyle Carner",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/loyle-carner"
+        },
+        {
+          "id": "rw-2026-the-lumineers",
+          "name": "The Lumineers",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-lumineers"
+        },
+        {
+          "id": "rw-2026-man-woman-chainsaw",
+          "name": "Man/Woman/Chainsaw",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/man-woman-chainsaw"
+        },
+        {
+          "id": "rw-2026-matt-berninger",
+          "name": "Matt Berninger",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/matt-berninger"
+        },
+        {
+          "id": "rw-2026-midnight-generation",
+          "name": "Midnight Generation",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/midnight-generation"
+        },
+        {
+          "id": "rw-2026-moby",
+          "name": "Moby",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/moby"
+        },
+        {
+          "id": "rw-2026-mogwai",
+          "name": "Mogwai",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/mogwai"
+        },
+        {
+          "id": "rw-2026-monza",
+          "name": "Monza",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/monza"
+        },
+        {
+          "id": "rw-2026-mumford-and-sons",
+          "name": "Mumford & Sons",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/mumford-sons"
+        },
+        {
+          "id": "rw-2026-newdad",
+          "name": "NewDad",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/newdad"
+        },
+        {
+          "id": "rw-2026-the-new-eves",
+          "name": "The New Eves",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-new-eves"
+        },
+        {
+          "id": "rw-2026-overpass",
+          "name": "overpass",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/overpass"
+        },
+        {
+          "id": "rw-2026-palaye-royale",
+          "name": "Palaye Royale",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/palaye-royale"
+        },
+        {
+          "id": "rw-2026-paris-paloma",
+          "name": "Paris Paloma",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/paris-paloma"
+        },
+        {
+          "id": "rw-2026-paul-kalkbrenner",
+          "name": "Paul Kalkbrenner",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/paul-kalkbrenner"
+        },
+        {
+          "id": "rw-2026-pixies",
+          "name": "Pixies",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/pixies"
+        },
+        {
+          "id": "rw-2026-the-prodigy",
+          "name": "The Prodigy",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-prodigy"
+        },
+        {
+          "id": "rw-2026-psychonaut",
+          "name": "Psychonaut",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/psychonaut"
+        },
+        {
+          "id": "rw-2026-pup",
+          "name": "PUP",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/pup"
+        },
+        {
+          "id": "rw-2026-radio-free-alice",
+          "name": "Radio Free Alice",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/radio-free-alice"
+        },
+        {
+          "id": "rw-2026-renee-rapp",
+          "name": "Reneé Rapp",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/renee-rapp"
+        },
+        {
+          "id": "rw-2026-the-reytons",
+          "name": "The Reytons",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-reytons"
+        },
+        {
+          "id": "rw-2026-rise-against",
+          "name": "Rise Against",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/rise-against"
+        },
+        {
+          "id": "rw-2026-royel-otis",
+          "name": "Royel Otis",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/royel-otis"
+        },
+        {
+          "id": "rw-2026-scene-queen",
+          "name": "Scene Queen",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/scene-queen"
+        },
+        {
+          "id": "rw-2026-sierra-ferrell",
+          "name": "Sierra Ferrell",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/sierra-ferrell"
+        },
+        {
+          "id": "rw-2026-social-distortion",
+          "name": "Social Distortion",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/social-distortion"
+        },
+        {
+          "id": "rw-2026-sons",
+          "name": "SONS",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/sons"
+        },
+        {
+          "id": "rw-2026-teddy-swims",
+          "name": "Teddy Swims",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/teddy-swims"
+        },
+        {
+          "id": "rw-2026-the-vaccines",
+          "name": "The Vaccines",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-vaccines"
+        },
+        {
+          "id": "rw-2026-tom-smith",
+          "name": "Tom Smith",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/tom-smith"
+        },
+        {
+          "id": "rw-2026-tsar-b",
+          "name": "Tsar B",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/tsar-b"
+        },
+        {
+          "id": "rw-2026-twenty-one-pilots",
+          "name": "Twenty One Pilots",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/twenty-one-pilots"
+        },
+        {
+          "id": "rw-2026-viagra-boys",
+          "name": "Viagra Boys",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/viagra-boys"
+        },
+        {
+          "id": "rw-2026-voila",
+          "name": "VOILÀ",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/voila"
+        },
+        {
+          "id": "rw-2026-the-warning",
+          "name": "The Warning",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-warning"
+        },
+        {
+          "id": "rw-2026-the-war-on-drugs",
+          "name": "The War on Drugs",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-war-on-drugs"
+        },
+        {
+          "id": "rw-2026-westside-cowboy",
+          "name": "Westside Cowboy",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/westside-cowboy"
+        },
+        {
+          "id": "rw-2026-wolf-alice",
+          "name": "Wolf Alice",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/wolf-alice"
+        },
+        {
+          "id": "rw-2026-the-xx",
+          "name": "The xx",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-xx"
+        },
+        {
+          "id": "rw-2026-yard-act",
+          "name": "Yard Act",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/yard-act"
+        },
+        {
+          "id": "rw-2026-yong-yello",
+          "name": "Yong Yello",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/yong-yello"
+        },
+        {
+          "id": "rw-2026-zwangere-guy",
+          "name": "Zwangere Guy",
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/zwangere-guy"
         }
       ],
       "timetable": [
         {
-          "id": "rw-2026-thursday-linkin-park",
-          "name": "Linkin Park",
+          "id": "rw-2026-thursday-yong-yello",
+          "name": "Yong Yello",
           "day": "thursday",
           "stage": "Main Stage",
-          "start": "22.00",
-          "end": "23.30",
+          "start": "13.00",
+          "end": "13.40",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/yong-yello"
         },
         {
-          "id": "rw-2026-thursday-spiritbox",
-          "name": "Spiritbox",
+          "id": "rw-2026-thursday-balu-brigada",
+          "name": "Balu Brigada",
           "day": "thursday",
           "stage": "The Barn",
-          "start": "22.15",
-          "end": "23.15",
+          "start": "13.00",
+          "end": "13.30",
           "details": {
-            "en": "Intentionally overlaps Linkin Park for clash testing",
-            "nl": "Overlapt bewust met Linkin Park voor conflicttests"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/balu-brigada"
         },
         {
-          "id": "rw-2026-thursday-currents",
-          "name": "Currents",
+          "id": "rw-2026-thursday-monza",
+          "name": "Monza",
           "day": "thursday",
           "stage": "KluB C",
-          "start": "21.30",
-          "end": "22.20",
+          "start": "13.30",
+          "end": "14.05",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/monza"
         },
         {
-          "id": "rw-2026-friday-green-day",
-          "name": "Green Day",
-          "day": "friday",
-          "stage": "Main Stage",
-          "start": "21.30",
-          "end": "23.15",
+          "id": "rw-2026-thursday-ben-ellis",
+          "name": "Ben Ellis",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "13.40",
+          "end": "14.15",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ben-ellis"
         },
         {
-          "id": "rw-2026-friday-architects",
-          "name": "Architects",
-          "day": "friday",
+          "id": "rw-2026-thursday-all-them-witches",
+          "name": "All Them Witches",
+          "day": "thursday",
           "stage": "The Barn",
-          "start": "21.45",
-          "end": "22.45",
+          "start": "14.05",
+          "end": "15.05",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/all-them-witches"
         },
         {
-          "id": "rw-2026-friday-polaris",
-          "name": "Polaris",
-          "day": "friday",
+          "id": "rw-2026-thursday-zwangere-guy",
+          "name": "Zwangere Guy",
+          "day": "thursday",
+          "stage": "Main Stage",
+          "start": "14.20",
+          "end": "15.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/zwangere-guy"
+        },
+        {
+          "id": "rw-2026-thursday-bente",
+          "name": "Bente",
+          "day": "thursday",
           "stage": "KluB C",
-          "start": "21.15",
-          "end": "22.10",
+          "start": "15.05",
+          "end": "15.50",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/bente"
         },
         {
-          "id": "rw-2026-saturday-olivia-rodrigo",
-          "name": "Olivia Rodrigo",
-          "day": "saturday",
+          "id": "rw-2026-thursday-basht",
+          "name": "Basht.",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "15.20",
+          "end": "15.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/basht"
+        },
+        {
+          "id": "rw-2026-thursday-the-vaccines",
+          "name": "The Vaccines",
+          "day": "thursday",
+          "stage": "The Barn",
+          "start": "15.50",
+          "end": "16.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-vaccines"
+        },
+        {
+          "id": "rw-2026-thursday-elvis-costello-and-the-imposters-with-charlie-sexton",
+          "name": "Elvis Costello & The Imposters with Charlie Sexton",
+          "day": "thursday",
+          "stage": "Main Stage",
+          "start": "16.00",
+          "end": "17.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/elvis-costello-the-imposters-with-charlie-sexton"
+        },
+        {
+          "id": "rw-2026-thursday-yard-act",
+          "name": "Yard Act",
+          "day": "thursday",
+          "stage": "KluB C",
+          "start": "16.50",
+          "end": "17.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/yard-act"
+        },
+        {
+          "id": "rw-2026-thursday-la-lom",
+          "name": "LA LOM",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "17.00",
+          "end": "17.35",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/la-lom"
+        },
+        {
+          "id": "rw-2026-thursday-kasabian",
+          "name": "Kasabian",
+          "day": "thursday",
+          "stage": "Main Stage",
+          "start": "17.40",
+          "end": "18.40",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kasabian"
+        },
+        {
+          "id": "rw-2026-thursday-loyle-carner",
+          "name": "Loyle Carner",
+          "day": "thursday",
+          "stage": "The Barn",
+          "start": "17.50",
+          "end": "18.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/loyle-carner"
+        },
+        {
+          "id": "rw-2026-thursday-karen-dio",
+          "name": "Karen Dió",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "18.40",
+          "end": "19.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/karen-dio"
+        },
+        {
+          "id": "rw-2026-thursday-dylan-gossett",
+          "name": "Dylan Gossett",
+          "day": "thursday",
+          "stage": "KluB C",
+          "start": "18.50",
+          "end": "19.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dylan-gossett"
+        },
+        {
+          "id": "rw-2026-thursday-the-lumineers",
+          "name": "The Lumineers",
+          "day": "thursday",
+          "stage": "Main Stage",
+          "start": "19.20",
+          "end": "20.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-lumineers"
+        },
+        {
+          "id": "rw-2026-thursday-jade",
+          "name": "JADE",
+          "day": "thursday",
+          "stage": "The Barn",
+          "start": "19.50",
+          "end": "20.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/jade"
+        },
+        {
+          "id": "rw-2026-thursday-pup",
+          "name": "PUP",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "20.20",
+          "end": "21.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/pup"
+        },
+        {
+          "id": "rw-2026-thursday-tom-smith",
+          "name": "Tom Smith",
+          "day": "thursday",
+          "stage": "KluB C",
+          "start": "20.50",
+          "end": "21.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/tom-smith"
+        },
+        {
+          "id": "rw-2026-thursday-the-war-on-drugs",
+          "name": "The War on Drugs",
+          "day": "thursday",
           "stage": "Main Stage",
           "start": "21.15",
-          "end": "22.45",
-          "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
-        },
-        {
-          "id": "rw-2026-saturday-while-she-sleeps",
-          "name": "While She Sleeps",
-          "day": "saturday",
-          "stage": "The Barn",
-          "start": "21.30",
           "end": "22.30",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-war-on-drugs"
         },
         {
-          "id": "rw-2026-saturday-paleface-swiss",
-          "name": "Paleface Swiss",
-          "day": "saturday",
+          "id": "rw-2026-thursday-the-prodigy",
+          "name": "The Prodigy",
+          "day": "thursday",
+          "stage": "The Barn",
+          "start": "21.50",
+          "end": "23.05",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-prodigy"
+        },
+        {
+          "id": "rw-2026-thursday-midnight-generation",
+          "name": "Midnight Generation",
+          "day": "thursday",
+          "stage": "NEST",
+          "start": "22.30",
+          "end": "23.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/midnight-generation"
+        },
+        {
+          "id": "rw-2026-thursday-blood-incantation",
+          "name": "Blood Incantation",
+          "day": "thursday",
+          "stage": "KluB C",
+          "start": "23.05",
+          "end": "0.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/blood-incantation"
+        },
+        {
+          "id": "rw-2026-thursday-mumford-and-sons",
+          "name": "Mumford & Sons",
+          "day": "thursday",
+          "stage": "Main Stage",
+          "start": "23.30",
+          "end": "1.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/mumford-sons"
+        },
+        {
+          "id": "rw-2026-friday-kingfishr",
+          "name": "Kingfishr",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "13.00",
+          "end": "13.40",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kingfishr"
+        },
+        {
+          "id": "rw-2026-friday-good-neighbours",
+          "name": "Good Neighbours",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "13.00",
+          "end": "13.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/good-neighbours"
+        },
+        {
+          "id": "rw-2026-friday-overpass",
+          "name": "overpass",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "13.40",
+          "end": "14.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/overpass"
+        },
+        {
+          "id": "rw-2026-friday-ise",
+          "name": "ISE",
+          "day": "friday",
+          "stage": "KluB C",
+          "start": "13.45",
+          "end": "14.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ise"
+        },
+        {
+          "id": "rw-2026-friday-wolf-alice",
+          "name": "Wolf Alice",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "14.15",
+          "end": "15.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/wolf-alice"
+        },
+        {
+          "id": "rw-2026-friday-social-distortion",
+          "name": "Social Distortion",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "14.20",
+          "end": "15.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/social-distortion"
+        },
+        {
+          "id": "rw-2026-friday-cardinals",
+          "name": "Cardinals",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "15.00",
+          "end": "15.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cardinals"
+        },
+        {
+          "id": "rw-2026-friday-high-hi",
+          "name": "High Hi",
+          "day": "friday",
+          "stage": "KluB C",
+          "start": "15.20",
+          "end": "15.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/high-hi"
+        },
+        {
+          "id": "rw-2026-friday-the-last-dinner-party",
+          "name": "The Last Dinner Party",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "15.35",
+          "end": "16.35",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-last-dinner-party"
+        },
+        {
+          "id": "rw-2026-friday-viagra-boys",
+          "name": "Viagra Boys",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "15.55",
+          "end": "16.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/viagra-boys"
+        },
+        {
+          "id": "rw-2026-friday-keo",
+          "name": "Keo",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "16.35",
+          "end": "17.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/keo"
+        },
+        {
+          "id": "rw-2026-friday-paris-paloma",
+          "name": "Paris Paloma",
+          "day": "friday",
+          "stage": "KluB C",
+          "start": "16.55",
+          "end": "17.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/paris-paloma"
+        },
+        {
+          "id": "rw-2026-friday-royel-otis",
+          "name": "Royel Otis",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "17.15",
+          "end": "18.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/royel-otis"
+        },
+        {
+          "id": "rw-2026-friday-franz-ferdinand",
+          "name": "Franz Ferdinand",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "17.45",
+          "end": "18.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/franz-ferdinand"
+        },
+        {
+          "id": "rw-2026-friday-scene-queen",
+          "name": "Scene Queen",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "18.15",
+          "end": "18.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/scene-queen"
+        },
+        {
+          "id": "rw-2026-friday-kae-tempest",
+          "name": "Kae Tempest",
+          "day": "friday",
+          "stage": "KluB C",
+          "start": "18.45",
+          "end": "19.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kae-tempest"
+        },
+        {
+          "id": "rw-2026-friday-teddy-swims",
+          "name": "Teddy Swims",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "19.00",
+          "end": "20.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/teddy-swims"
+        },
+        {
+          "id": "rw-2026-friday-fka-twigs",
+          "name": "FKA twigs",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "19.40",
+          "end": "21.05",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/fka-twigs"
+        },
+        {
+          "id": "rw-2026-friday-radio-free-alice",
+          "name": "Radio Free Alice",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "20.00",
+          "end": "20.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/radio-free-alice"
+        },
+        {
+          "id": "rw-2026-friday-lewis-capaldi",
+          "name": "Lewis Capaldi",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "21.00",
+          "end": "22.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/lewis-capaldi"
+        },
+        {
+          "id": "rw-2026-friday-agnes-obel",
+          "name": "Agnes Obel",
+          "day": "friday",
           "stage": "KluB C",
           "start": "21.00",
-          "end": "21.55",
+          "end": "22.00",
           "details": {
-            "en": "Representative sample set",
-            "nl": "Representatieve voorbeeldset"
-          }
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/agnes-obel"
+        },
+        {
+          "id": "rw-2026-friday-charlotte-de-witte",
+          "name": "Charlotte de Witte",
+          "day": "friday",
+          "stage": "The Barn",
+          "start": "22.00",
+          "end": "23.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/charlotte-de-witte"
+        },
+        {
+          "id": "rw-2026-friday-the-warning",
+          "name": "The Warning",
+          "day": "friday",
+          "stage": "NEST",
+          "start": "22.30",
+          "end": "23.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-warning"
+        },
+        {
+          "id": "rw-2026-friday-lauren-spencer-smith",
+          "name": "Lauren Spencer Smith",
+          "day": "friday",
+          "stage": "KluB C",
+          "start": "23.15",
+          "end": "0.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/lauren-spencer-smith"
+        },
+        {
+          "id": "rw-2026-friday-the-xx",
+          "name": "The xx",
+          "day": "friday",
+          "stage": "Main Stage",
+          "start": "23.30",
+          "end": "0.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-xx"
+        },
+        {
+          "id": "rw-2026-saturday-landmvrks",
+          "name": "LANDMVRKS",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "13.00",
+          "end": "13.40",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/landmvrks"
+        },
+        {
+          "id": "rw-2026-saturday-harry-mack",
+          "name": "Harry Mack",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "13.00",
+          "end": "13.40",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/harry-mack"
+        },
+        {
+          "id": "rw-2026-saturday-linka-moja",
+          "name": "Linka Moja",
+          "day": "saturday",
+          "stage": "KluB C",
+          "start": "13.40",
+          "end": "14.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/linka-moja"
+        },
+        {
+          "id": "rw-2026-saturday-the-new-eves",
+          "name": "The New Eves",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "13.40",
+          "end": "14.05",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-new-eves"
+        },
+        {
+          "id": "rw-2026-saturday-palaye-royale",
+          "name": "Palaye Royale",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "14.10",
+          "end": "14.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/palaye-royale"
+        },
+        {
+          "id": "rw-2026-saturday-dogstar",
+          "name": "Dogstar",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "14.25",
+          "end": "15.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dogstar"
+        },
+        {
+          "id": "rw-2026-saturday-man-woman-chainsaw",
+          "name": "Man/Woman/Chainsaw",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "14.55",
+          "end": "15.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/man-woman-chainsaw"
+        },
+        {
+          "id": "rw-2026-saturday-adrian-quesada-s-trio-asesino",
+          "name": "Adrian Quesada's Trio Asesino",
+          "day": "saturday",
+          "stage": "KluB C",
+          "start": "15.15",
+          "end": "16.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/adrian-quesada-s-trio-asesino"
+        },
+        {
+          "id": "rw-2026-saturday-kneecap",
+          "name": "Kneecap",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "15.30",
+          "end": "16.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kneecap"
+        },
+        {
+          "id": "rw-2026-saturday-the-haunted-youth",
+          "name": "The Haunted Youth",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "16.00",
+          "end": "17.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-haunted-youth"
+        },
+        {
+          "id": "rw-2026-saturday-florence-road",
+          "name": "Florence Road",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "16.30",
+          "end": "17.05",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/florence-road"
+        },
+        {
+          "id": "rw-2026-saturday-don-west",
+          "name": "Don West",
+          "day": "saturday",
+          "stage": "KluB C",
+          "start": "17.00",
+          "end": "18.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/don-west"
+        },
+        {
+          "id": "rw-2026-saturday-renee-rapp",
+          "name": "Reneé Rapp",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "17.10",
+          "end": "18.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/renee-rapp"
+        },
+        {
+          "id": "rw-2026-saturday-beirut",
+          "name": "Beirut",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "18.00",
+          "end": "19.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/beirut"
+        },
+        {
+          "id": "rw-2026-saturday-ecca-vandal",
+          "name": "Ecca Vandal",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "18.10",
+          "end": "18.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ecca-vandal"
+        },
+        {
+          "id": "rw-2026-saturday-halsey",
+          "name": "Halsey",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "18.55",
+          "end": "19.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/halsey"
+        },
+        {
+          "id": "rw-2026-saturday-kokoroko",
+          "name": "Kokoroko",
+          "day": "saturday",
+          "stage": "KluB C",
+          "start": "19.00",
+          "end": "20.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kokoroko"
+        },
+        {
+          "id": "rw-2026-saturday-voila",
+          "name": "VOILÀ",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "19.55",
+          "end": "20.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/voila"
+        },
+        {
+          "id": "rw-2026-saturday-matt-berninger",
+          "name": "Matt Berninger",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "20.00",
+          "end": "21.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/matt-berninger"
+        },
+        {
+          "id": "rw-2026-saturday-gorillaz",
+          "name": "Gorillaz",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "20.55",
+          "end": "22.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/gorillaz"
+        },
+        {
+          "id": "rw-2026-saturday-pixies",
+          "name": "Pixies",
+          "day": "saturday",
+          "stage": "The Barn",
+          "start": "22.00",
+          "end": "23.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/pixies"
+        },
+        {
+          "id": "rw-2026-saturday-cmat",
+          "name": "CMAT",
+          "day": "saturday",
+          "stage": "KluB C",
+          "start": "22.25",
+          "end": "23.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cmat"
+        },
+        {
+          "id": "rw-2026-saturday-the-reytons",
+          "name": "The Reytons",
+          "day": "saturday",
+          "stage": "NEST",
+          "start": "22.25",
+          "end": "23.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-reytons"
+        },
+        {
+          "id": "rw-2026-saturday-twenty-one-pilots",
+          "name": "Twenty One Pilots",
+          "day": "saturday",
+          "stage": "Main Stage",
+          "start": "23.25",
+          "end": "1.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/twenty-one-pilots"
+        },
+        {
+          "id": "rw-2026-sunday-kaat-van-stralen",
+          "name": "Kaat Van Stralen",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "13.00",
+          "end": "13.35",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/kaat-van-stralen"
+        },
+        {
+          "id": "rw-2026-sunday-darren-kiely",
+          "name": "Darren Kiely",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "13.00",
+          "end": "13.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/darren-kiely"
+        },
+        {
+          "id": "rw-2026-sunday-tsar-b",
+          "name": "Tsar B",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "13.30",
+          "end": "14.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/tsar-b"
+        },
+        {
+          "id": "rw-2026-sunday-chezile",
+          "name": "Chezile",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "13.35",
+          "end": "14.00",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/chezile"
+        },
+        {
+          "id": "rw-2026-sunday-sierra-ferrell",
+          "name": "Sierra Ferrell",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "14.00",
+          "end": "14.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/sierra-ferrell"
+        },
+        {
+          "id": "rw-2026-sunday-bad-nerves",
+          "name": "Bad Nerves",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "14.05",
+          "end": "14.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/bad-nerves"
+        },
+        {
+          "id": "rw-2026-sunday-westside-cowboy",
+          "name": "Westside Cowboy",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "14.45",
+          "end": "15.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/westside-cowboy"
+        },
+        {
+          "id": "rw-2026-sunday-dressed-like-boys",
+          "name": "Dressed Like Boys",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "14.50",
+          "end": "15.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/dressed-like-boys"
+        },
+        {
+          "id": "rw-2026-sunday-sons",
+          "name": "SONS",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "15.15",
+          "end": "15.55",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/sons"
+        },
+        {
+          "id": "rw-2026-sunday-cory-wong",
+          "name": "Cory Wong",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "15.30",
+          "end": "16.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/cory-wong"
+        },
+        {
+          "id": "rw-2026-sunday-newdad",
+          "name": "NewDad",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "15.55",
+          "end": "16.30",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/newdad"
+        },
+        {
+          "id": "rw-2026-sunday-jessie-murph",
+          "name": "Jessie Murph",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "16.30",
+          "end": "17.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/jessie-murph"
+        },
+        {
+          "id": "rw-2026-sunday-rise-against",
+          "name": "Rise Against",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "16.35",
+          "end": "17.35",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/rise-against"
+        },
+        {
+          "id": "rw-2026-sunday-mogwai",
+          "name": "Mogwai",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "17.10",
+          "end": "18.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/mogwai"
+        },
+        {
+          "id": "rw-2026-sunday-last-train",
+          "name": "Last Train",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "17.35",
+          "end": "18.15",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/last-train"
+        },
+        {
+          "id": "rw-2026-sunday-joy-crookes",
+          "name": "Joy Crookes",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "18.10",
+          "end": "19.10",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/joy-crookes"
+        },
+        {
+          "id": "rw-2026-sunday-a-perfect-circle",
+          "name": "A Perfect Circle",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "18.20",
+          "end": "19.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/a-perfect-circle"
+        },
+        {
+          "id": "rw-2026-sunday-david-byrne",
+          "name": "David Byrne",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "19.10",
+          "end": "20.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/david-byrne"
+        },
+        {
+          "id": "rw-2026-sunday-house-of-protection",
+          "name": "House Of Protection",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "19.20",
+          "end": "20.05",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/house-of-protection"
+        },
+        {
+          "id": "rw-2026-sunday-moby",
+          "name": "Moby",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "20.10",
+          "end": "21.40",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/moby"
+        },
+        {
+          "id": "rw-2026-sunday-ethel-cain",
+          "name": "Ethel Cain",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "20.20",
+          "end": "21.20",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/ethel-cain"
+        },
+        {
+          "id": "rw-2026-sunday-paul-kalkbrenner",
+          "name": "Paul Kalkbrenner",
+          "day": "sunday",
+          "stage": "The Barn",
+          "start": "21.20",
+          "end": "22.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/paul-kalkbrenner"
+        },
+        {
+          "id": "rw-2026-sunday-psychonaut",
+          "name": "Psychonaut",
+          "day": "sunday",
+          "stage": "NEST",
+          "start": "21.40",
+          "end": "22.25",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/psychonaut"
+        },
+        {
+          "id": "rw-2026-sunday-the-cure",
+          "name": "The Cure",
+          "day": "sunday",
+          "stage": "Main Stage",
+          "start": "22.30",
+          "end": "0.45",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/the-cure"
+        },
+        {
+          "id": "rw-2026-sunday-haevn",
+          "name": "HAEVN",
+          "day": "sunday",
+          "stage": "KluB C",
+          "start": "22.50",
+          "end": "23.50",
+          "details": {
+            "en": "Official Rock Werchter 2026 set time",
+            "nl": "Officiële speeltijd van Rock Werchter 2026"
+          },
+          "officialUrl": "https://www.rockwerchter.be/nl/acts/haevn"
         }
       ],
       "timetableMetadata": {
-        "status": "representative-sample",
-        "official": false,
+        "status": "official-published-schedule",
+        "official": true,
+        "source": "https://www.rockwerchter.be/nl/line-up/a-z",
+        "verifiedDate": "2026-06-09",
         "note": {
-          "en": "Architecture test data only. Replace this sample with the full official timetable when it is ready.",
-          "nl": "Alleen testdata voor de architectuur. Vervang deze selectie later door het volledige officiële tijdschema."
+          "en": "Official published schedule. Set times remain subject to change.",
+          "nl": "Officieel gepubliceerd tijdschema. Speeltijden blijven onder voorbehoud van wijzigingen."
         }
       },
       "text": {
@@ -3680,8 +6146,8 @@
             "nl": "Nog geen camping geselecteerd"
           },
           "emptyDescription": {
-            "en": "Choose Camping Regular, The Hive, The Hive Resort, or The Hive My Space to personalize your list.",
-            "nl": "Kies Camping Regular, The Hive, The Hive Resort of The Hive My Space om je lijst te personaliseren."
+            "en": "Choose your Rock Werchter camping or accommodation option to personalize your list.",
+            "nl": "Kies je Rock Werchter-camping of accommodatie om je lijst te personaliseren."
           },
           "defaultTips": [
             {
@@ -3696,8 +6162,8 @@
         },
         "lineup": {
           "sourceNote": {
-            "en": "Representative sample timetable for architecture testing only. These are not official set times. The full official timetable can be imported here later.",
-            "nl": "Representatief voorbeeldtijdschema, alleen voor architectuurtests. Dit zijn geen officiële speeltijden. Het volledige officiële tijdschema kan hier later worden geïmporteerd."
+            "en": "Official published Rock Werchter 2026 timetable. Set times remain subject to change.",
+            "nl": "Officieel gepubliceerd tijdschema van Rock Werchter 2026. Speeltijden blijven onder voorbehoud van wijzigingen."
           },
           "dayTitle": {
             "en": "{day} lineup",
