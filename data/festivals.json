@@ -30,8 +30,8 @@
     "theme": {
       "id": "rock-werchter",
       "className": "rock-werchter-theme",
-      "accent": "#ec174f",
-      "accentLight": "#d50f43"
+      "accent": "#7867e8",
+      "accentLight": "#386fc5"
     },
     "dataFile": "data/festivals/rock-werchter-2026.json"
   }

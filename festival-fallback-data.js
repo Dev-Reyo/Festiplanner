@@ -32,8 +32,8 @@
       "theme": {
         "id": "rock-werchter",
         "className": "rock-werchter-theme",
-        "accent": "#ec174f",
-        "accentLight": "#d50f43"
+        "accent": "#7867e8",
+        "accentLight": "#386fc5"
       },
       "dataFile": "data/festivals/rock-werchter-2026.json"
     }
@@ -2685,10 +2685,10 @@
       "city": "Werchter",
       "startDate": "2026-07-02",
       "endDate": "2026-07-05",
-      "officialWebsite": "https://www.rockwerchter.be/en/",
+      "officialWebsite": "https://www.rockwerchter.be",
       "officialLinks": {
         "website": {
-          "url": "https://www.rockwerchter.be/en/",
+          "url": "https://www.rockwerchter.be",
           "label": {
             "en": "Official Rock Werchter website",
             "nl": "Officiële Rock Werchter-website"
@@ -2712,8 +2712,8 @@
       "theme": {
         "id": "rock-werchter",
         "className": "rock-werchter-theme",
-        "accent": "#ec174f",
-        "accentLight": "#d50f43"
+        "accent": "#7867e8",
+        "accentLight": "#386fc5"
       },
       "images": {
         "featured": "assets/rock-werchter-2026.png"
@@ -3482,138 +3482,136 @@
       ],
       "lineup": [
         {
-          "name": "Yong Yello"
+          "name": "Linkin Park"
         },
         {
-          "name": "Kasabian"
+          "name": "Architects"
         },
         {
-          "name": "The War on Drugs"
+          "name": "Currents"
         },
         {
-          "name": "Mumford & Sons"
+          "name": "Night Verses"
         },
         {
-          "name": "All Them Witches"
+          "name": "Green Day"
         },
         {
-          "name": "Loyle Carner"
+          "name": "Spiritbox"
         },
         {
-          "name": "The Prodigy"
+          "name": "Polaris"
         },
         {
-          "name": "Monza"
+          "name": "Boston Manor"
         },
         {
-          "name": "Yard Act"
+          "name": "Olivia Rodrigo"
         },
         {
-          "name": "Blood Incantation"
+          "name": "While She Sleeps"
         },
         {
-          "name": "Ben Ellis"
+          "name": "Paleface Swiss"
         },
         {
-          "name": "PUP"
-        },
-        {
-          "name": "Midnight Generation"
+          "name": "Static Dress"
         }
       ],
       "timetable": [
         {
           "day": "thursday",
           "stage": "Main Stage",
-          "name": "Yong Yello",
-          "start": "13.00",
-          "end": "13.40"
-        },
-        {
-          "day": "thursday",
-          "stage": "Main Stage",
-          "name": "Kasabian",
-          "start": "17.40",
-          "end": "18.40"
-        },
-        {
-          "day": "thursday",
-          "stage": "Main Stage",
-          "name": "The War on Drugs",
-          "start": "21.15",
-          "end": "22.30"
-        },
-        {
-          "day": "thursday",
-          "stage": "Main Stage",
-          "name": "Mumford & Sons",
-          "start": "23.30",
-          "end": "1.00"
+          "name": "Linkin Park",
+          "start": "22.00",
+          "end": "23.30"
         },
         {
           "day": "thursday",
           "stage": "The Barn",
-          "name": "All Them Witches",
-          "start": "14.05",
-          "end": "15.05"
-        },
-        {
-          "day": "thursday",
-          "stage": "The Barn",
-          "name": "Loyle Carner",
-          "start": "17.50",
-          "end": "18.50"
-        },
-        {
-          "day": "thursday",
-          "stage": "The Barn",
-          "name": "The Prodigy",
-          "start": "21.50",
-          "end": "23.05"
+          "name": "Architects",
+          "start": "22.15",
+          "end": "23.15"
         },
         {
           "day": "thursday",
           "stage": "KluB C",
-          "name": "Monza",
-          "start": "13.30",
-          "end": "14.05"
-        },
-        {
-          "day": "thursday",
-          "stage": "KluB C",
-          "name": "Yard Act",
-          "start": "16.50",
-          "end": "17.50"
-        },
-        {
-          "day": "thursday",
-          "stage": "KluB C",
-          "name": "Blood Incantation",
-          "start": "23.05",
-          "end": "0.20"
-        },
-        {
-          "day": "thursday",
-          "stage": "NEST",
-          "name": "Ben Ellis",
-          "start": "13.40",
-          "end": "14.15"
-        },
-        {
-          "day": "thursday",
-          "stage": "NEST",
-          "name": "PUP",
-          "start": "20.20",
-          "end": "21.10"
-        },
-        {
-          "day": "thursday",
-          "stage": "NEST",
-          "name": "Midnight Generation",
+          "name": "Currents",
           "start": "22.30",
-          "end": "23.25"
+          "end": "23.20"
+        },
+        {
+          "day": "thursday",
+          "stage": "NEST",
+          "name": "Night Verses",
+          "start": "20.45",
+          "end": "21.35"
+        },
+        {
+          "day": "friday",
+          "stage": "Main Stage",
+          "name": "Green Day",
+          "start": "21.45",
+          "end": "23.30"
+        },
+        {
+          "day": "friday",
+          "stage": "The Barn",
+          "name": "Spiritbox",
+          "start": "22.00",
+          "end": "23.00"
+        },
+        {
+          "day": "friday",
+          "stage": "KluB C",
+          "name": "Polaris",
+          "start": "21.30",
+          "end": "22.25"
+        },
+        {
+          "day": "friday",
+          "stage": "NEST",
+          "name": "Boston Manor",
+          "start": "19.30",
+          "end": "20.20"
+        },
+        {
+          "day": "saturday",
+          "stage": "Main Stage",
+          "name": "Olivia Rodrigo",
+          "start": "21.30",
+          "end": "23.00"
+        },
+        {
+          "day": "saturday",
+          "stage": "The Barn",
+          "name": "While She Sleeps",
+          "start": "21.45",
+          "end": "22.45"
+        },
+        {
+          "day": "saturday",
+          "stage": "KluB C",
+          "name": "Paleface Swiss",
+          "start": "21.15",
+          "end": "22.10"
+        },
+        {
+          "day": "saturday",
+          "stage": "NEST",
+          "name": "Static Dress",
+          "start": "19.15",
+          "end": "20.00"
         }
       ],
+      "timetableMetadata": {
+        "status": "representative-sample",
+        "official": false,
+        "note": {
+          "en": "Architecture test data only. Replace this sample with the full official timetable when it is ready.",
+          "nl": "Alleen testdata voor de architectuur. Vervang deze selectie later door het volledige officiële tijdschema."
+        }
+      },
       "text": {
         "pageSubtitle": {
           "packing": {
@@ -3655,8 +3653,8 @@
         },
         "lineup": {
           "sourceNote": {
-            "en": "This is a representative sample from the official Rock Werchter 2026 Thursday timetable checked on 9 June 2026. Re-check the official timetable before the festival.",
-            "nl": "Dit is een representatieve selectie uit het officiële Rock Werchter 2026-tijdschema voor donderdag, gecontroleerd op 9 juni 2026. Controleer het officiële tijdschema opnieuw voor het festival."
+            "en": "Representative sample timetable for architecture testing only. These are not official set times. The full official timetable can be imported here later.",
+            "nl": "Representatief voorbeeldtijdschema, alleen voor architectuurtests. Dit zijn geen officiële speeltijden. Het volledige officiële tijdschema kan hier later worden geïmporteerd."
           },
           "dayTitle": {
             "en": "{day} lineup",

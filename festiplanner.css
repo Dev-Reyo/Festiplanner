@@ -3279,15 +3279,15 @@
     }
 
     .rock-werchter-theme {
-      --festival-accent: #ec174f;
-      --primary-accent: #ec174f;
-      --accent: #ec174f;
+      --festival-accent: #7867e8;
+      --primary-accent: #7867e8;
+      --accent: #7867e8;
     }
 
     .rock-werchter-theme .festival-profile-header {
       background:
-        linear-gradient(135deg, color-mix(in srgb, #10bcd4, transparent 78%), transparent 48%),
-        linear-gradient(315deg, color-mix(in srgb, var(--festival-accent), transparent 76%), transparent 52%),
+        linear-gradient(135deg, color-mix(in srgb, #164b8f, transparent 58%), transparent 48%),
+        linear-gradient(315deg, color-mix(in srgb, #6f4bc4, transparent 62%), transparent 52%),
         var(--surface);
       border-color: color-mix(in srgb, var(--festival-accent), transparent 62%);
     }
@@ -3297,14 +3297,21 @@
     .rock-werchter-theme .day-tab.active {
       border-color: color-mix(in srgb, var(--festival-accent), transparent 36%);
       background:
-        linear-gradient(180deg, color-mix(in srgb, #10bcd4, transparent 92%), transparent),
+        linear-gradient(180deg, color-mix(in srgb, #376fc5, transparent 90%), transparent),
         color-mix(in srgb, var(--surface) 86%, var(--festival-accent));
     }
 
     html[data-theme="light"] .rock-werchter-theme {
-      --festival-accent: #d50f43;
-      --primary-accent: #d50f43;
-      --accent: #d50f43;
+      --festival-accent: #386fc5 !important;
+      --primary-accent: #386fc5 !important;
+      --accent: #386fc5 !important;
+    }
+
+    html[data-theme="light"] .rock-werchter-theme .festival-profile-header {
+      background:
+        linear-gradient(135deg, color-mix(in srgb, #64b5f6, transparent 80%), transparent 50%),
+        linear-gradient(315deg, color-mix(in srgb, #7b61c9, transparent 86%), transparent 54%),
+        #ffffff;
     }
 
     .graspop-theme .festival-profile-header span {
