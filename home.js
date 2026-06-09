@@ -20,16 +20,27 @@
 
   function countdownText(startDate) {
     const remaining = new Date(`${startDate}T00:00:00`).getTime() - Date.now();
-    if (remaining <= 0) return "Festival started";
+    if (remaining <= 0) return dataApi.text({ en: "Festival started", nl: "Festival begonnen" });
     const hours = Math.ceil(remaining / 3600000);
-    if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} remaining`;
+    if (hours < 24) {
+      return dataApi.text({
+        en: `${hours} hour${hours === 1 ? "" : "s"} remaining`,
+        nl: `${hours} uur te gaan`
+      });
+    }
     if (hours < 168) {
       const days = Math.floor(hours / 24);
       const rest = hours % 24;
-      return `${days} day${days === 1 ? "" : "s"} ${rest} hour${rest === 1 ? "" : "s"} remaining`;
+      return dataApi.text({
+        en: `${days} day${days === 1 ? "" : "s"} ${rest} hour${rest === 1 ? "" : "s"} remaining`,
+        nl: `${days} ${days === 1 ? "dag" : "dagen"} ${rest} uur te gaan`
+      });
     }
     const days = Math.ceil(hours / 24);
-    return `${days} day${days === 1 ? "" : "s"} remaining`;
+    return dataApi.text({
+      en: `${days} day${days === 1 ? "" : "s"} remaining`,
+      nl: `${days} ${days === 1 ? "dag" : "dagen"} te gaan`
+    });
   }
 
   function locationText(festival) {
@@ -41,10 +52,13 @@
   }
 
   function setPinButton(button, pinned) {
+    const label = pinned
+      ? dataApi.text({ en: "Unpin festival", nl: "Festival losmaken" })
+      : dataApi.text({ en: "Pin festival", nl: "Festival vastzetten" });
     button.textContent = pinned ? "★" : "☆";
     button.setAttribute("aria-pressed", String(pinned));
-    button.setAttribute("aria-label", pinned ? "Unpin festival" : "Pin festival");
-    button.title = pinned ? "Unpin festival" : "Pin festival";
+    button.setAttribute("aria-label", label);
+    button.title = label;
   }
 
   function festivalRow(festival, pinned) {
@@ -138,7 +152,12 @@
 
   try {
     ({ festivals } = await dataApi.bootstrap());
-    if (!festivals.length) throw new Error("No festivals are available.");
+    if (!festivals.length) {
+      throw new Error(dataApi.text({
+        en: "No festivals are available.",
+        nl: "Er zijn geen festivals beschikbaar."
+      }));
+    }
     document.getElementById("featuredPin").addEventListener("click", () => {
       togglePinned(document.getElementById("featuredPin").dataset.festivalId);
     });

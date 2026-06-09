@@ -30,12 +30,12 @@
   }
 
   function routeModeLabel(mode) {
-    return {
-      driving: "Car",
-      transit: "Public transport",
-      walking: "Walking",
-      bicycling: "Cycle"
-    }[mode] || "Travel details";
+    return dataApi.text({
+      driving: { en: "Car", nl: "Auto" },
+      transit: { en: "Public transport", nl: "Openbaar vervoer" },
+      walking: { en: "Walking", nl: "Lopen" },
+      bicycling: { en: "Cycle", nl: "Fiets" }
+    }[mode] || { en: "Travel details", nl: "Reisdetails" });
   }
 
   function clashPairs(marked) {
@@ -72,25 +72,58 @@
     const start = new Date(`${festival.startDate}T00:00:00`);
     const days = Math.max(0, Math.ceil((start - new Date()) / 86400000));
     const destination = travel.mapDestination || festival.travel?.destination || festival.city;
-    const route = travel.mapStart ? `${travel.mapStart} -> ${destination.replace(`, ${festival.country}`, "")}` : "Plan your route";
+    const hasRoute = Boolean(travel.mapStart);
+    const route = hasRoute
+      ? `${travel.mapStart} -> ${destination.replace(`, ${festival.country}`, "")}`
+      : dataApi.text({ en: "Plan your route", nl: "Plan je route" });
 
-    setText("overviewCountdown", days === 1 ? `1 day until ${festival.shortName}` : `${days} days until ${festival.shortName}`);
+    setText("overviewCountdown", dataApi.text({
+      en: `${days} day${days === 1 ? "" : "s"} until ${festival.shortName}`,
+      nl: `${days} ${days === 1 ? "dag" : "dagen"} tot ${festival.shortName}`
+    }));
     setText("overviewDates", dataApi.formatDateRange(festival.startDate, festival.endDate));
-    setText("overviewPacking", `${packed}/${checkedIds.length} items packed`);
-    setText("overviewPackingDetail", `${percent}% ready`);
-    setText("overviewBands", marked.length === 1 ? "1 favourite band" : `${marked.length} favourite bands`);
-    setText("overviewClashes", clashes.length === 1 ? "1 schedule conflict" : `${clashes.length} schedule conflicts`);
+    setText("overviewPacking", dataApi.text({
+      en: `${packed}/${checkedIds.length} items packed`,
+      nl: `${packed}/${checkedIds.length} items ingepakt`
+    }));
+    setText("overviewPackingDetail", dataApi.text({
+      en: `${percent}% ready`,
+      nl: `${percent}% klaar`
+    }));
+    setText("overviewBands", dataApi.text({
+      en: `${marked.length} favourite band${marked.length === 1 ? "" : "s"}`,
+      nl: `${marked.length} favoriete ${marked.length === 1 ? "band" : "bands"}`
+    }));
+    setText("overviewClashes", dataApi.text({
+      en: `${clashes.length} schedule conflict${clashes.length === 1 ? "" : "s"}`,
+      nl: `${clashes.length} ${clashes.length === 1 ? "planningsconflict" : "planningsconflicten"}`
+    }));
     setText("overviewTravel", route);
-    setText("overviewTravelMode", route === "Plan your route"
-      ? "Travel details"
+    setText("overviewTravelMode", !hasRoute
+      ? dataApi.text({ en: "Travel details", nl: "Reisdetails" })
       : `${routeModeLabel(travel.arrivalMode)}${travel.departureTime ? " · " + travel.departureTime : ""}${travel.meetingPoint ? " · " + travel.meetingPoint : ""}`);
 
     setHtml("overviewBandList", marked.length ? marked.slice(0, 5).map(act => `
       <span>${act.name}<small>${dayLabel(act.day)} · ${formatTime(act.start)}-${formatTime(act.end)} · ${act.stage}</small></span>
-    `).join("") : `<span>No favourite bands yet<small>Mark bands in the lineup.</small></span>`);
+    `).join("") : `<span>${dataApi.text({
+      en: "No favourite bands yet",
+      nl: "Nog geen favoriete bands"
+    })}<small>${dataApi.text({
+      en: "Mark bands in the lineup.",
+      nl: "Markeer bands in de line-up."
+    })}</small></span>`);
     setHtml("overviewClashList", clashes.length ? clashes.slice(0, 4).map(({ act, other, overlap }) => `
-      <span>${act.name} vs ${other.name}<small>${overlap} min overlap · ${formatTime(act.start)}-${formatTime(act.end)} / ${formatTime(other.start)}-${formatTime(other.end)}</small></span>
-    `).join("") : `<span>No clashes yet<small>Mark bands to detect overlaps.</small></span>`);
+      <span>${act.name} vs ${other.name}<small>${dataApi.text({
+        en: `${overlap} min overlap`,
+        nl: `${overlap} min. overlapping`
+      })} · ${formatTime(act.start)}-${formatTime(act.end)} / ${formatTime(other.start)}-${formatTime(other.end)}</small></span>
+    `).join("") : `<span>${dataApi.text({
+      en: "No clashes yet",
+      nl: "Nog geen clashes"
+    })}<small>${dataApi.text({
+      en: "Mark bands to detect overlaps.",
+      nl: "Markeer bands om overlappingen te vinden."
+    })}</small></span>`);
 
     const notesField = document.getElementById("overviewNotes");
     if (notesField) {

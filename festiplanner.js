@@ -1,13 +1,13 @@
 (function () {
   const dataApi = window.FestiPlannerData;
-  const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
   const CAMPING_ICONS = {
-    tent: svg('<path d="m3 20 9-16 9 16M7.5 20 12 12l4.5 8M3 20h18"/>'),
+    tent: svg('<path d="M3 20 12 4l9 16M7 20l5-9 5 9M3 20h18"/>'),
     cabin: svg('<path d="m3 11 9-7 9 7v9H3zM8 20v-6h8v6M6 9h12"/>'),
-    resort: svg('<path d="M4 20h16M6 20V8h12v12M9 12h2M13 12h2M9 16h2M13 16h2M8 8l4-4 4 4"/>'),
     cottage: svg('<path d="m3 11 9-7 9 7v9H3zM16 7V3h3v7M7 14h4v6M15 14h2"/>'),
+    resort: svg('<path d="M4 20h16M6 20V8h12v12M9 12h2M13 12h2M9 16h2M13 16h2M8 8l4-4 4 4"/>'),
     hotel: svg('<path d="M5 21V4h14v17M3 21h18M9 8h2M13 8h2M9 12h2M13 12h2M10 21v-5h4v5"/>'),
-    fallback: svg('<path d="M4 20h16M6 20V9l6-5 6 5v11M9 13h6M12 10v6"/>')
+    fallback: svg('<path d="m3 11 9-7 9 7v9H3zM9 20v-6h6v6M9 10h.01M15 10h.01"/>')
   };
 
   function slug(value) {
@@ -38,12 +38,12 @@
   }
 
   function routeModeLabel(mode) {
-    return {
-      driving: "Car",
-      transit: "Public transport",
-      walking: "Walking",
-      bicycling: "Cycle"
-    }[mode] || "Car";
+    return dataApi.text({
+      driving: { en: "Car", nl: "Auto" },
+      transit: { en: "Public transport", nl: "Openbaar vervoer" },
+      walking: { en: "Walking", nl: "Lopen" },
+      bicycling: { en: "Cycle", nl: "Fiets" }
+    }[mode] || { en: "Car", nl: "Auto" });
   }
 
   async function init() {
@@ -133,7 +133,7 @@
           if (location) location.textContent = [festival.city, festival.country].filter(Boolean).join(", ");
           if (link) {
             link.href = festival.officialWebsite;
-            link.textContent = t(festival.officialLinks?.website?.label) || "Official website";
+            link.textContent = t(festival.officialLinks?.website?.label) || t({ en: "Official website", nl: "Officiële website" });
           }
         }
 
@@ -176,7 +176,7 @@
           const items = festival.travel?.tips || [];
           tips.innerHTML = items.length
             ? items.map(item => `<li>${t(item)}</li>`).join("")
-            : `<li>${t(festival.text?.emptyStates?.travelTips) || "No arrival tips available."}</li>`;
+            : `<li>${t(festival.text?.emptyStates?.travelTips) || t({ en: "No arrival tips available.", nl: "Geen aankomsttips beschikbaar." })}</li>`;
         }
       }
 
@@ -221,7 +221,7 @@
       function renderCamps() {
         if (!campGrid) return;
         if (!camps.length) {
-          campGrid.innerHTML = `<p class="hint">No camping options available.</p>`;
+          campGrid.innerHTML = `<p class="hint">${t({ en: "No camping options available.", nl: "Geen campingopties beschikbaar." })}</p>`;
           return;
         }
         campGrid.innerHTML = camps.map(camp => `
@@ -275,16 +275,21 @@
         const camp = camps.find(item => item.id === state.camp);
         const type = selectedType();
         if (!camp) {
-          selectedTitle.textContent = t(festival.text?.packing?.emptyTitle) || "No campsite selected yet";
-          selectedSummary.textContent = t(festival.text?.packing?.emptyDescription) || "Choose a campsite to personalize your list.";
+          selectedTitle.textContent = t(festival.text?.packing?.emptyTitle) || t({ en: "No campsite selected yet", nl: "Nog geen camping geselecteerd" });
+          selectedSummary.textContent = t(festival.text?.packing?.emptyDescription) || t({ en: "Choose a campsite to personalize your list.", nl: "Kies een camping om je lijst te personaliseren." });
           selectedPills.innerHTML = "";
           const tips = festival.text?.packing?.defaultTips || [];
           campTips.innerHTML = tips.length ? tips.map(tip => `<li>${t(tip)}</li>`).join("") : "";
           return;
         }
-        selectedTitle.textContent = type ? `${camp.name}: ${type.name}` : `Staying at ${camp.name}`;
+        selectedTitle.textContent = type
+          ? `${camp.name}: ${type.name}`
+          : t({ en: `Staying at ${camp.name}`, nl: `Verblijf bij ${camp.name}` });
         selectedSummary.textContent = t(type?.description || camp.description);
-        const tags = [...(camp.tags || []).map(t), ...(type ? [`Selected: ${type.name}`] : [])];
+        const tags = [
+          ...(camp.tags || []).map(t),
+          ...(type ? [t({ en: `Selected: ${type.name}`, nl: `Geselecteerd: ${type.name}` })] : [])
+        ];
         selectedPills.innerHTML = tags.map(tag => `<span class="pill">${tag}</span>`).join("");
         const reminders = [...(camp.reminders || []), ...(type?.reminders || [])];
         campTips.innerHTML = reminders.map(item => `<li>${t(item)}</li>`).join("");
@@ -298,7 +303,7 @@
         if (!packingGrid) return;
         const categories = packingCategoriesForStay();
         if (!categories.length) {
-          packingGrid.innerHTML = `<p class="hint">No packing categories available.</p>`;
+          packingGrid.innerHTML = `<p class="hint">${t({ en: "No packing categories available.", nl: "Geen inpakcategorieën beschikbaar." })}</p>`;
           return;
         }
         packingGrid.innerHTML = categories.map(category => {
@@ -333,7 +338,12 @@
         const ids = packingCategoriesForStay().flatMap(category => category.items.map(item => item.id));
         const checked = ids.filter(id => state.checked[id]).length;
         const percentage = ids.length ? Math.round((checked / ids.length) * 100) : 0;
-        const label = ids.length && checked === ids.length ? "Packed and ready." : `${checked} of ${ids.length} items checked.`;
+        const label = ids.length && checked === ids.length
+          ? t({ en: "Packed and ready.", nl: "Ingepakt en klaar." })
+          : t({
+            en: `${checked} of ${ids.length} items checked.`,
+            nl: `${checked} van ${ids.length} items afgevinkt.`
+          });
         progressNumber.textContent = `${percentage}%`;
         progressFill.style.width = `${percentage}%`;
         progressText.textContent = label;
@@ -399,7 +409,9 @@
         });
         const availableStages = [...new Set(lineup.filter(act => act.day === state.lineupDay).map(act => act.stage))];
         const current = stageFilter.value || "All stages";
-        stageFilter.innerHTML = ["All stages", ...availableStages].map(stage => `<option value="${stage}">${stage}</option>`).join("");
+        stageFilter.innerHTML = ["All stages", ...availableStages].map(stage => `
+          <option value="${stage}">${stage === "All stages" ? t({ en: "All stages", nl: "Alle podia" }) : stage}</option>
+        `).join("");
         stageFilter.value = availableStages.includes(current) ? current : "All stages";
       }
 
@@ -436,10 +448,13 @@
         const acts = visibleActs();
         const currentDay = days.find(day => day.id === state.lineupDay);
         const dayName = t(currentDay?.label) || state.lineupDay;
-        const dayTitle = t(festival.text?.lineup?.dayTitle) || "{day} lineup";
+        const dayTitle = t(festival.text?.lineup?.dayTitle) || t({
+          en: "{day} lineup",
+          nl: "Line-up {day}"
+        });
         lineupTitle.textContent = dayTitle.replace("{day}", dayName);
         if (!acts.length) {
-          actList.innerHTML = `<p class="hint">No bands match these filters.</p>`;
+          actList.innerHTML = `<p class="hint">${t({ en: "No bands match these filters.", nl: "Geen bands gevonden met deze filters." })}</p>`;
           return;
         }
         const dayActs = lineup.filter(act => act.day === state.lineupDay);
@@ -469,7 +484,11 @@
                     return `
                       <article class="act-card ${favorite ? "favorite" : ""} ${clashes.has(id) ? "clashing" : ""}" style="--act-left:${((start - bounds.min) / bounds.span) * 100}%;--act-width:${((end - start) / bounds.span) * 100}%;">
                         <div class="act-card-content"><span class="act-name">${act.name}</span><span class="act-meta">${formatTime(act.start)} - ${formatTime(act.end)}</span></div>
-                        <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" aria-label="${favorite ? "Unmark" : "Mark"} ${act.name}" title="${favorite ? "Unmark band" : "Mark band"}"><span aria-hidden="true">${favorite ? "✓" : "+"}</span></button>
+                        <button class="favorite-button" type="button" data-act="${id}" aria-pressed="${favorite}" aria-label="${favorite
+                          ? t({ en: `Unmark ${act.name}`, nl: `Demarkeer ${act.name}` })
+                          : t({ en: `Mark ${act.name}`, nl: `Markeer ${act.name}` })}" title="${favorite
+                          ? t({ en: "Unmark band", nl: "Band demarkeren" })
+                          : t({ en: "Mark band", nl: "Markeer band" })}"><span aria-hidden="true">${favorite ? "✓" : "+"}</span></button>
                       </article>
                     `;
                   }).join("")}
@@ -490,14 +509,20 @@
           <article class="mini-act ${ids.has(actId(act)) ? "clashing" : ""}">
             <strong>${act.name}</strong><div class="act-meta">${t(days.find(day => day.id === act.day)?.label) || act.day} · ${formatTime(act.start)} - ${formatTime(act.end)} · ${act.stage}</div>
           </article>
-        `).join("") : `<p class="hint">${t(festival.text?.emptyStates?.noBands) || "No bands marked yet."}</p>`;
+        `).join("") : `<p class="hint">${t(festival.text?.emptyStates?.noBands) || t({ en: "No bands marked yet.", nl: "Nog geen bands gemarkeerd." })}</p>`;
         const planningDays = [...new Set(marked.map(act => act.day))];
         planList.innerHTML = marked.length ? planningDays.map(day => `
           <article class="mini-act"><strong>${t(days.find(item => item.id === day)?.label) || day}</strong>${marked.filter(act => act.day === day).map(act => `<div class="act-meta">${formatTime(act.start)} - ${formatTime(act.end)} · ${act.name} · ${act.stage}</div>`).join("")}</article>
-        `).join("") : `<p class="hint">Mark bands to build your planning.</p>`;
+        `).join("") : `<p class="hint">${t({ en: "Mark bands to build your planning.", nl: "Markeer bands om je planning te maken." })}</p>`;
         clashList.innerHTML = clashes.length ? clashes.map(({ act, other, overlap }) => `
-          <article class="clash-card"><strong>${act.name} vs ${other.name} — ${overlap} min overlap</strong><span class="act-meta">${formatTime(act.start)}-${formatTime(act.end)} / ${formatTime(other.start)}-${formatTime(other.end)}</span><span class="act-meta">${act.stage} / ${other.stage}</span></article>
-        `).join("") : `<p class="hint">${t(festival.text?.emptyStates?.noClashes) || "No clashes yet. Mark bands to detect overlaps."}</p>`;
+          <article class="clash-card"><strong>${act.name} vs ${other.name} — ${t({
+            en: `${overlap} min overlap`,
+            nl: `${overlap} min. overlapping`
+          })}</strong><span class="act-meta">${formatTime(act.start)}-${formatTime(act.end)} / ${formatTime(other.start)}-${formatTime(other.end)}</span><span class="act-meta">${act.stage} / ${other.stage}</span></article>
+        `).join("") : `<p class="hint">${t(festival.text?.emptyStates?.noClashes) || t({
+          en: "No clashes yet. Mark bands to detect overlaps.",
+          nl: "Nog geen clashes. Markeer bands om overlappingen te vinden."
+        })}</p>`;
       }
 
       function renderLineup() {
@@ -517,8 +542,11 @@
           const params = new URLSearchParams({ api: "1", query: destination });
           mapsLink.href = `https://www.google.com/maps/search/?${params}`;
         }
-        mapsPreview.textContent = `${routeModeLabel(state.arrivalMode)} route ${origin ? `from ${origin} ` : ""}to ${destination}.`;
-        if (routeFrom) routeFrom.textContent = origin || "Add a starting point";
+        mapsPreview.textContent = t({
+          en: `${routeModeLabel(state.arrivalMode)} route ${origin ? `from ${origin} ` : ""}to ${destination}.`,
+          nl: `${routeModeLabel(state.arrivalMode)}-route ${origin ? `van ${origin} ` : ""}naar ${destination}.`
+        });
+        if (routeFrom) routeFrom.textContent = origin || t({ en: "Add a starting point", nl: "Voeg een vertrekpunt toe" });
         if (routeTo) routeTo.textContent = destination;
       }
 

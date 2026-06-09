@@ -21,13 +21,31 @@
   function openResetDialog(type) {
     pendingReset = type;
     if (type === "festival") {
-      resetDialogTitle.textContent = "Reset current festival?";
-      resetDialogText.textContent = "Campsite, travel information, selected bands, notes, and packing progress will be cleared.";
-      confirmResetButton.textContent = "Reset festival";
+      resetDialogTitle.textContent = dataApi.text({
+        en: "Reset current festival?",
+        nl: "Huidig festival resetten?"
+      });
+      resetDialogText.textContent = dataApi.text({
+        en: "Campsite, travel information, selected bands, notes, and packing progress will be cleared.",
+        nl: "Camping, reisinformatie, geselecteerde bands, notities en inpakvoortgang worden gewist."
+      });
+      confirmResetButton.textContent = dataApi.text({
+        en: "Reset festival",
+        nl: "Festival resetten"
+      });
     } else {
-      resetDialogTitle.textContent = "Reset all local data?";
-      resetDialogText.textContent = "All festival plans, pinned festivals, language, theme, and app preferences will be cleared. This cannot be undone.";
-      confirmResetButton.textContent = "Reset all data";
+      resetDialogTitle.textContent = dataApi.text({
+        en: "Reset all local data?",
+        nl: "Alle lokale gegevens resetten?"
+      });
+      resetDialogText.textContent = dataApi.text({
+        en: "All festival plans, pinned festivals, language, theme, and app preferences will be cleared. This cannot be undone.",
+        nl: "Alle festivalplannen, vastgezette festivals, taal, thema en app-voorkeuren worden gewist. Dit kan niet ongedaan worden gemaakt."
+      });
+      confirmResetButton.textContent = dataApi.text({
+        en: "Reset all data",
+        nl: "Alle gegevens resetten"
+      });
     }
     resetDialog.showModal();
   }
@@ -38,7 +56,10 @@
     pinnedFirst.checked = settings().showPinnedFirst !== false;
     pinnedFirst.addEventListener("change", () => {
       dataApi.updateSettings({ showPinnedFirst: pinnedFirst.checked });
-      setStatus("Festival preference saved.");
+      setStatus(dataApi.text({
+        en: "Festival preference saved.",
+        nl: "Festivalvoorkeur opgeslagen."
+      }));
     });
 
     resetFestivalButton.addEventListener("click", () => openResetDialog("festival"));
@@ -51,10 +72,16 @@
       }
       if (pendingReset === "festival") {
         dataApi.removeFestivalData(dataApi.selectedFestivalId());
-        setStatus("Current festival data reset.");
+        setStatus(dataApi.text({
+          en: "Current festival data reset.",
+          nl: "Gegevens van het huidige festival gereset."
+        }));
       } else if (pendingReset === "all") {
         localStorage.clear();
-        setStatus("All local data reset.");
+        setStatus(dataApi.text({
+          en: "All local data reset.",
+          nl: "Alle lokale gegevens gereset."
+        }));
         setTimeout(() => window.location.reload(), 250);
       }
       pendingReset = "";
@@ -62,7 +89,10 @@
 
     document.getElementById("festivalCount").textContent = String(festivals.length);
   } catch (error) {
-    document.getElementById("festivalCount").textContent = "Unavailable";
+    document.getElementById("festivalCount").textContent = dataApi.text({
+      en: "Unavailable",
+      nl: "Niet beschikbaar"
+    });
     dataApi.showLoadError(error);
   }
 })();

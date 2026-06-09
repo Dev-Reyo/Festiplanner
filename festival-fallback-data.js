@@ -54,14 +54,14 @@
           "url": "https://www.graspop.be/en",
           "label": {
             "en": "Official Graspop website",
-            "nl": "Official Graspop website"
+            "nl": "Officiële Graspop-website"
           }
         },
         "timetable": {
           "url": "https://www.graspop.be/en/line-up/list",
           "label": {
             "en": "Check official timetable",
-            "nl": "Check official timetable"
+            "nl": "Bekijk het officiële tijdschema"
           }
         }
       },
@@ -78,19 +78,19 @@
         "pageSubtitle": {
           "packing": {
             "en": "Choose your festival stay and get a packing list that adapts to your campsite or accommodation.",
-            "nl": "Choose your festival stay and get a packing list that adapts to your campsite or accommodation."
+            "nl": "Kies je festivalverblijf en krijg een paklijst die zich aanpast aan je camping of accommodatie."
           },
           "travel": {
             "en": "Set your route and arrival details before you leave.",
-            "nl": "Set your route and arrival details before you leave."
+            "nl": "Stel voor vertrek je route en aankomstgegevens in."
           },
           "lineup": {
             "en": "Mark bands, build your plan, and catch clashes before you are halfway across the festival field.",
-            "nl": "Mark bands, build your plan, and catch clashes before you are halfway across the festival field."
+            "nl": "Markeer bands, maak je planning en ontdek clashes voordat je halverwege het festivalterrein bent."
           },
           "myFestival": {
             "en": "Your Graspop overview: packing, travel, favourite bands, clashes, and notes.",
-            "nl": "Your Graspop overview: packing, travel, favourite bands, clashes, and notes."
+            "nl": "Jouw Graspop-overzicht: inpakken, reizen, favoriete bands, clashes en notities."
           }
         },
         "packing": {
@@ -116,7 +116,7 @@
         "lineup": {
           "sourceNote": {
             "en": "Lineup data is based on the official Graspop 2026 timetable pages checked on 4 June 2026. Always re-check the official timetable before the festival in case set times move.",
-            "nl": "Lineup data is based on the official Graspop 2026 timetable pages checked on 4 June 2026. Always re-check the official timetable before the festival in case set times move."
+            "nl": "De line-upgegevens zijn gebaseerd op de officiële Graspop-tijdschemapagina's, gecontroleerd op 4 juni 2026. Controleer voor het festival altijd opnieuw het officiële tijdschema voor eventuele wijzigingen."
           },
           "dayTitle": {
             "en": "{day} lineup",
@@ -126,11 +126,11 @@
         "emptyStates": {
           "noBands": {
             "en": "No bands marked yet.",
-            "nl": "No bands marked yet."
+            "nl": "Nog geen bands gemarkeerd."
           },
           "noClashes": {
             "en": "No clashes yet. Mark bands to detect overlaps.",
-            "nl": "No clashes yet. Mark bands to detect overlaps."
+            "nl": "Nog geen clashes. Markeer bands om overlappingen te vinden."
           }
         }
       },
@@ -1039,24 +1039,24 @@
         "tips": [
           {
             "en": "Save parking ticket screenshot",
-            "nl": "Save parking ticket screenshot"
+            "nl": "Bewaar een screenshot van je parkeerticket"
           },
           {
             "en": "Download route offline",
-            "nl": "Download route offline"
+            "nl": "Download je route voor offline gebruik"
           },
           {
             "en": "Save campsite location",
-            "nl": "Save campsite location"
+            "nl": "Bewaar de locatie van je camping"
           },
           {
             "en": "Share arrival time with friends",
-            "nl": "Share arrival time with friends"
+            "nl": "Deel je aankomsttijd met vrienden"
           }
         ],
         "routeHelper": {
           "en": "Review your journey before opening directions.",
-          "nl": "Review your journey before opening directions."
+          "nl": "Controleer je reis voordat je de routebeschrijving opent."
         }
       },
       "stages": [

@@ -60,7 +60,7 @@
       "Choose your festival": "Kies je festival",
       "Graspop is ready now. More festival profiles can be added later with their own campsites, travel notes, and lineup tools.": "Graspop is nu klaar. Later kunnen we meer festivalprofielen toevoegen met eigen campings, reisnotities en line-up tools.",
       "Available now": "Nu beschikbaar",
-      "Open planner": "Open planner",
+      "Open planner": "Planner openen",
       "Calculating countdown": "Aftellen berekenen",
       "Festival started": "Festival begonnen",
       "Check official travel info": "Check de officiele reisinformatie",
@@ -149,6 +149,18 @@
       "Mark essentials": "Markeer essentials",
       "Clear checks": "Wis vinkjes",
       "Packed and ready.": "Ingepakt en klaar.",
+      "Official website": "Officiële website",
+      "No arrival tips available.": "Geen aankomsttips beschikbaar.",
+      "No camping options available.": "Geen campingopties beschikbaar.",
+      "No campsite selected yet": "Nog geen camping geselecteerd",
+      "Choose a campsite to personalize your list.": "Kies een camping om je lijst te personaliseren.",
+      "No packing categories available.": "Geen inpakcategorieën beschikbaar.",
+      "No bands marked yet.": "Nog geen bands gemarkeerd.",
+      "No festivals are available.": "Er zijn geen festivals beschikbaar.",
+      "Plan your route": "Plan je route",
+      "Unavailable": "Niet beschikbaar",
+      "Unmark": "Demarkeer",
+      "Unmark band": "Band demarkeren",
 
       "Full camping kit": "Volledige campingkit",
       "Group friendly": "Groepsvriendelijk",
@@ -186,7 +198,7 @@
       "Cycle": "Fiets",
       "Starting point": "Vertrekpunt",
       "Destination": "Bestemming",
-      "Open in Google Maps": "Open in Google Maps",
+      "Open in Google Maps": "Openen in Google Maps",
       "Festival location": "Festivallocatie",
       "Travel details": "Reisdetails",
       "Departure target": "Vertrekmoment",
@@ -246,6 +258,56 @@
   function translateText(text, lang) {
     const trimmed = text.trim();
     if (!trimmed) return text;
+    const stayingEn = trimmed.match(/^Staying at (.+)$/);
+    if (lang === "nl" && stayingEn) {
+      return text.replace(trimmed, `Verblijf bij ${stayingEn[1]}`);
+    }
+    const stayingNl = trimmed.match(/^Verblijf bij (.+)$/);
+    if (lang === "en" && stayingNl) {
+      return text.replace(trimmed, `Staying at ${stayingNl[1]}`);
+    }
+    const selectedEn = trimmed.match(/^Selected: (.+)$/);
+    if (lang === "nl" && selectedEn) {
+      return text.replace(trimmed, `Geselecteerd: ${selectedEn[1]}`);
+    }
+    const selectedNl = trimmed.match(/^Geselecteerd: (.+)$/);
+    if (lang === "en" && selectedNl) {
+      return text.replace(trimmed, `Selected: ${selectedNl[1]}`);
+    }
+    if (lang === "nl" && /\bBelgium\b/.test(trimmed)) {
+      return text.replace(/\bBelgium\b/g, "België");
+    }
+    if (lang === "en" && /\bBelgië\b/.test(trimmed)) {
+      return text.replace(/\bBelgië\b/g, "Belgium");
+    }
+    const overlapEn = trimmed.match(/^(.*?)(\d+) min overlap(.*)$/);
+    if (lang === "nl" && overlapEn) {
+      return text.replace(trimmed, `${overlapEn[1]}${overlapEn[2]} min. overlapping${overlapEn[3]}`);
+    }
+    const overlapNl = trimmed.match(/^(.*?)(\d+) min\. overlapping(.*)$/);
+    if (lang === "en" && overlapNl) {
+      return text.replace(trimmed, `${overlapNl[1]}${overlapNl[2]} min overlap${overlapNl[3]}`);
+    }
+    const routeEn = trimmed.match(/^(Car|Public transport|Walking|Cycle) route (?:from (.+) )?to (.+)\.$/);
+    if (lang === "nl" && routeEn) {
+      const modes = {
+        "Car": "Auto",
+        "Public transport": "Openbaar vervoer",
+        "Walking": "Wandel",
+        "Cycle": "Fiets"
+      };
+      return text.replace(trimmed, `${modes[routeEn[1]]}-route ${routeEn[2] ? `van ${routeEn[2]} ` : ""}naar ${routeEn[3]}.`);
+    }
+    const routeNl = trimmed.match(/^(Auto|Openbaar vervoer|Wandel|Fiets)-route (?:van (.+) )?naar (.+)\.$/);
+    if (lang === "en" && routeNl) {
+      const modes = {
+        "Auto": "Car",
+        "Openbaar vervoer": "Public transport",
+        "Wandel": "Walking",
+        "Fiets": "Cycle"
+      };
+      return text.replace(trimmed, `${modes[routeNl[1]]} route ${routeNl[2] ? `from ${routeNl[2]} ` : ""}to ${routeNl[3]}.`);
+    }
     const untilEn = trimmed.match(/^(\d+) days? until (.+)$/);
     if (lang === "nl" && untilEn) {
       const count = Number(untilEn[1]);
